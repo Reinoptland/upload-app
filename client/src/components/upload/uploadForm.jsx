@@ -13,7 +13,9 @@ export default class UploadForm extends PureComponent {
       }
 
 	handleSubmit = (e) => {
-		e.preventDefault()
+        e.preventDefault()
+        if (!this.state.camera && !this.state.gallery) 
+            return alert('Please select a document!')
 		this.props.onSubmit(this.state)
 	}
 
@@ -27,7 +29,7 @@ export default class UploadForm extends PureComponent {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data">
 				<div>
 					<label htmlFor="camera">Camera</label>
 					<input type="file" name="camera" id="camera" value={

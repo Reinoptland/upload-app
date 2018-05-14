@@ -6,7 +6,6 @@ import {Redirect} from 'react-router-dom'
 
 class UploadPage extends PureComponent {
 	handleSubmit = (data) => {
-        if (!data.camera && !data.gallery) return null
         const file = (data.camera)?data.camera:data.gallery
 		this.props.upload(file, data.description)
 	}
