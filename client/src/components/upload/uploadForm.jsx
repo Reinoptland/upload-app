@@ -1,4 +1,8 @@
 import React, {PureComponent} from 'react'
+import BottomNav from '../layout/BottomNav'
+
+//Styling
+
 
 export default class UploadForm extends PureComponent {
     constructor(props) {
@@ -29,6 +33,7 @@ export default class UploadForm extends PureComponent {
 
 	render() {
 		return (
+			<div className="upload-page">
 			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data">
 				<div>
 					<label htmlFor="camera">Camera</label>
@@ -52,6 +57,8 @@ export default class UploadForm extends PureComponent {
 
 				<button type="submit">Submit</button>
 			</form>
+			<BottomNav/>
+			</div>
 		)
 	}
 }
