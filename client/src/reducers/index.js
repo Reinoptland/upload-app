@@ -5,6 +5,7 @@ import currentUser from './currentUser'
 import signup from './signup'
 import contracts from'./contracts'
 import contractsById from './contractsById'
+import upload from './upload'
 
 export default {
   users,
@@ -12,5 +13,6 @@ export default {
   currentUser,
   signup,
   contracts,
-  contractsById
+  contractsById,
+   upload
 }
