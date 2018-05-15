@@ -1,7 +1,7 @@
 import { GET_CONTRACTS_BY_ID} from '../actions/contracts'
 import {GET_ALL_CONTRACTS} from '../actions/contracts'
 
-const initialState={}
+const initialState=[]
 
 export default (state = initialState, {type, payload}) => {
   
@@ -14,7 +14,7 @@ export default (state = initialState, {type, payload}) => {
     
       case  GET_ALL_CONTRACTS:
       {  
-          return payload
+          return payload.contractImages
       }
 
     default:

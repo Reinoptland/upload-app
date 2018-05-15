@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import LoginPage from './components/login/LoginPage'
 import SignupPage from './components/signup/SignupPage'
 import LogoutPage from './components/logout/LogoutPage'
-import AllContracts from './components/userimages/AllContracts'
-import UserById from './components/userimages/UserById'
+import AllContracts from './components/contracts/AllContracts'
+import UserById from './components/contracts/UserById'
 //Styling
 import TopBar from './components/layout/TopBar'
 
