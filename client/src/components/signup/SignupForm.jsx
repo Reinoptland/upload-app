@@ -44,11 +44,11 @@ export default class SignupForm extends PureComponent {
 				</div>
 
 				<div>
+					Gaat u akkoord met het Privacy Beleid van Roos ?
 					<Checkbox
 						value={`${this.state.privacy}` || ''}
 						onChange={this.handleChange}
 						name="privacy"
-						label="Akkoord met Privacy Beleid van Roos"
 					/> 
 				</div>
 
