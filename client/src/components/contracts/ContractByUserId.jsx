@@ -5,8 +5,23 @@ import Card, {CardActions, CardContent} from 'material-ui/Card'
 import {Link} from 'react-router-dom'
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography'
+import PopUp from './PopUp'
 
 class ContractByUserId extends PureComponent {
+
+    constructor() {
+        super()
+
+        this.state = {
+            showPopup: false
+        };
+    }
+
+    togglePopup() {
+        this.setState({
+            showPopup: !this.state.showPopup
+        });
+    }
 
     getEmail(userId) {
         if (this.props.users !== null) {
@@ -26,38 +41,53 @@ class ContractByUserId extends PureComponent {
     }
 
     renderContractDetails(eachcontract) {
-        let useremail = this.getEmail(eachcontract.userId)
+
         return (
-            <Card>
-                <CardContent>
-                    <Typography component="h1">
-                        Email:{useremail}
-                    </Typography>
-                    <Typography component="h1">
-                        <img
-                            alt='userpicture'
-                            style={{
-                            maxHeight: '100px'
-                        }}
-                            src={eachcontract.contractImage}/>
-                    </Typography>
-                    <Typography component="h1">
-                        Description:{eachcontract.contractDescription}
-                    </Typography>
-                    <Typography component="h1">
-                        Status:{eachcontract.uploadStatus}
-                    </Typography>
-                </CardContent>
-            </Card>
+            <div>
+                <Card>
+                    <CardContent>
+
+                        <Typography component="h1">
+                            <img
+                                alt='userpicture'
+                                style={{
+                                maxHeight: '100px'
+                            }}
+                                onClick={this
+                                .togglePopup
+                                .bind(this)}
+                                src={eachcontract.contractImage}/>
+                        </Typography>
+                        <Typography component="h1">
+                            Description:{eachcontract.contractDescription}
+                        </Typography>
+                        <Typography component="h1">
+                            Status:{eachcontract.uploadStatus}
+                        </Typography>
+                    </CardContent>
+                </Card>
+
+            </div>
+
         )
     }
 
     render() {
+        const userId = this
+            .props
+            .contractsById
+            .map((eachcontract) => {
+                return eachcontract.userId
+            })
+        let email = " "
+        if (userId.length > 0) {
+            email = this.getEmail(userId[0])
+        }
 
         return (
 
             <div>
-                {this
+                Email:{email} {this
                     .props
                     .contractsById
                     .map(eachcontract => this.renderContractDetails(eachcontract))}
