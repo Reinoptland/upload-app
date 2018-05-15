@@ -11,8 +11,7 @@ import {getAllContracts} from '../../actions/contracts'
 import Paper from 'material-ui/Paper'
 import {getUsers} from '../../actions/users'
 
-
-const userimage="https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
+const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
 
 class AllUsers extends PureComponent {
     constructor() {
@@ -29,9 +28,9 @@ class AllUsers extends PureComponent {
                 .getUsers()
         }
         this
-        .props
-        .getAllContracts()
-       
+            .props
+            .getAllContracts()
+
     }
 
     handleClick(userid) {
@@ -42,19 +41,8 @@ class AllUsers extends PureComponent {
 
     }
 
-    
-
     renderUser(eachuser) {
-       
-            const selectedcontract = this.props.contracts.filter((eachcontract, index) => {
 
-                if (eachuser.id === eachcontract.userId) {
-
-                    return eachcontract.contractImage
-                }
-            })
-          const image=selectedcontract.map(contractdetails => contractdetails.contractImage)
-       
         return (
             <Card>
                 <CardContent className="card-content">
@@ -83,30 +71,29 @@ class AllUsers extends PureComponent {
 
         let userslist = []
         if (this.props.users !== null) {
-         userslist = Object.values(this.props.users)}
+            userslist = Object.values(this.props.users)
+        }
 
-         
         return (
-          
-           <Paper className="outer-paper">
+
+            <Paper className="outer-paper">
 
                 <div>
-                    {userslist
-                        .map(eachuser => this.renderUser(eachuser))}
+                    {userslist.map(eachuser => this.renderUser(eachuser))}
                 </div>
 
             </Paper>
         )
-    
-}
+
+    }
 }
 
 const mapStateToProps = (state) => ({
     users: state.users === null
         ? null
         : state.users,
-        contracts: state.contracts   
-    
+    contracts: state.contracts
+
 })
 
-export default connect(mapStateToProps, {getUserDetails, getAllContracts,getUsers})(AllUsers)
+export default connect(mapStateToProps, {getUserDetails, getAllContracts, getUsers})(AllUsers)

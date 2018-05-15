@@ -27,7 +27,6 @@ class App extends PureComponent {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/upload" component={UploadPage} />
             <Route exact path="/" render={ () => <Redirect to="/login" /> } />
-           
             <Route exact path="/users" component={AllUsers}/>
             <Route exact path="/users/:id" component={ContractByUserId}/>
           </main>

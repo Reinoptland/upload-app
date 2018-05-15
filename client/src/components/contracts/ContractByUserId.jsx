@@ -7,10 +7,6 @@ import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography'
 
 class ContractByUserId extends PureComponent {
-    constructor() {
-        super()
-
-    }
 
     getEmail(userId) {
         if (this.props.users !== null) {
@@ -28,7 +24,6 @@ class ContractByUserId extends PureComponent {
             return email
         }
     }
-
 
     renderContractDetails(eachcontract) {
         let useremail = this.getEmail(eachcontract.userId)
@@ -72,9 +67,11 @@ class ContractByUserId extends PureComponent {
     }
 }
 
-const mapStateToProps = (state) => ({users: state.users === null
-    ? null
-    : state.users,
-    contractsById: state.contractsById})
+const mapStateToProps = (state) => ({
+    users: state.users === null
+        ? null
+        : state.users,
+    contractsById: state.contractsById
+})
 
 export default connect(mapStateToProps)(ContractByUserId)
