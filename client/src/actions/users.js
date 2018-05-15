@@ -40,10 +40,11 @@ export const login = (email, password) => (dispatch) =>
     	}
     })
 
-export const signup = (email, password) => (dispatch) =>
-	request
+export const signup = (email, password, privacy) => (dispatch) => {
+	console.log(email, password, privacy)
+request
 		.post(`${baseUrl}/users`)
-		.send({ email, password })
+		.send({ email, password, privacy })
 		.then(result => {
 			dispatch({
 				type: USER_SIGNUP_SUCCESS
@@ -60,6 +61,7 @@ export const signup = (email, password) => (dispatch) =>
 				console.error(err)
 			}
 		})
+	}
 
 export const getUsers = () => (dispatch, getState) => {
   const state = getState()

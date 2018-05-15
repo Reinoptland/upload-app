@@ -27,4 +27,7 @@ export default class User extends BaseEntity {
   checkPassword(rawPassword: string): Promise<boolean> {
     return bcrypt.compare(rawPassword, this.password)
   }
+
+  @Column('boolean', {nullable: false})
+  privacy: boolean
 }
