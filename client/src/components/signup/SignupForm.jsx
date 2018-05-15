@@ -1,7 +1,22 @@
 import React, {PureComponent} from 'react'
+import Checkbox from 'material-ui/Checkbox';
+import { Button } from 'material-ui'
+import { Link } from 'react-router-dom'
+
+//Styling
+import '../../css/signup.css'
+// import '../../css/buttonOverride.css'
 
 export default class SignupForm extends PureComponent {
-	state = {}
+	constructor() {
+		super()
+		this.state = {
+			email: '',
+			password: '',
+			confirmPassword: ''
+		}
+		
+	}
 
 	handleSubmit = (e) => {
 		e.preventDefault()
@@ -12,32 +27,46 @@ export default class SignupForm extends PureComponent {
     const {name, value} = event.target
 
     this.setState({
-      [name]: value
+	  [name]: value,
+	  privacy: event.target.checked
     })
   }
 
 	render() {
+		const { email, password, confirmPassword, privacy } = this.state
+		const isEnabled = email.length > 0 && password.length > 0 && confirmPassword.length > 0 && privacy === true
+
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<div>
-					<label htmlFor="email">Email</label>
+					<label htmlFor="email"><p>Email</p></label>
 					<input type="email" name="email" id="email" value={
 						this.state.email || ''
 					} onChange={ this.handleChange } />
 				</div>
 
 				<div>
-					<label htmlFor="password">Password</label>
+					<label htmlFor="password"><p>Password</p></label>
 					<input type="password" name="password" id="password" value={
 						this.state.password || ''
 					} onChange={ this.handleChange } />
 				</div>
 
 				<div>
-					<label htmlFor="confirmPassword">Confirm password</label>
+					<label htmlFor="confirmPassword"><p>Confirm password</p></label>
 					<input type="password" name="confirmPassword" id="confirmPassword" value={
 						this.state.confirmPassword || ''
 					} onChange={ this.handleChange } />
+				</div>
+
+				<div>
+				<Checkbox
+						value={`${this.state.privacy}` || ''}
+						onChange={this.handleChange}
+						name="privacy"
+					/> 
+				<p>Ik ga akkoord met het <Link to={'/Privacy'}>privacy beleid van Roos</Link></p>
+					
 				</div>
 
 				{
@@ -47,7 +76,8 @@ export default class SignupForm extends PureComponent {
 					<p style={{color:'red'}}>The passwords do not match!</p>
 				}
 
-				<button type="submit">Sign up</button>
+				<Button className="ButtonOverride" disabled={!isEnabled} type="submit" size="medium" color="secondary" variant="raised" >Sign up</Button>
+
 			</form>
 		)
 	}
