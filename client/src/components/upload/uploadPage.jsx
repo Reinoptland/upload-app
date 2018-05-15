@@ -30,6 +30,9 @@ class UploadPage extends PureComponent {
 					<img src='../../../icons/camIcon.svg' alt='camera'/>
 					<img src='../../../icons/fileUploadIcon.svg' alt='camera'/>
 				</div>
+				<div>
+					<p>Lees hier tips over foto's makenen waar je document aan moet voldoen</p>
+				</div>
 
 				<UploadForm onSubmit={this.handleSubmit} />
 
