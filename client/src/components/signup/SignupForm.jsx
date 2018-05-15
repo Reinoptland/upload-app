@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react'
+import Checkbox from 'material-ui/Checkbox';
+import {Link} from 'react-router-dom'
 
 export default class SignupForm extends PureComponent {
 	state = {}
@@ -12,7 +14,8 @@ export default class SignupForm extends PureComponent {
     const {name, value} = event.target
 
     this.setState({
-      [name]: value
+	  [name]: value,
+	  privacy: event.target.checked
     })
   }
 
@@ -38,6 +41,21 @@ export default class SignupForm extends PureComponent {
 					<input type="password" name="confirmPassword" id="confirmPassword" value={
 						this.state.confirmPassword || ''
 					} onChange={ this.handleChange } />
+				</div>
+
+				<div>
+					Gaat u akkoord met het Privacy Beleid van Roos ?
+					<Checkbox
+						value={`${this.state.privacy}` || ''}
+						onChange={this.handleChange}
+						name="privacy"
+					/> 
+				</div>
+
+				<div>
+					<Link to={'/Privacy'}>
+							Privacy Beleid van Roos
+					</Link>
 				</div>
 
 				{
