@@ -12,6 +12,8 @@ import Paper from 'material-ui/Paper'
 import {getUsers} from '../../actions/users'
 
 
+const userimage="https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
+
 class AllUsers extends PureComponent {
     constructor() {
         super()
@@ -65,7 +67,7 @@ class AllUsers extends PureComponent {
                                 style={{
                                 maxHeight: '100px'
                             }}
-                                src={image}/>
+                                src={userimage}/>
                         </Typography>
                     </Link>
                     <Typography component="h1">

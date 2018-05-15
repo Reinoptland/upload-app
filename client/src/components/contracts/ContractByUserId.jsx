@@ -12,13 +12,31 @@ class ContractByUserId extends PureComponent {
 
     }
 
+    getEmail(userId) {
+        if (this.props.users !== null) {
+            const users = Object.values(this.props.users)
+
+            const selecteduser = users.filter((eachuser, index) => {
+
+                if (eachuser.id === userId) {
+
+                    return eachuser.email
+                }
+            })
+
+            const email = selecteduser.map(userdetails => userdetails.email)
+            return email
+        }
+    }
+
+
     renderContractDetails(eachcontract) {
-        
+        let useremail = this.getEmail(eachcontract.userId)
         return (
             <Card>
                 <CardContent>
                     <Typography component="h1">
-                        UserName:
+                        Email:{useremail}
                     </Typography>
                     <Typography component="h1">
                         <img
@@ -30,6 +48,9 @@ class ContractByUserId extends PureComponent {
                     </Typography>
                     <Typography component="h1">
                         Description:{eachcontract.contractDescription}
+                    </Typography>
+                    <Typography component="h1">
+                        Status:{eachcontract.uploadStatus}
                     </Typography>
                 </CardContent>
             </Card>
@@ -51,6 +72,9 @@ class ContractByUserId extends PureComponent {
     }
 }
 
-const mapStateToProps = (state) => ({contractsById: state.contractsById})
+const mapStateToProps = (state) => ({users: state.users === null
+    ? null
+    : state.users,
+    contractsById: state.contractsById})
 
 export default connect(mapStateToProps)(ContractByUserId)
