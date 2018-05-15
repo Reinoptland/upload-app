@@ -6,56 +6,51 @@ import {Link} from 'react-router-dom'
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography'
 
-
 class ContractByUserId extends PureComponent {
     constructor() {
         super()
 
     }
 
-    renderContractDetails(){
-        return(
-<Card>
-                    <CardContent>
+    renderContractDetails(eachcontract) {
+        
+        return (
+            <Card>
+                <CardContent>
                     <Typography component="h1">
-                            UserName:
-                        </Typography>
-                        <Typography component="h1">
-                            <img
-                           
-                                alt='userpicture'
-                                style={{
-                                maxHeight: '100px'
-                            }}
-                                src={this.props.contractsById.contractImage}/>
-                        </Typography>
-                        <Typography component="h1">
-                            Description:{this.props.contractsById.contractDescription}
-                        </Typography>
-                    </CardContent>
-                </Card>
-        )}
+                        UserName:
+                    </Typography>
+                    <Typography component="h1">
+                        <img
+                            alt='userpicture'
+                            style={{
+                            maxHeight: '100px'
+                        }}
+                            src={eachcontract.contractImage}/>
+                    </Typography>
+                    <Typography component="h1">
+                        Description:{eachcontract.contractDescription}
+                    </Typography>
+                </CardContent>
+            </Card>
+        )
+    }
 
-   render() {
+    render() {
 
         return (
-           
-                  <div>
-                    {this
-                        .props
-                        .contractsById
-                        .map(eachcontract => this.renderContractDetails(eachcontract))}
-                </div>
 
-                
-           
+            <div>
+                {this
+                    .props
+                    .contractsById
+                    .map(eachcontract => this.renderContractDetails(eachcontract))}
+            </div>
+
         )
     }
 }
 
-const mapStateToProps = (state) => ({
-
-    contractsById: state.contractsById
-})
+const mapStateToProps = (state) => ({contractsById: state.contractsById})
 
 export default connect(mapStateToProps)(ContractByUserId)

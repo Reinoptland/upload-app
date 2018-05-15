@@ -7,10 +7,6 @@ export default (state = initialState, {type, payload}) => {
   
   switch (type) {
    
-    case  GET_CONTRACTS_BY_ID:
-      {  
-          return payload
-      }
     
       case  GET_ALL_CONTRACTS:
       {  

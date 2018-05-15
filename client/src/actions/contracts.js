@@ -14,7 +14,7 @@ export const getUserDetails =(userid)=> (dispatch,getState)  => {
   
      if (isExpired(jwt)) return dispatch(logout())
       request
-        .get(`${baseUrl}/users/${userid}`)
+        .get(`${baseUrl}/contracts/${userid}`)
         .set('Authorization', `Bearer ${jwt}`)
         .then(result => dispatch(  {type: GET_CONTRACTS_BY_ID,
           payload: result.body}))

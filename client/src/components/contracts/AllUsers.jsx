@@ -11,7 +11,6 @@ import {getAllContracts} from '../../actions/contracts'
 import Paper from 'material-ui/Paper'
 import {getUsers} from '../../actions/users'
 
-let userid=1
 
 class AllUsers extends PureComponent {
     constructor() {
@@ -58,10 +57,10 @@ class AllUsers extends PureComponent {
             <Card>
                 <CardContent className="card-content">
 
-                    <Link to ={`/users/${userid}`}>
+                    <Link to ={`/users/${eachuser.id}`}>
                         <Typography component="h1">
                             <img
-                                //onClick={() => this.handleClick(Number(userid))}
+                                onClick={() => this.handleClick(eachuser.id)}
                                 alt='userpicture'
                                 style={{
                                 maxHeight: '100px'
