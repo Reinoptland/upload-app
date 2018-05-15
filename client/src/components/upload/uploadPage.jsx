@@ -3,6 +3,10 @@ import {connect} from 'react-redux'
 import {upload} from '../../actions/upload'
 import UploadForm from './uploadForm'
 import {Redirect} from 'react-router-dom'
+import BottomNav from '../layout/BottomNav'
+
+//Styling
+import '../../css/uploadForm.css'
 
 class UploadPage extends PureComponent {
 	handleSubmit = (data) => {
@@ -16,12 +20,22 @@ class UploadPage extends PureComponent {
 		)
 
 		return (
-			<div>
-				<h1>Upload</h1>
+			<div className='upload-page'>
+				<div className='header'>
+					<h3> Voeg uw contract toe </h3>
+					<img src='../../../icons/line.svg' alt="underline"/> 
+					<p> Maak een foto of upload een document </p> 
+				</div>
+				<div className='icons'>
+					<img src='../../../icons/camIcon.svg' alt='camera'/>
+					<img src='../../../icons/fileUploadIcon.svg' alt='camera'/>
+				</div>
 
 				<UploadForm onSubmit={this.handleSubmit} />
 
-        { this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
+		{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
+		
+			<BottomNav/>
 			</div>
 		)
 	}

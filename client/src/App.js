@@ -6,7 +6,8 @@ import LogoutPage from './components/logout/LogoutPage'
 import UploadPage from './components/upload/uploadPage'
 
 //Styling
-import TopBar from './components/layout/TopBar'
+// import TopBar from './components/layout/TopBar'
+import Top from './components/layout/Top'
 
 class App extends PureComponent {
   render() {
@@ -14,7 +15,7 @@ class App extends PureComponent {
       <Router>
         <div>
           <nav>
-            <TopBar />
+            <Top/>
           </nav>
           <main style={{marginTop:75}}>
             <Route exact path="/login" component={LoginPage} />
