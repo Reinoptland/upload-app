@@ -18,16 +18,16 @@ export default class UploadForm extends PureComponent {
 
 	handleSubmit = (e) => {
         e.preventDefault()
-        if (!this.state.camera && !this.state.gallery) 
+        if (!this.state.contract) 
             return alert('Please select a document!')
-		this.props.onSubmit(this.state)
+		this.props.onSubmit(this.state.contract)
 		
-		console.log(this.state)
+		
 	}
 
 	handleChange = (event) => {
 		this.setState({
-			[event.target.name]: event.target.files[0]
+			contract: event.target.files[0]
 		})
   }
 
