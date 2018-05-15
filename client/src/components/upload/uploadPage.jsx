@@ -6,8 +6,14 @@ import {Redirect} from 'react-router-dom'
 
 class UploadPage extends PureComponent {
 	handleSubmit = (data) => {
-        const file = (data.camera)?data.camera:data.gallery
-		this.props.upload(file, data.description)
+		const file = (data.camera)?data.camera:data.gallery
+		var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    console.log(reader.result); //this is an ArrayBuffer
+  }
+  console.log('ARRAYBUFFER:',reader.readAsArrayBuffer(file))
+		// this.props.upload(file, data.description)
 	}
 
 	render() {
