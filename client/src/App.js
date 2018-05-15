@@ -5,6 +5,7 @@ import SignupPage from './components/signup/SignupPage'
 import LogoutPage from './components/logout/LogoutPage'
 import AllContracts from './components/contracts/AllContracts'
 import UserById from './components/contracts/UserById'
+import AllUsers from './components/contracts/AllUsers'
 //Styling
 import TopBar from './components/layout/TopBar'
 
@@ -23,6 +24,7 @@ class App extends PureComponent {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/" render={ () => <Redirect to="/login" /> } />
             <Route exact path="/contracts" component={AllContracts}/>
+            <Route exact path="/users" component={AllUsers}/>
             <Route exact path="/contracts/:id" component={UserById}/>
           </main>
         </div>
