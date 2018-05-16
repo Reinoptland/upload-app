@@ -7,6 +7,7 @@ import AllUsers from './components/contracts/AllUsers'
 import Privacy from './components/privacy/Privacy'
 import UploadPage from './components/upload/uploadPage'
 import ContractByUserId from './components/contracts/ContractByUserId'
+import HowTo from './components/howto/HowTo'
 
 //Styling
 // import TopBar from './components/layout/TopBar'
@@ -26,6 +27,7 @@ class App extends PureComponent {
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/Privacy" component={Privacy} />
+            <Route exact path="/HowTo" component={HowTo} />
             <Route exact path="/upload" component={UploadPage} />
             <Route exact path="/users" component={AllUsers}/>
             <Route exact path="/users/:id" component={ContractByUserId}/>
