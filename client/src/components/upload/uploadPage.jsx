@@ -5,9 +5,9 @@ import UploadForm from './uploadForm'
 import {Redirect} from 'react-router-dom'
 
 class UploadPage extends PureComponent {
-	handleSubmit = (contract) => {
+	handleSubmit = (contract,description) => {
 		
-		this.props.upload(this.props.currentUser.id,contract)
+		this.props.upload(this.props.currentUser.id,contract,description)
 // 		var reader  = new FileReader();
 
 //   reader.onloadend = function () {
