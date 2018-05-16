@@ -39,7 +39,7 @@ export const upload = (userId, contract,name,type,provider) => (dispatch, getSta
     const jwt = state.currentUser.jwt
   
     request
-      .post(`${baseUrl}/contracts/1`)
+      .post(`${baseUrl}/contracts/${userId}`)
       .set('Authorization', `Bearer ${jwt}`)
       .attach('file',contract)
       .field('name',name)

@@ -25,10 +25,6 @@ class AllUsers extends PureComponent {
                 .props
                 .getUsers()
         }
-        this
-            .props
-            .getAllContracts()
-
     }
 
     handleClick(userid) {
