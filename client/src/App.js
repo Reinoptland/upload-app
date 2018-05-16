@@ -7,9 +7,8 @@ import AllUsers from './components/userimages/AllUsers'
 import UserById from './components/userimages/UserById'
 import Privacy from './components/privacy/Privacy'
 import UploadPage from './components/upload/uploadPage'
-
 import ContractByUserId from './components/contracts/ContractByUserId'
-import AllUsers from './components/contracts/AllUsers'
+
 //Styling
 import TopBar from './components/layout/TopBar'
 
