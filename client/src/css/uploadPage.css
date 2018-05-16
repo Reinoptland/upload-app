@@ -1,8 +1,8 @@
 .upload-page {
-    min-height: 80%;
+    min-height: 90%;
     min-width: 100%;
     padding-top: 12%;
-    position: fixed;
+    /* position: fixed; */
 }
 .upload-page h1, p {
     color: #fff;
