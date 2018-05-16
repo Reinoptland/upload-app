@@ -4,6 +4,7 @@ import {upload} from '../../actions/upload'
 import UploadForm from './uploadForm'
 import {Redirect} from 'react-router-dom'
 import BottomNav from '../layout/BottomNav'
+import { Link } from 'react-router-dom'
 
 //Styling
 import '../../css/uploadForm.css'
@@ -38,7 +39,7 @@ class UploadPage extends PureComponent {
 					<img src='../../../icons/fileUploadIcon.svg' alt='camera'/>
 				</div>
 				<div>
-					<p>Lees hier tips over foto's makenen waar je document aan moet voldoen</p>
+					<p><Link to={'/HowTo'}>Lees hier tips over foto's maken en waar je document aan moet voldoen</Link></p>
 				</div>
 
 				<UploadForm onSubmit={this.handleSubmit} />
