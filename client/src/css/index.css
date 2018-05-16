@@ -1,4 +1,4 @@
-body, a, ul {
+body, a {
   margin: 0;
   padding: 0;
   border: 0;
@@ -34,7 +34,7 @@ body, a, ul {
 }
 
 
-p {
+p, li {
   font-family: 'BrandonText-Regular';
   font-size: 0.9375em;
   color: #4A4A4A;
@@ -55,5 +55,17 @@ h2 {
 h3 {
   font-family: 'BrandonText-Bold';
   font-size: 1em;
+  color: #4A4A4A;
+}
+
+h2 {
+  font-family: 'BrandonText-Bold';
+  font-size: 18px;
+  color: #4A4A4A;
+}
+
+h3 {
+  font-family: 'BrandonText-Bold';
+  font-size: 16px;
   color: #4A4A4A;
 }
