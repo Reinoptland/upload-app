@@ -36,12 +36,24 @@ body, a, ul {
 
 p {
   font-family: 'BrandonText-Regular';
-  font-size: 15px;
+  font-size: 0.9375em;
   color: #4A4A4A;
 }
 
 h1 {
   font-family: 'BrandonText-Bold';
-  font-size: 20px;
+  font-size: 1.25em;
+  color: #4A4A4A;
+}
+
+h2 {
+  font-family: 'BrandonText-Bold';
+  font-size: 1.125em;
+  color: #4A4A4A;
+}
+
+h3 {
+  font-family: 'BrandonText-Bold';
+  font-size: 1em;
   color: #4A4A4A;
 }
