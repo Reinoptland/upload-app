@@ -21,9 +21,11 @@ class ContractByUserId extends PureComponent {
                 .props
                 .getUsers()
         }
+       
         this
             .props
             .getUserDetails(this.props.match.params.id)
+        
     }
 
     togglePopup() {
