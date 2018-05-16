@@ -9,9 +9,9 @@ import BottomNav from '../layout/BottomNav'
 import '../../css/uploadForm.css'
 
 class UploadPage extends PureComponent {
-	handleSubmit = (contract) => {
+	handleSubmit = (contract,description) => {
 		
-		this.props.upload(this.props.currentUser.id,contract)
+		this.props.upload(this.props.currentUser.id,contract,description)
 // 		var reader  = new FileReader();
 
 //   reader.onloadend = function () {
