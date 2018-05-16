@@ -1,0 +1,32 @@
+.upload-page {
+    max-height: 100%;
+    padding-top: 12%;
+}
+.upload-page h1, p {
+    color: #fff;
+    letter-spacing: 0.4px
+}
+.header {
+    padding: 15%;
+    margin: 0 auto;
+}
+.header h1 {
+    padding: 0 8% 5% 0;
+    border-bottom: 1px solid #fff
+}
+.header p {
+    font-size: 0.875em;
+    /* font-weight: light  */
+}
+
+/* Icons */
+.camera {
+    display: flex;
+
+}
+.camIcon {
+    display: block;
+    height: 88px;
+    width: 82px; 
+    position: fixed;
+}

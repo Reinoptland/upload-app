@@ -1,11 +1,12 @@
-body, a, ul {
+body, html, a {
   margin: 0;
   padding: 0;
   border: 0;
-  height: 100%;
+  min-height: 100%;
   font-size: 16px;
+  font-family: 'BrandonText', sans-serif, Helvetica;
   text-decoration: none;
-  list-style-type: none;
+  background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
 }
 
 .outer-paper {
@@ -14,8 +15,6 @@ body, a, ul {
   padding: 20px;
   width: 60%;
 }
-
-
 .card-content{
   margin:10px;
   height:100px;
@@ -33,27 +32,24 @@ body, a, ul {
   src: local('brandontext-bold'), url(../fonts/brandontext-bold.woff) format('woff');
 }
 
-
-p {
-  font-family: 'BrandonText-Regular';
-  font-size: 0.9375em;
-  color: #4A4A4A;
-}
+/* Typography */
 
 h1 {
-  font-family: 'BrandonText-Bold';
   font-size: 1.25em;
   color: #4A4A4A;
 }
 
 h2 {
-  font-family: 'BrandonText-Bold';
   font-size: 1.125em;
   color: #4A4A4A;
 }
 
 h3 {
-  font-family: 'BrandonText-Bold';
   font-size: 1em;
+  color: #4A4A4A;
+}
+
+p {
+  font-size: 0.9375em;
   color: #4A4A4A;
 }

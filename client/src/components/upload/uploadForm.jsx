@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 
-export default class UploadForm extends PureComponent {
+class UploadForm extends PureComponent {
     constructor(props) {
         super(props);
         this.state ={
@@ -33,7 +33,7 @@ export default class UploadForm extends PureComponent {
 		this.setState({
 			contract: event.target.files[0]
 		})
-  }
+  	}	
 
 	render() {
 		return (
@@ -65,7 +65,8 @@ export default class UploadForm extends PureComponent {
 				<button type="submit">Submit</button>
 			</form>
 			
-			
 		)
 	}
 }
+
+export default UploadForm 
