@@ -27,11 +27,6 @@ class ContractByUserId extends PureComponent {
             .props
             .getUserDetails(this.props.match.params.id)
 
-
-        this
-            .props
-            .getAllContracts()
-
         
     }
 
@@ -77,7 +72,7 @@ class ContractByUserId extends PureComponent {
                                 onClick={this
                                 .togglePopup
                                 .bind(this)}
-                                src={eachcontract.contractImage}/>
+                                src={" "}/>
                         </Typography>
                         <Typography component="h1">
                             ContractName:{eachcontract.contractName}

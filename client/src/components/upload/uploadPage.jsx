@@ -10,9 +10,12 @@ import { Link } from 'react-router-dom'
 import '../../css/uploadForm.css'
 
 class UploadPage extends PureComponent {
+
+
+
 	handleSubmit = (contract,name,type,provider) => {
-		
-		this.props.upload(this.props.currentUser.id,contract,name,type,provider)
+		console.log("user",this.props.currentUser.userId)
+		this.props.upload(this.props.currentUser.userId,contract,name,type,provider)
 // 		var reader  = new FileReader();
 
 //   reader.onloadend = function () {
@@ -56,7 +59,7 @@ class UploadPage extends PureComponent {
 const mapStateToProps = function (state) {
 	return {
 		currentUser: state.currentUser,
-    	error: state.upload.error
+		error: state.upload.error
 	}
 }
 
