@@ -7,14 +7,14 @@ font / styles and colors in the materialui component */
     src: local('brandontext-regular'), url(../fonts/brandontext-regular.otf) format('otf');
   }
   
-  @font-face {
+@font-face {
     font-family: 'BrandonText-Bold';
     src: local('brandontext-bold'), url(../fonts/brandontext-bold.otf) format('otf');
-  }
+}
   
   
- .ButtonOverride {
+.ButtonOverride {
     font-family: 'BrandonText-Bold';
-    font-size: 14px;
+    font-size: 0.875em;
     color: #FFF;
-  }
+}
