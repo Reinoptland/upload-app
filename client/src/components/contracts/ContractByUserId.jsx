@@ -2,7 +2,8 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import Card, { CardContent} from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
-
+import {getUserDetails} from '../../actions/contracts'
+import {getUsers} from '../../actions/users'
 
 class ContractByUserId extends PureComponent {
 
@@ -12,6 +13,17 @@ class ContractByUserId extends PureComponent {
         this.state = {
             showPopup: false
         };
+    }
+
+    componentWillMount(){
+        if (this.props.users === null) {
+            this
+                .props
+                .getUsers()
+        }
+        this
+            .props
+            .getUserDetails(this.props.match.params.id)
     }
 
     togglePopup() {
@@ -87,7 +99,8 @@ class ContractByUserId extends PureComponent {
         return (
 
             <div>
-                Email:{email} {this
+                Email:{email} 
+                {this
                     .props
                     .contractsById
                     .map(eachcontract => this.renderContractDetails(eachcontract))}
@@ -104,4 +117,4 @@ const mapStateToProps = (state) => ({
     contractsById: state.contractsById
 })
 
-export default connect(mapStateToProps)(ContractByUserId)
+export default connect(mapStateToProps,{getUserDetails,getUsers})(ContractByUserId)
