@@ -34,7 +34,7 @@ class UploadPage extends PureComponent {
 					<p> Maak een foto of upload een document </p> 
 				</div>
 				<AddIcons/>
-				<div>
+				<div className='bottom-link'>
 					<p>Lees hier tips over foto's makenen waar je document aan moet voldoen</p>
 				</div>
 

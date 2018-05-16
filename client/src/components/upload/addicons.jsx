@@ -19,16 +19,17 @@ class AddIcons extends PureComponent {
     render() {
         return (
             <div className='icons-add'>
-            <form>
-            <div className='camera'>
-                <img src='../../../icons/camIcon.svg' alt='camera'/>
-                <input type="file" name="camera" id="camera" onChange={ this.handleContractChange } className='camIcon' />
+            
+            <div className='icons'>
+                <img src='../../../icons/camIcon.svg' alt='camera' className='cam'/>
+                <img src='../../../icons/fileUploadIcon.svg' alt='gallery' className='gal'/>
             </div>
-            <div className='gallery'>
-                <img src='../../../icons/fileUploadIcon.svg' alt='camera'/>
-                <input type="file" name="gallery" id="gallery" onChange={ this.handleContractChange } />
+            <div className='input'>
+                <input type="file" name="camera" id="camera" onChange={ this.handleContractChange } className='camIcon' />  
+                <input type="file" name="gallery" id="gallery" onChange={ this.handleContractChange } 
+                className='fileIcon'/>
             </div>
-            </form>
+            
             </div>
         )
     }
