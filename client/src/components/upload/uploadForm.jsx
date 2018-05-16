@@ -1,8 +1,4 @@
 import React, {PureComponent} from 'react'
-import BottomNav from '../layout/BottomNav'
-
-//Styling
-
 
 export default class UploadForm extends PureComponent {
     constructor(props) {
@@ -20,12 +16,16 @@ export default class UploadForm extends PureComponent {
         e.preventDefault()
         if (!this.state.contract) 
             return alert('Please select a document!')
-		this.props.onSubmit(this.state.contract)
+		this.props.onSubmit(this.state.contract,this.state.description)
 		
 		
 	}
-
-	handleChange = (event) => {
+	handleChange = (e) => {
+		this.setState({
+			description: e.target.value
+		})
+	}
+	handleContractChange = (event) => {
 		this.setState({
 			contract: event.target.files[0]
 		})
@@ -33,15 +33,14 @@ export default class UploadForm extends PureComponent {
 
 	render() {
 		return (
-			<div className="upload-page">
 			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data">
 				<div>
 					<label htmlFor="camera">Camera</label>
-					<input type="file" name="camera" id="camera" onChange={ this.handleChange } />
+					<input type="file" name="camera" id="camera" onChange={ this.handleContractChange } />
 				</div>
                 <div>
 					<label htmlFor="gallery">Gallery</label>
-					<input type="file" name="gallery" id="gallery" onChange={ this.handleChange } />
+					<input type="file" name="gallery" id="gallery" onChange={ this.handleContractChange } />
 				</div>
 
 				<div>
@@ -51,8 +50,8 @@ export default class UploadForm extends PureComponent {
 
 				<button type="submit">Submit</button>
 			</form>
-			<BottomNav/>
-			</div>
+			
+			
 		)
 	}
 }

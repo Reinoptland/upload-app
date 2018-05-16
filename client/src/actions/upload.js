@@ -34,7 +34,7 @@ export const UPDATE_UPLOADS = 'UPDATE_UPLOADS'
 //         })
 // }
 
-export const upload = (userId, contract) => (dispatch, getState) => {
+export const upload = (userId, contract,description) => (dispatch, getState) => {
     const state = getState()
     const jwt = state.currentUser.jwt
   
@@ -42,7 +42,9 @@ export const upload = (userId, contract) => (dispatch, getState) => {
       .post(`${baseUrl}/contracts/1`)
       .set('Authorization', `Bearer ${jwt}`)
       .attach('file',contract)
+      .field('description',description)
       .then(res => {
+          console.log(res)
         dispatch({
           type: UPLOAD_SUCCESS,
           payload: res.body

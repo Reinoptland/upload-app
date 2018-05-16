@@ -10,7 +10,8 @@ import UploadPage from './components/upload/uploadPage'
 import ContractByUserId from './components/contracts/ContractByUserId'
 
 //Styling
-import TopBar from './components/layout/TopBar'
+// import TopBar from './components/layout/TopBar'
+import Top from './components/layout/Top'
 
 
 class App extends PureComponent {
@@ -19,7 +20,7 @@ class App extends PureComponent {
       <Router>
         <div>
           <nav>
-            <TopBar />
+            <Top/>
           </nav>
           <main style={{marginTop:75}}>
             <Route exact path="/login" component={LoginPage} />
