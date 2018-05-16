@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
+import '../../css/privacy.css'
+import '../../css/index.css'
 
 export default class Privacy extends PureComponent {
 
@@ -9,7 +10,7 @@ export default class Privacy extends PureComponent {
 
     return (
       <Paper>
-        <Typography>
+          <div>
           <h1>Privacybeleid van Roos</h1>
           <p>
             Roos vindt jouw privacy misschien wel belangrijker dan jijzelf. Als je online of via Facebook een wekker zet of 
@@ -49,7 +50,7 @@ export default class Privacy extends PureComponent {
           </p>
 
           <p>
-            <img src="https://halloroos.nl/blog/wp-content/uploads/2014/12/Schermafbeelding-2014-12-03-om-13.42.14.png" alt="alt text" title="SSL certificaat Roos"/>
+            <img src="https://halloroos.nl/blog/wp-content/uploads/2014/12/Schermafbeelding-2014-12-03-om-13.42.14.png" alt="alt text" title="SSL certificaat Roos" className="image"/>
           </p>
 
           <p>
@@ -256,7 +257,7 @@ export default class Privacy extends PureComponent {
             <a href="http://halloroos.nl">de website van Roos</a> en we raden je aan de tekst met enige regelmaat te raadplegen 
             indien van je Roos gebruik maakt.
           </p>
-        </Typography>
+          </div>
       </Paper>
     )
   }
