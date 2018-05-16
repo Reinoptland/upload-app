@@ -5,9 +5,16 @@ import UploadForm from './uploadForm'
 import {Redirect} from 'react-router-dom'
 
 class UploadPage extends PureComponent {
-	handleSubmit = (data) => {
-        const file = (data.camera)?data.camera:data.gallery
-		this.props.upload(file, data.description)
+	handleSubmit = (contract) => {
+		
+		this.props.upload(this.props.currentUser.id,contract)
+// 		var reader  = new FileReader();
+
+//   reader.onloadend = function () {
+//     console.log(reader.result); //this is an ArrayBuffer
+//   }
+//   console.log('ARRAYBUFFER:',reader.readAsArrayBuffer(file))
+		// this.props.upload(file, data.description)
 	}
 
 	render() {
@@ -21,7 +28,7 @@ class UploadPage extends PureComponent {
 
 				<UploadForm onSubmit={this.handleSubmit} />
 
-        { this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
+       
 			</div>
 		)
 	}

@@ -1,7 +1,6 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto';
+  margin: 20px;
+  padding: 20px;
 }
 
 .outer-paper {
@@ -15,4 +14,29 @@ body {
 .card-content{
   margin:10px;
   height:100px;
+}
+
+/* Importing local font files */
+
+@font-face {
+  font-family: 'BrandonText-Regular';
+  src: local('brandontext-regular'), url(../fonts/brandontext-regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'BrandonText-Bold';
+  src: local('brandontext-bold'), url(../fonts/brandontext-bold.woff) format('woff');
+}
+
+
+p {
+  font-family: 'BrandonText-Regular';
+  font-size: 15px;
+  color: #4A4A4A;
+}
+
+h1 {
+  font-family: 'BrandonText-Bold';
+  font-size: 20px;
+  color: #4A4A4A;
 }

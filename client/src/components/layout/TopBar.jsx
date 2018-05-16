@@ -6,16 +6,15 @@ import Button from 'material-ui/Button'
 import {withRouter} from 'react-router'
 import {userId} from '../../jwt'
 import {connect} from 'react-redux'
+import '../../css/TopBar.css'
 
 const TopBar = (props) => {
   const { location, history, user } = props
 
   return (
-    <AppBar position="absolute" style={{zIndex:10, backgroundColor: '#FF5252'}}>
+    <AppBar position="absolute" className="topBarBG" style={{zIndex:10}}>
       <Toolbar>
-        <Typography variant="title" color="inherit" style={{flex: 1}}>
-          Roos
-        </Typography>
+       <img className="roosLogo"src="../../assets/roos-logo.svg"/>
         {
           user &&
           <Button color="inherit">{ user.email }</Button>
@@ -31,7 +30,7 @@ const TopBar = (props) => {
         }
         {
           /roos$/.test(location.pathname) &&
-          <Button color="inherit" onClick={() => history.push('/logout')}>Log out</Button>
+          <Button className="loginButton"  onClick={() => history.push('/logout')}>Log out</Button>
         }
       </Toolbar>
     </AppBar>

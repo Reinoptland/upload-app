@@ -14,5 +14,5 @@ export default {
   signup,
   contracts,
   contractsById,
-   upload
+  upload
 }
