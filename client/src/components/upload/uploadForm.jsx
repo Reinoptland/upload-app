@@ -30,6 +30,17 @@ export default class UploadForm extends PureComponent {
 		})
 	}
 	handleContractChange = (event) => {
+		const myFileReader = new FileReader()
+		myFileReader.onload = (e) => {
+            this.setState({ 
+                imageSrc: myFileReader.result, 
+
+            }); 
+		}
+		myFileReader.readAsDataURL(event.target.files[0])
+		
+
+
 		this.setState({
 			contract: event.target.files[0]
 		})
@@ -38,6 +49,7 @@ export default class UploadForm extends PureComponent {
 	render() {
 		return (
 			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data">
+				
 				<div>
 					<label htmlFor="camera">Camera</label>
 					<input type="file" name="camera" id="camera" onChange={ this.handleContractChange } />

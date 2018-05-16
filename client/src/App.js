@@ -22,7 +22,7 @@ class App extends PureComponent {
           <nav>
             <Top/>
           </nav>
-          <main style={{marginTop:75}}>
+          <main>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
