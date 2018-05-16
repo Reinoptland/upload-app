@@ -1,9 +1,18 @@
 import React, {PureComponent} from 'react'
 
+//Styling
+import '../../css/forms.css'
+import '../../css/button.css'
 
 export default class LoginForm extends PureComponent {
-	state = {
+	constructor() {
+		super()
+		this.state = {
+			email: '',
+			password: ''
+		}
 	}
+		
 
 	handleSubmit = (e) => {
 		e.preventDefault()
@@ -19,23 +28,26 @@ export default class LoginForm extends PureComponent {
   }
 
 	render() {
+		const { email, password } = this.state
+		const isEnabled = email.length > 0 && password.length > 0
+
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<div>
-					<label htmlFor="email">Email</label>
+					<label className="formLabel" htmlFor="email"><p>Email</p></label>
 					<input type="email" name="email" id="email" value={
 						this.state.email || ''
 					} onChange={ this.handleChange } />
 				</div>
 
 				<div>
-					<label htmlFor="password">Password</label>
+					<label className="formLabel" htmlFor="password"><p>Wachtwoord</p></label>
 					<input type="password" name="password" id="password" value={
 						this.state.password || ''
 					} onChange={ this.handleChange } />
 				</div>
 
-				<button type="submit">Login</button>
+				<button className="customButton" disabled={!isEnabled} type="submit">Inloggen</button>
 			</form>
 		)
 	}
