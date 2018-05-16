@@ -3,15 +3,16 @@ import users from './users'
 import login from './login'
 import currentUser from './currentUser'
 import signup from './signup'
-import images from'./images'
+import contracts from'./contracts'
+import contractsById from './contractsById'
 import upload from './upload'
-
 
 export default {
   users,
   login,
   currentUser,
   signup,
-  images,
+  contracts,
+  contractsById,
   upload
 }

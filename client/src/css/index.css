@@ -3,6 +3,19 @@ body {
   padding: 20px;
 }
 
+.outer-paper {
+  margin-top: 20px;
+  margin: auto;
+  padding: 20px;
+  width: 60%;
+}
+
+
+.card-content{
+  margin:10px;
+  height:100px;
+}
+
 /* Importing local font files */
 
 @font-face {
