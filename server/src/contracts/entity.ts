@@ -19,7 +19,15 @@ export default class Contract extends BaseEntity {
 
     @IsString()
     @Column('text', {nullable: true})
-    contractDescription: string
+    contractName: string
+
+    @IsString()
+    @Column('text', {nullable: true})
+    contractType: string
+
+    @IsString()
+    @Column('text', {nullable: true})
+    contractProvider: string
 
     @IsString()
     @Column('text', {nullable: true})
