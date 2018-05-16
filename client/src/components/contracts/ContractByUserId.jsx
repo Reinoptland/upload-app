@@ -27,9 +27,11 @@ class ContractByUserId extends PureComponent {
             .props
             .getUserDetails(this.props.match.params.id)
 
+
         this
             .props
             .getAllContracts()
+
         
     }
 
