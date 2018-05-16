@@ -1,0 +1,12 @@
+/* Styling file for all fields and form elements */
+
+.input:enabled {
+    font-family: 'BrandonText-Regular';
+    font-size: 0.8em;
+    color: #BFBFBF
+  }
+
+  input:focus{
+    outline: 2px solid #E84435;
+    color: #4A4A4A;
+  }
