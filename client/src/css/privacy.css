@@ -2,18 +2,7 @@
     width: 70%;
 }
 
-div{
+.privacydiv{
     padding: 10px;
-}
+} 
 
-h2 {
-    font-family: 'BrandonText-Bold';
-    font-size: 18px;
-    color: #4A4A4A;
-  }
-
-  h3 {
-    font-family: 'BrandonText-Bold';
-    font-size: 16px;
-    color: #4A4A4A;
-  }
