@@ -67,7 +67,7 @@ class ContractByUserId extends PureComponent {
                     <CardContent>
 
                         <Typography component="h1">
-                            {/*<img
+                            <img
                                 alt='userpicture'
                                 style={{
                                 maxHeight: '100px'
@@ -75,13 +75,16 @@ class ContractByUserId extends PureComponent {
                                 onClick={this
                                 .togglePopup
                                 .bind(this)}
-                                src={eachcontract.contractImage}/>*/}
+                                src={eachcontract.contractImage}/>
                         </Typography>
                         <Typography component="h1">
-                            Description:{eachcontract.contractDescription}
+                            ContractName:{eachcontract.contractName}
                         </Typography>
                         <Typography component="h1">
-                            Status:{eachcontract.uploadStatus}
+                            ContractType:{eachcontract.contractType}
+                        </Typography>
+                        <Typography component="h1">
+                            Provider:{eachcontract.contractProvider}
                         </Typography>
                     </CardContent>
                 </Card>
