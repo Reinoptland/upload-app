@@ -5,6 +5,9 @@ import SignupPage from './components/signup/SignupPage'
 import LogoutPage from './components/logout/LogoutPage'
 import AllUsers from './components/userimages/AllUsers'
 import UserById from './components/userimages/UserById'
+import Privacy from './components/privacy/Privacy'
+import UploadPage from './components/upload/uploadPage'
+
 //Styling
 import TopBar from './components/layout/TopBar'
 
@@ -20,7 +23,9 @@ class App extends PureComponent {
           <main style={{marginTop:75}}>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
+            <Route exact path="/Privacy" component={Privacy} />
             <Route exact path="/signup" component={SignupPage} />
+            <Route exact path="/upload" component={UploadPage} />
             <Route exact path="/" render={ () => <Redirect to="/login" /> } />
             <Route exact path="/users" component={AllUsers}/>
             <Route exact path="/users/:id" component={UserById}/>

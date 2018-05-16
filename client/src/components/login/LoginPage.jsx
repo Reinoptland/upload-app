@@ -11,7 +11,7 @@ class LoginPage extends PureComponent {
 
 	render() {
 		if (this.props.currentUser) return (
-			<Redirect to="/roos" />
+			<Redirect to="/upload" />
 		)
 
 		return (

@@ -4,6 +4,7 @@ import login from './login'
 import currentUser from './currentUser'
 import signup from './signup'
 import images from'./images'
+import upload from './upload'
 
 
 export default {
@@ -11,5 +12,6 @@ export default {
   login,
   currentUser,
   signup,
-  images
+  images,
+  upload
 }
