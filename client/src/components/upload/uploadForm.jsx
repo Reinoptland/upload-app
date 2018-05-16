@@ -16,13 +16,17 @@ export default class UploadForm extends PureComponent {
         e.preventDefault()
         if (!this.state.contract) 
             return alert('Please select a document!')
-		this.props.onSubmit(this.state.contract,this.state.description)
+		this.props.onSubmit(this.state.contract,
+							this.state.name,
+							this.state.type,
+							this.state.provider)
 		
 		
 	}
 	handleChange = (e) => {
+		const {name,value} = e.target
 		this.setState({
-			description: e.target.value
+			[name]: value
 		})
 	}
 	handleContractChange = (event) => {
@@ -44,8 +48,18 @@ export default class UploadForm extends PureComponent {
 				</div>
 
 				<div>
-					<label htmlFor="description">Description</label>
-					<textarea name="description" id="description" onChange={ this.handleChange } />
+					<label htmlFor="name">Contract Name</label>
+					<input type="text" name="name" id="name" onChange={ this.handleChange } />
+				</div>
+
+				<div>
+					<label htmlFor="type">Contract Type</label>
+					<input type="text" name="type" id="type" onChange={ this.handleChange } />
+				</div>
+
+				<div>
+					<label htmlFor="provider">Contract Provider</label>
+					<input type="text" name="provider" id="provider" onChange={ this.handleChange } />
 				</div>
 
 				<button type="submit">Submit</button>
