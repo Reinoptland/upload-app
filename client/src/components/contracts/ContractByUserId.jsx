@@ -30,6 +30,9 @@ class ContractByUserId extends PureComponent {
 
                     return eachuser.email
                 }
+                else {
+                    return null
+                }
             })
 
             const email = selecteduser.map(userdetails => userdetails.email)
