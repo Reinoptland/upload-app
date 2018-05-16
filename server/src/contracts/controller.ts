@@ -8,7 +8,8 @@ export default class ContractController {
     @Get('/contracts')
     async getAllContracts() {
         const contractImages = await Contract.find()
-        return { contractImages }
+        contractImages.forEach(x=>delete x.contractImage)
+        return contractImages
     }
 
     //@Authorized()
@@ -16,10 +17,14 @@ export default class ContractController {
     @HttpCode(201)
     async postContractImage(
     @Param('id') id:number,
+    @Body() body: any,
     @UploadedFile('file') file: any) {
         const contract = new Contract()
         contract.userId = id
         contract.contractImage = file
+        contract.contractName = body.name
+        contract.contractType = body.type
+        contract.contractProvider = body.provider
 
         return await contract.save()
     } 
@@ -27,9 +32,13 @@ export default class ContractController {
 
     // @Authorized()
     @Get('/contracts/:userId')
-    getAllContractsByUserId(
+    async getAllContractsByUserId(
     @Param('userId') userId : number) {
-        return Contract.find({userId})
+        const contracts =  await Contract.find({userId})
+        contracts.forEach((contract)=>{
+            delete contract.contractImage
+        })
+        return contracts
     }
    
 }
