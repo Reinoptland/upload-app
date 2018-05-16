@@ -1,4 +1,4 @@
-import { JsonController, Get, Body, Post, HttpCode, Param,UploadedFile} from 'routing-controllers'
+import { JsonController, Get, Post, HttpCode, Param,UploadedFile} from 'routing-controllers'
 import Contract from './entity'
 
 @JsonController()
