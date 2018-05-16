@@ -1,7 +1,7 @@
 import React from 'react'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
-import Typography from 'material-ui/Typography'
+// import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
 import {withRouter} from 'react-router'
 import {userId} from '../../jwt'
@@ -14,7 +14,7 @@ const TopBar = (props) => {
   return (
     <AppBar position="absolute" className="topBarBG" style={{zIndex:10}}>
       <Toolbar>
-       <img className="roosLogo"src="../../assets/roos-logo.svg"/>
+       <img className="roosLogo"src="../../assets/roos-logo.svg" alt="roos"/>
         {
           user &&
           <Button color="inherit">{ user.email }</Button>
