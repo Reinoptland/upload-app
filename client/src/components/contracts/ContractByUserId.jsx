@@ -4,6 +4,7 @@ import Card, { CardContent} from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers} from '../../actions/users'
+import {getAllContracts} from '../../actions/contracts'
 
 class ContractByUserId extends PureComponent {
 
@@ -25,6 +26,10 @@ class ContractByUserId extends PureComponent {
         this
             .props
             .getUserDetails(this.props.match.params.id)
+
+        this
+            .props
+            .getAllContracts()
         
     }
 
@@ -62,7 +67,7 @@ class ContractByUserId extends PureComponent {
                     <CardContent>
 
                         <Typography component="h1">
-                            <img
+                            {/*<img
                                 alt='userpicture'
                                 style={{
                                 maxHeight: '100px'
@@ -70,7 +75,7 @@ class ContractByUserId extends PureComponent {
                                 onClick={this
                                 .togglePopup
                                 .bind(this)}
-                                src={eachcontract.contractImage}/>
+                                src={eachcontract.contractImage}/>*/}
                         </Typography>
                         <Typography component="h1">
                             Description:{eachcontract.contractDescription}
@@ -119,4 +124,4 @@ const mapStateToProps = (state) => ({
     contractsById: state.contractsById
 })
 
-export default connect(mapStateToProps,{getUserDetails,getUsers})(ContractByUserId)
+export default connect(mapStateToProps,{getUserDetails,getUsers,getAllContracts})(ContractByUserId)
