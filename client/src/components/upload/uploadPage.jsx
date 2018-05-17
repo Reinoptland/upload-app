@@ -1,7 +1,5 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {upload} from '../../actions/upload'
-// import UploadForm from './uploadForm'
 import AddIcons from './addicons'
 import {Redirect} from 'react-router-dom'
 import BottomNav from '../layout/BottomNav'
@@ -12,17 +10,6 @@ import '../../css/uploadPage.css'
 
 class UploadPage extends PureComponent {
 
-	handleSubmit = (contract,name,type,provider) => {
-		console.log("user",this.props.currentUser.userId)
-		this.props.upload(this.props.currentUser.userId,contract,name,type,provider)
-// 		var reader  = new FileReader();
-
-//   reader.onloadend = function () {
-//     console.log(reader.result); //this is an ArrayBuffer
-//   }
-//   console.log('ARRAYBUFFER:',reader.readAsArrayBuffer(file))
-		// this.props.upload(file, data.description)
-	}
 
 	render() {
 		if (!this.props.currentUser) return (
@@ -39,23 +26,15 @@ class UploadPage extends PureComponent {
 				<div className='bottom-link'>
 					<p><Link to={'/HowTo'}>Lees hier tips over foto's maken en waar je document aan moet voldoen</Link></p>
 				</div>
-
-				{/* <UploadForm onSubmit={this.handleSubmit} /> */}
-
-		{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
 		
-			<BottomNav/>
-
+				<BottomNav/>
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = function (state) {
-	return {
+const mapStateToProps = (state) => ({
 		currentUser: state.currentUser,
-		error: state.upload.error
-	}
-}
+})
 
-export default connect(mapStateToProps, {upload})(UploadPage)
+export default connect(mapStateToProps)(UploadPage)

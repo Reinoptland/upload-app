@@ -1,67 +1,51 @@
 import React, {PureComponent} from 'react'
+import {upload} from '../../actions/upload'
+import {connect} from 'react-redux'
 
 //Styling
 import '../../css/uploadForm.css'
 
 class UploadForm extends PureComponent {
+
     constructor(props) {
         super(props);
-        this.state ={
-          camera:null,
-          gallery:null,
-          description:null
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
+        this.state = {}
+        
 		const myFileReader = new FileReader()
 		myFileReader.onload = (e) => {
             this.setState({ 
                 imageSrc: myFileReader.result, 
-
             }); 
 		}
 		myFileReader.readAsDataURL(this.props.contract)
-      }
-
-	handleSubmit = (e) => {
-        e.preventDefault()
-        if (!this.state.contract) 
-            return alert('Please select a document!')
-		this.props.onSubmit(this.state.contract,
-							this.state.name,
-							this.state.type,
-							this.state.provider)
-		
-		
+	
+		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
 	}
+
 	handleChange = (e) => {
 		const {name,value} = e.target
 		this.setState({
 			[name]: value
 		})
 	}
-	handleContractChange = (event) => {
-		const myFileReader = new FileReader()
-		myFileReader.onload = (e) => {
-            this.setState({ 
-                imageSrc: myFileReader.result, 
-
-            }); 
-		}
-		myFileReader.readAsDataURL(this.props.contract)
-		
-
-		this.setState({
-			contract: this.props.contract
-		})
-  	}	
+	  
+	handleSubmit = (e) => {
+		e.preventDefault(
+			
+		this.props.upload(this.props.currentUser.userId,
+						this.props.contract,
+						this.state.name,
+						this.state.type,
+						this.state.provider))
+	}
 
 	render() {
 		return (
 			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data">
 				
 				<div className='contract-pic'>
-					<img src={this.state.imageSrc} alt='contract'/>
+					<img src={this.state.imageSrc} alt='contract' />
 				</div>
 
 				<div>
@@ -78,12 +62,18 @@ class UploadForm extends PureComponent {
 					<label htmlFor="provider">Contract Provider</label>
 					<input type="text" name="provider" id="provider" onChange={ this.handleChange } />
 				</div>
-
-				<button type="submit">Submit</button>
-			</form>
 			
+			{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
+
+				<button type="submit" >Submit</button>
+			</form>	
 		)
 	}
 }
 
-export default UploadForm 
+const mapStateToProps = state => ({
+	currentUser: state.currentUser,
+	error: state.upload.error
+})
+
+export default connect(mapStateToProps, {upload})(UploadForm) 

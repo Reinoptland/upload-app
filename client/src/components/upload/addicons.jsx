@@ -6,10 +6,7 @@ import UploadForm from './uploadForm'
 import '../../css/uploadPage.css'
 
 class AddIcons extends PureComponent {
-    state = {
-        camera: null,
-        gallery: null
-    }
+    state = {}
 
     handleContractChange = (event) => {
 		this.setState({
