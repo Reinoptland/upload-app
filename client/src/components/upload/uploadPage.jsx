@@ -5,14 +5,16 @@ import {upload} from '../../actions/upload'
 import AddIcons from './addicons'
 import {Redirect} from 'react-router-dom'
 import BottomNav from '../layout/BottomNav'
+import { Link } from 'react-router-dom'
 
 //Styling
 import '../../css/uploadPage.css'
 
 class UploadPage extends PureComponent {
+
 	handleSubmit = (contract,name,type,provider) => {
-		
-		this.props.upload(this.props.currentUser.id,contract,name,type,provider)
+		console.log("user",this.props.currentUser.userId)
+		this.props.upload(this.props.currentUser.userId,contract,name,type,provider)
 // 		var reader  = new FileReader();
 
 //   reader.onloadend = function () {
@@ -31,11 +33,12 @@ class UploadPage extends PureComponent {
 			<div className='upload-page'>
 				<div className='header'>
 					<h1> Voeg uw contract toe </h1>
+					<img src='../../../icons/line.svg' alt="underline"/> 
 					<p> Maak een foto of upload een document </p> 
 				</div>
 				<AddIcons/>
 				<div className='bottom-link'>
-					<p>Lees hier tips over foto's makenen waar je document aan moet voldoen</p>
+					<p><Link to={'/HowTo'}>Lees hier tips over foto's maken en waar je document aan moet voldoen</Link></p>
 				</div>
 
 				{/* <UploadForm onSubmit={this.handleSubmit} /> */}
@@ -52,7 +55,7 @@ class UploadPage extends PureComponent {
 const mapStateToProps = function (state) {
 	return {
 		currentUser: state.currentUser,
-    	error: state.upload.error
+		error: state.upload.error
 	}
 }
 

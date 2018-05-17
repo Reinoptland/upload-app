@@ -1,5 +1,12 @@
 .image{
     width: 70%;
 }
+.infodiv{
+    padding: 10px;
+}
 
-
+.takephoto{
+    display: inline-block;
+    width: 40%; 
+    padding-right: 10px
+}
