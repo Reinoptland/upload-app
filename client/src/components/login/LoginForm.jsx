@@ -34,14 +34,14 @@ export default class LoginForm extends PureComponent {
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<div>
-					<label className="formLabel" htmlFor="email"><p>Email</p></label>
+					<label htmlFor="email"><p>Email</p></label>
 					<input type="email" name="email" id="email" value={
 						this.state.email || ''
 					} onChange={ this.handleChange } />
 				</div>
 
 				<div>
-					<label className="formLabel" htmlFor="password"><p>Wachtwoord</p></label>
+					<label htmlFor="password"><p>Wachtwoord</p></label>
 					<input type="password" name="password" id="password" value={
 						this.state.password || ''
 					} onChange={ this.handleChange } />
