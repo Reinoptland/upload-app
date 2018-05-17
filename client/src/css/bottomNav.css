@@ -1,11 +1,11 @@
 .bottom-nav {
     background-color: #fff;
-    /* overflow: hidden; */
     position: fixed;
     bottom: 0;
     width: 100%;
     display: inline-flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: nowrap;
 }
 .left-icons, .right-icons {
@@ -15,7 +15,7 @@
 }
 .add-button img {
     position: relative; 
-    bottom: 48%
+    bottom: 34px;
 }
 
 

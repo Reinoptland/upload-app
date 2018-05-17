@@ -19,7 +19,7 @@ class BottomNav extends Component {
         <div className='right-icons'>
           <img src="icons/advies.svg" alt="advies-icon"></img>
           <Link to={'/logout'}>
-            <img src="icons/meer.svg" alt="meer-icon"></img>
+            <img src="icons/loguit.svg" alt="loguit-icon"></img>
           </Link>
         </div>
 
