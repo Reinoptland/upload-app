@@ -1,5 +1,6 @@
 //src/components/upload/addicons.jsx
 import React, {PureComponent} from 'react'
+import { Redirect } from 'react-router-dom'
 
 //Styling
 import '../../css/uploadPage.css'
@@ -12,8 +13,10 @@ class AddIcons extends PureComponent {
 
     handleContractChange = (event) => {
 		this.setState({
-			contract: event.target.files[0]
-		})
+            contract: event.target.files[0]
+        })
+        console.log(event.target.files[0])
+        
   	}
     
     render() {
