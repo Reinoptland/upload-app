@@ -34,7 +34,7 @@ class UploadPage extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-		currentUser: state.currentUser,
+	currentUser: state.currentUser,
 })
 
 export default connect(mapStateToProps)(UploadPage)

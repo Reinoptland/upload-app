@@ -1,12 +1,8 @@
 .upload-page {
     min-width: 100%;
-    padding-top: 12%;
+    margin-top: 12%;
     background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
-    height: 100%; 
-}
-.upload-page h1, p {
-    /* color: #fff; */
-    letter-spacing: 0.4px;
+    position: fixed;
 }
 
 /* header */
@@ -17,9 +13,12 @@
 .header h1 {
     padding: 0 8% 5% 0;
     border-bottom: 1px solid #fff;
+    letter-spacing: 0.4px;
+    color: #fff;
 }
 .header p {
     font-size: 0.875em;
+    color: #fff;
     /* font-weight: light  */
 }
 
@@ -54,5 +53,5 @@
     text-align: center;
     font-size: 0.875em;
     padding: 0 15%;
-    margin: 35% auto;
+    margin: 55% auto;
 }
