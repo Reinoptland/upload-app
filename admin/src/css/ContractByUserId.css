@@ -1,0 +1,32 @@
+
+
+.contractcard{
+
+    display:inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:5%;
+    font-family: 'BrandonText-Regular';
+   
+}
+
+.contract-paper{
+       
+    margin-top: 20%;
+    margin: auto;
+    text-align:center;
+    padding-top: 5%;
+    width: 60%;
+    padding-bottom: 2%;
+    font-family: 'BrandonText-Regular';
+   
+}
+
+.cardwrapper {
+    width:auto;
+    display:inline-block;
+    width: 20%;
+    min-width: 250px;
+    font-family: 'BrandonText-Regular';
+   
+}

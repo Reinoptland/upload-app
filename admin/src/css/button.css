@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'BrandonText-Bold';
+    src: local('brandontext-bold'), url(../fonts/brandontext-bold.woff) format('woff');
+  }
+
+  /* Thanks Irene! */
+
+.customButton {
+    margin-top: 10px;
+    padding: 10px 25px;
+    border-radius: 3px;
+    font-size: 16px;
+    background: linear-gradient(0.25turn,#e84435, #f57f17);
+    color: white;
+    border: none;
+    font-family: 'BrandonText-Bold';
+    letter-spacing: 1px;
+    
+  }
+  
+  .customButton:hover{
+    background: #e84435;
+    cursor: pointer;
+  }
+
+  .customButton:disabled{
+    background: #d6d3d3;
+  }
