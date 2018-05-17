@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'BrandonText-Regular';
+    src: local('brandontext-regular'), url(../fonts/brandontext-regular.woff) format('woff');
+  }
+
+.logintext{
+    padding-top: 10px;
+    font-family: 'BrandonText-Regular';
+    color: #127ECF;
+}
