@@ -73,15 +73,22 @@ h3 {
   color: #4A4A4A;
 }
 
-.loginPage {
+.generalPage {
   padding: 0 30px;
   margin-top: 6em;
 }
 
 @media screen and (min-width: 600px) {
-  .loginPage {
+  .generalPage {
     padding: 0 30px;
     margin-top: 6em;
   }
 
+}
+
+.takephoto {
+  display: inline-block;
+  max-width: 300px;
+  padding-left: 0 30px;
+  margin: auto;
 }

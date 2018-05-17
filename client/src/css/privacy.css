@@ -6,9 +6,10 @@
     padding: 10px;
 }
 
-.takephoto{
+.takephoto {
     display: inline-block;
-    width: 40%; 
-    padding-right: 10px
+    max-width: 300px;
+    padding: 10px;
+    margin: auto;
 }
 
