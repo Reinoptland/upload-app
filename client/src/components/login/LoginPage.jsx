@@ -19,7 +19,7 @@ class LoginPage extends PureComponent {
 		)
 
 		return (
-			<div className="loginPage">
+			<div className="generalPage">
 				<h1>Login</h1>
 
 				<LoginForm onSubmit={this.handleSubmit} />

@@ -1,8 +1,6 @@
 import React, {PureComponent} from 'react'
 import { Link } from 'react-router-dom'
 
-//styling
-import Paper from 'material-ui/Paper';
 
 export default class HowTo extends PureComponent {
 
@@ -10,8 +8,7 @@ export default class HowTo extends PureComponent {
   
 
     return (
-        <Paper>
-          <div className="infodiv">
+          <div className="generalPage">
             <div>
               <h1>Waar moet mijn nota aan voldoen?</h1>
               <p> de nota moet de volgende informatie hebben:</p>
@@ -36,16 +33,14 @@ export default class HowTo extends PureComponent {
                 <li>voorkom schaduwen, bijvoorbeeld door een vouw</li>
               </ul>
                 <div>
-                  <img src="Takephoto.png" alt="" className="takephoto"/>
-                  <img src="Takephoto.png" alt="" className="takephoto"/>
-                  <img src="Takephoto.png" alt="" className="takephoto"/>
-                  <img src="Takephoto.png" alt="" className="takephoto"/>
+                  <img src="assets/goodPhoto1.svg" alt="How to do it" className="takephoto"/>
+                  <img src="assets/badPhoto1.svg" alt="How not to do it" className="takephoto"/>
+                  <img src="assets/badPhoto2.svg" alt="How not to do it" className="takephoto"/>
+                  <img src="assets/badPhoto3.svg" alt="How not to do it" className="takephoto"/>
                 </div>
             </div>
-            <Link to={'/upload'}><button className="customButton">back</button></Link>
+            <Link to={'/upload'}><button className="customButton">Terug</button></Link>
           </div>
-
-        </Paper>
     )
   }
 }
