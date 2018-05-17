@@ -5,6 +5,8 @@ import Typography from 'material-ui/Typography'
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers} from '../../actions/users'
 import {getAllContracts} from '../../actions/contracts'
+import Paper from 'material-ui/Paper'
+import '../../css/ContractByUserId.css'
 
 class ContractByUserId extends PureComponent {
 
@@ -59,9 +61,9 @@ class ContractByUserId extends PureComponent {
     renderContractDetails(eachcontract) {
 
         return (
-            <div>
-                <Card>
-                    <CardContent>
+            <div className="cardwrapper">
+                <Card className='contractcard'>
+                    <CardContent  className='contractcard'>
 
                         <Typography component="h1">
                             <img
@@ -72,16 +74,16 @@ class ContractByUserId extends PureComponent {
                                 onClick={this
                                 .togglePopup
                                 .bind(this)}
-                                src={" "}/>
+                                src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}/>
                         </Typography>
                         <Typography component="h1">
-                            ContractName:{eachcontract.contractName}
+                            ContractName : {eachcontract.contractName}
                         </Typography>
                         <Typography component="h1">
-                            ContractType:{eachcontract.contractType}
+                            ContractType : {eachcontract.contractType}
                         </Typography>
                         <Typography component="h1">
-                            Provider:{eachcontract.contractProvider}
+                            Provider : {eachcontract.contractProvider}
                         </Typography>
                     </CardContent>
                 </Card>
@@ -102,16 +104,16 @@ class ContractByUserId extends PureComponent {
         if (userId.length > 0) {
             email = this.getEmail(userId[0])
         }
-
+1
         return (
-
-            <div>
-                Email:{email} 
+            
+            <Paper className='contract-paper'>
+                <span style={{width:'100%',display:'block',marginTop:'75px'}} >Email:{email}</span> 
                 {this
                     .props
                     .contractsById
                     .map(eachcontract => this.renderContractDetails(eachcontract))}
-            </div>
+            </Paper>
 
         )
     }

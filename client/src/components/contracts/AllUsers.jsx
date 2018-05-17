@@ -4,10 +4,10 @@ import Card, { CardContent} from 'material-ui/Card'
 import {Link} from 'react-router-dom'
 import Typography from 'material-ui/Typography'
 import {getUserDetails} from '../../actions/contracts'
-
 import {getAllContracts} from '../../actions/contracts'
 import Paper from 'material-ui/Paper'
 import {getUsers} from '../../actions/users'
+import '../../css/AllUsers.css'
 
 const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
 
@@ -38,7 +38,7 @@ class AllUsers extends PureComponent {
     renderUser(eachuser) {
 
         return (
-            <Card>
+            <Card className='usercard'>
                 <CardContent className="card-content">
 
                     <Link to ={`/users/${eachuser.id}`}>
@@ -70,7 +70,7 @@ class AllUsers extends PureComponent {
 
         return (
 
-            <Paper className="outer-paper">
+            <Paper className="user-paper">
 
                 <div>
                     {userslist.map((eachuser,index) =>  this.renderUser(eachuser))}
