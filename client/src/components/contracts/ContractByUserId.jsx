@@ -1,12 +1,31 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import Card, { CardContent} from 'material-ui/Card'
+import Card, {CardContent} from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers} from '../../actions/users'
 import {getAllContracts} from '../../actions/contracts'
 import Paper from 'material-ui/Paper'
+import {withStyles} from 'material-ui/styles';
+import Modal from 'material-ui/Modal';
 import '../../css/ContractByUserId.css'
+
+function getModalStyle() {
+    const top = 40;
+    const left = 40;
+
+    return {top: `${top}%`, left: `${left}%`, transform: `translate(-${top}%, -${left}%)`};
+}
+
+const styles = theme => ({
+    paper: {
+        position: 'absolute',
+        width: theme.spacing.unit * 50,
+        backgroundColor: theme.palette.background.paper,
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing.unit * 4
+    }
+});
 
 class ContractByUserId extends PureComponent {
 
@@ -14,28 +33,29 @@ class ContractByUserId extends PureComponent {
         super()
 
         this.state = {
-            showPopup: false
+            open: false
         };
     }
 
-    componentWillMount(){
+    handleOpen = () => {
+        this.setState({open: true});
+    };
+
+    handleClose = () => {
+        this.setState({open: false});
+    };
+
+    componentWillMount() {
         if (this.props.users === null) {
             this
                 .props
                 .getUsers()
         }
-       
+
         this
             .props
             .getUserDetails(this.props.match.params.id)
 
-        
-    }
-
-    togglePopup() {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
     }
 
     getEmail(userId) {
@@ -47,8 +67,7 @@ class ContractByUserId extends PureComponent {
                 if (eachuser.id === userId) {
 
                     return eachuser.email
-                }
-                else {
+                } else {
                     return null
                 }
             })
@@ -59,11 +78,12 @@ class ContractByUserId extends PureComponent {
     }
 
     renderContractDetails(eachcontract) {
+        const {classes} = this.props;
 
         return (
             <div className="cardwrapper">
                 <Card className='contractcard'>
-                    <CardContent  className='contractcard'>
+                    <CardContent className='contractcard'>
 
                         <Typography component="h1">
                             <img
@@ -71,11 +91,26 @@ class ContractByUserId extends PureComponent {
                                 style={{
                                 maxHeight: '100px'
                             }}
-                                onClick={this
-                                .togglePopup
-                                .bind(this)}
+                                onClick={this.handleOpen}
                                 src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}/>
                         </Typography>
+                        <Modal
+                            open={this.state.open}
+                            onClose={this.handleClose}>
+
+                            <div style={getModalStyle()} className={classes.paper}>
+                                <Typography variant="title" id={`${eachcontract.id}`}>
+                                    <img
+                                        alt='userpicture'
+                                        style={{
+                                        maxHeight: '500px'
+                                    }}
+                                        src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}/>
+
+                                </Typography>
+                          
+                            </div>
+                        </Modal>
                         <Typography component="h1">
                             ContractName : {eachcontract.contractName}
                         </Typography>
@@ -106,9 +141,14 @@ class ContractByUserId extends PureComponent {
         }
 
         return (
-            
+
             <Paper className='contract-paper'>
-                <span style={{width:'100%',display:'block',marginTop:'75px'}} >Email:{email}</span> 
+                <span
+                    style={{
+                    width: '100%',
+                    display: 'block',
+                    marginTop: '75px'
+                }}>Email:{email}</span>
                 {this
                     .props
                     .contractsById
@@ -126,4 +166,4 @@ const mapStateToProps = (state) => ({
     contractsById: state.contractsById
 })
 
-export default connect(mapStateToProps,{getUserDetails,getUsers,getAllContracts})(ContractByUserId)
+export default withStyles(styles)(connect(mapStateToProps, {getUserDetails, getUsers, getAllContracts})(ContractByUserId))
