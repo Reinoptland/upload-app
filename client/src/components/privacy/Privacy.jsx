@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import { Link } from 'react-router-dom'
 
 //styling
 import Paper from 'material-ui/Paper';
@@ -259,6 +260,7 @@ export default class Privacy extends PureComponent {
             <a href="http://halloroos.nl">de website van Roos</a> en we raden je aan de tekst met enige regelmaat te raadplegen 
             indien van je Roos gebruik maakt.
           </p>
+          <Link to={'/signup'}><button className="customButton">back</button></Link>
           </div>
       </Paper>
     )

@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import { Link } from 'react-router-dom'
 
 //styling
 import Paper from 'material-ui/Paper';
@@ -41,7 +42,9 @@ export default class HowTo extends PureComponent {
                   <img src="Takephoto.png" alt="" className="takephoto"/>
                 </div>
             </div>
+            <Link to={'/upload'}><button className="customButton">back</button></Link>
           </div>
+
         </Paper>
     )
   }
