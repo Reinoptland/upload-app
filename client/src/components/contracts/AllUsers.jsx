@@ -25,14 +25,10 @@ class AllUsers extends PureComponent {
                 .props
                 .getUsers()
         }
-        this
-            .props
-            .getAllContracts()
-
     }
 
     handleClick(userid) {
-
+       
         this
             .props
             .getUserDetails(userid)
@@ -77,7 +73,7 @@ class AllUsers extends PureComponent {
             <Paper className="outer-paper">
 
                 <div>
-                    {userslist.map(eachuser => this.renderUser(eachuser))}
+                    {userslist.map((eachuser,index) =>  this.renderUser(eachuser))}
                 </div>
 
             </Paper>

@@ -34,11 +34,8 @@ export default class ContractController {
     @Get('/contracts/:userId')
     async getAllContractsByUserId(
     @Param('userId') userId : number) {
-        const contracts =  await Contract.find({userId})
-        contracts.forEach((contract)=>{
-            delete contract.contractImage
-        })
-        return contracts
+        return  await Contract.find({userId})
+        
     }
    
 }

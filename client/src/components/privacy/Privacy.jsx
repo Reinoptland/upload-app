@@ -12,7 +12,7 @@ export default class Privacy extends PureComponent {
 
     return (
       <Paper>
-          <div>
+          <div className="infodiv">
           <h1>Privacybeleid van Roos</h1>
           <p>
             Roos vindt jouw privacy misschien wel belangrijker dan jijzelf. Als je online of via Facebook een wekker zet of 

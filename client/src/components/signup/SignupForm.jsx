@@ -1,11 +1,9 @@
 import React, {PureComponent} from 'react'
-import Checkbox from 'material-ui/Checkbox';
-import { Button } from 'material-ui'
 import { Link } from 'react-router-dom'
 
 //Styling
-import '../../css/signup.css'
-// import '../../css/buttonOverride.css'
+import '../../css/forms.css'
+import '../../css/button.css'
 
 export default class SignupForm extends PureComponent {
 	constructor() {
@@ -60,10 +58,11 @@ export default class SignupForm extends PureComponent {
 				</div>
 
 				<div>
-				<Checkbox
+				<input type="checkbox"
 						value={`${this.state.privacy}` || ''}
 						onChange={this.handleChange}
 						name="privacy"
+						id="privacy"
 					/> 
 				<p>Ik ga akkoord met het <Link to={'/Privacy'}>privacy beleid van Roos</Link></p>
 					
@@ -76,7 +75,7 @@ export default class SignupForm extends PureComponent {
 					<p style={{color:'red'}}>The passwords do not match!</p>
 				}
 
-				<Button className="ButtonOverride" disabled={!isEnabled} type="submit" size="medium" color="secondary" variant="raised" >Sign up</Button>
+				<button className="customButton" disabled={!isEnabled} type="submit">Aanmelden</button>
 
 			</form>
 		)
