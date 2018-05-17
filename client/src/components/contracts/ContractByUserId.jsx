@@ -77,13 +77,13 @@ class ContractByUserId extends PureComponent {
                                 src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}/>
                         </Typography>
                         <Typography component="h1">
-                            ContractName:{eachcontract.contractName}
+                            ContractName : {eachcontract.contractName}
                         </Typography>
                         <Typography component="h1">
-                            ContractType:{eachcontract.contractType}
+                            ContractType : {eachcontract.contractType}
                         </Typography>
                         <Typography component="h1">
-                            Provider:{eachcontract.contractProvider}
+                            Provider : {eachcontract.contractProvider}
                         </Typography>
                     </CardContent>
                 </Card>
