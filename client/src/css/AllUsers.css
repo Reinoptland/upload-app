@@ -1,0 +1,25 @@
+
+.usercard{
+    display:inline-flex;
+    flex-direction: row;
+    min-width: 235px;
+    max-width: 20%;
+    margin:2%;
+    flex-wrap: wrap;
+    font-family: 'BrandonText-Regular';
+   
+}
+.user-paper{
+
+        min-width: 245px;
+        margin:auto;
+        margin-top: 10px;
+        
+        padding-top: 100px;
+        width: 60%;
+        padding-bottom: 2%;
+        font-family: 'BrandonText-Regular';
+        align-items: center;
+        text-align: center
+}
+

@@ -3,7 +3,7 @@
     src: local('brandontext-regular'), url(../fonts/brandontext-regular.woff) format('woff');
   }
 
-.logintext{
+.signuptext {
     padding-top: 10px;
     font-family: 'BrandonText-Regular';
     color: #127ECF;

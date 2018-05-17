@@ -2,7 +2,10 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {signup} from '../../actions/users'
 import SignupForm from './SignupForm'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
+
+//styling
+import '../../css/signup.css'
 
 class SignupPage extends PureComponent {
 	handleSubmit = (data) => {
@@ -15,12 +18,16 @@ class SignupPage extends PureComponent {
 		)
 
 		return (
-			<div className="loginPage">
+			<div className="generalPage">
 				<h1>Sign up</h1>
 
 				<SignupForm onSubmit={this.handleSubmit} />
 
 				<p style={{color:'red'}}>{ this.props.signup.error }</p>
+
+				<div className="logintext">
+					<Link to={'/login'}>heb je al een account? Inloggen</Link>
+				</div>
 			</div>
 		)
 	}
