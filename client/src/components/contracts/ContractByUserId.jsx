@@ -61,7 +61,7 @@ class ContractByUserId extends PureComponent {
     renderContractDetails(eachcontract) {
 
         return (
-            <div>
+            <div className="cardwrapper">
                 <Card className='contractcard'>
                     <CardContent  className='contractcard'>
 
@@ -74,7 +74,7 @@ class ContractByUserId extends PureComponent {
                                 onClick={this
                                 .togglePopup
                                 .bind(this)}
-                                src={" "}/>
+                                src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}/>
                         </Typography>
                         <Typography component="h1">
                             ContractName:{eachcontract.contractName}
@@ -104,11 +104,11 @@ class ContractByUserId extends PureComponent {
         if (userId.length > 0) {
             email = this.getEmail(userId[0])
         }
-
+1
         return (
-
+            
             <Paper className='contract-paper'>
-                Email:{email} 
+                <span style={{width:'100%',display:'block',marginTop:'75px'}} >Email:{email}</span> 
                 {this
                     .props
                     .contractsById
