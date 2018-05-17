@@ -6,6 +6,7 @@ import LogoutPage from './components/logout/LogoutPage'
 import AllUsers from './components/contracts/AllUsers'
 import Privacy from './components/privacy/Privacy'
 import UploadPage from './components/upload/uploadPage'
+import UploadForm from './components/upload/uploadForm'
 import ContractByUserId from './components/contracts/ContractByUserId'
 import HowTo from './components/howto/HowTo'
 import { createBrowserHistory, createHashHistory } from 'history'
@@ -40,6 +41,7 @@ class App extends PureComponent {
             <Route exact path="/Privacy" component={Privacy} />
             <Route exact path="/HowTo" component={HowTo} />
             <Route exact path="/upload" component={UploadPage} />
+            <Route exact path="/UploadForm" component={UploadForm} />
             <Route exact path="/users" component={AllUsers}/>
             <Route exact path="/users/:id" component={ContractByUserId}/>
             <Route exact path="/" render={ () => <Redirect to="/login" /> } />

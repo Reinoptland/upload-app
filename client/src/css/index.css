@@ -1,11 +1,11 @@
-body, a {
+body, html {
   margin: 0;
   padding: 0;
   border: 0;
-  height: 100%;
+  min-height: 100%;
   font-size: 16px;
-  text-decoration: none;
-  list-style-type: none;
+  font-family: 'BrandonText-Regular', 'BrandonText-Bold', sans-serif;
+  background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
 }
 
 .outer-paper {
@@ -14,14 +14,12 @@ body, a {
   padding: 20px;
   width: 60%;
 }
-
-
 .card-content{
   margin:10px;
   height:100px;
 }
 
-/* Importing local font files */
+/* Font */
 
 @font-face {
   font-family: 'BrandonText-Regular';
@@ -33,44 +31,39 @@ body, a {
   src: local('brandontext-bold'), url(../fonts/brandontext-bold.woff) format('woff');
 }
 
-a {
-  color: #127ecf;
-}
 
-p, li {
-  font-family: 'BrandonText-Regular';
-  font-size: 1em;
-  color: #4A4A4A;
-}
+/* Typography */
 
 h1 {
-  font-family: 'BrandonText-Bold';
+  font-weight: bold;
   font-size: 1.25em;
   color: #4A4A4A;
 }
 
 h2 {
-  font-family: 'BrandonText-Bold';
+  font-weight: bold;
   font-size: 1.125em;
   color: #4A4A4A;
 }
 
 h3 {
-  font-family: 'BrandonText-Bold';
+  font-weight: bold;
   font-size: 1em;
   color: #4A4A4A;
 }
 
-h2 {
-  font-family: 'BrandonText-Bold';
-  font-size: 18px;
+p {
+  font-weight: bold;
+  font-size: 0.9375em;
   color: #4A4A4A;
 }
-
-h3 {
-  font-family: 'BrandonText-Bold';
-  font-size: 16px;
+p, li {
+  font-size: 0.9375em;
   color: #4A4A4A;
+}
+a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .generalPage {
@@ -83,7 +76,6 @@ h3 {
     padding: 0 30px;
     margin-top: 6em;
   }
-
 }
 
 .takephoto {
@@ -92,3 +84,4 @@ h3 {
   padding-left: 0 30px;
   margin: auto;
 }
+
