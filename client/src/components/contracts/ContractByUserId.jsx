@@ -104,7 +104,7 @@ class ContractByUserId extends PureComponent {
         if (userId.length > 0) {
             email = this.getEmail(userId[0])
         }
-1
+
         return (
             
             <Paper className='contract-paper'>
