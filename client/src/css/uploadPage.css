@@ -6,7 +6,7 @@
 }
 .upload-page h1, p {
     color: #fff;
-    letter-spacing: 0.4px
+    letter-spacing: 0.4px;
 }
 
 /* header */
@@ -16,7 +16,7 @@
 }
 .header h1 {
     padding: 0 8% 5% 0;
-    border-bottom: 1px solid #fff
+    border-bottom: 1px solid #fff;
 }
 .header p {
     font-size: 0.875em;

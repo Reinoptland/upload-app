@@ -33,7 +33,6 @@ class UploadPage extends PureComponent {
 			<div className='upload-page'>
 				<div className='header'>
 					<h1> Voeg uw contract toe </h1>
-					<img src='../../../icons/line.svg' alt="underline"/> 
 					<p> Maak een foto of upload een document </p> 
 				</div>
 				<AddIcons/>
