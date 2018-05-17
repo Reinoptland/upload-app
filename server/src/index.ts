@@ -8,6 +8,7 @@ import { verify } from './jwt'
 import User from './users/entity'
 import * as Koa from 'koa'
 import {Server} from 'http'
+import AdminController from './admin/controller';
 
 
 const app = new Koa()
@@ -20,7 +21,8 @@ useKoaServer(app, {
   controllers: [
     UserController,
     LoginController,
-    ContractsController
+    ContractsController,
+    AdminController
   ],
   authorizationChecker: (action: Action) => {
     const header: string = action.request.headers.authorization

@@ -20,11 +20,11 @@ class AllUsers extends PureComponent {
     }
 
     componentWillMount() {
-        if (this.props.users === null) {
+        
             this
                 .props
                 .getUsers()
-        }
+        
     }
 
     handleClick(userid) {
@@ -69,23 +69,26 @@ class AllUsers extends PureComponent {
         }
 
         return (
+            <div>
+                 {this.props.users.length > 0 &&<Paper className="user-paper">
 
-            <Paper className="user-paper">
+                    <div>
+                        {userslist.map((eachuser,index) =>  <div key={eachuser.id}>{this.renderUser(eachuser)}</div>)}
+                    </div>
 
-                <div>
-                    {userslist.map((eachuser,index) =>  <div key={eachuser.id}>{this.renderUser(eachuser)}</div>)}
-                </div>
-
-            </Paper>
+                </Paper>}
+              
+                {this.props.users.length === 0 && <Paper className="user-paper">
+                    <p>No users and no contracts stored at the moment.</p>
+                </Paper>}
+            </div>
         )
 
     }
 }
 
 const mapStateToProps = (state) => ({
-    users: state.users === null
-        ? null
-        : state.users,
+    users: state.users,
     contracts: state.contracts
 
 })

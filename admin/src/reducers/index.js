@@ -1,15 +1,17 @@
 import users from './users'
-import login from './login'
-import currentUser from './currentUser'
+import login from './loginAdmin'
+import currentAdmin from './currentAdmin'
 import signup from './signup'
 import contracts from'./contracts'
 import contractsById from './contractsById'
+import admins from './admins'
 
 export default {
   users,
   login,
-  currentUser,
+  currentAdmin,
   signup,
   contracts,
   contractsById,
+  admins
 }

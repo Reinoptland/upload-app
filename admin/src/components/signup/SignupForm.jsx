@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react'
-import { Link } from 'react-router-dom'
 
 //Styling
 import '../../css/forms.css'
@@ -55,17 +54,6 @@ export default class SignupForm extends PureComponent {
 					<input type="password" name="confirmPassword" id="confirmPassword" value={
 						this.state.confirmPassword || ''
 					} onChange={ this.handleChange } />
-				</div>
-
-				<div>
-				<input type="checkbox"
-						value={`${this.state.privacy}` || ''}
-						onChange={this.handleChange}
-						name="privacy"
-						id="privacy"
-					/> 
-				<p>Ik ga akkoord met het <Link to={'/Privacy'}>privacy beleid van Roos</Link></p>
-					
 				</div>
 
 				{

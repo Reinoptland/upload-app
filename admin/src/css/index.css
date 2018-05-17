@@ -9,7 +9,7 @@ body, html {
 }
 
 .outer-paper {
-  margin-top: 20px;
+  margin-top: 30px;
   margin: auto;
   padding: 20px;
   width: 60%;
@@ -36,29 +36,29 @@ body, html {
 
 h1 {
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: 2.25em;
   color: #4A4A4A;
 }
 
 h2 {
   font-weight: bold;
-  font-size: 1.125em;
+  font-size: 2.125em;
   color: #4A4A4A;
 }
 
 h3 {
   font-weight: bold;
-  font-size: 1em;
+  font-size: 2em;
   color: #4A4A4A;
 }
 
 p {
   font-weight: bold;
-  font-size: 0.9375em;
+  font-size: 1.25em;
   color: #4A4A4A;
 }
 p, li {
-  font-size: 0.9375em;
+  font-size: 1.25em;
   color: #4A4A4A;
 }
 a {
