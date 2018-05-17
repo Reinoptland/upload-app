@@ -1,17 +1,16 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {upload} from '../../actions/upload'
-import UploadForm from './uploadForm'
+// import UploadForm from './uploadForm'
+import AddIcons from './addicons'
 import {Redirect} from 'react-router-dom'
 import BottomNav from '../layout/BottomNav'
 import { Link } from 'react-router-dom'
 
 //Styling
-import '../../css/uploadForm.css'
+import '../../css/uploadPage.css'
 
 class UploadPage extends PureComponent {
-
-
 
 	handleSubmit = (contract,name,type,provider) => {
 		console.log("user",this.props.currentUser.userId)
@@ -33,19 +32,16 @@ class UploadPage extends PureComponent {
 		return (
 			<div className='upload-page'>
 				<div className='header'>
-					<h4> Voeg uw contract toe </h4>
+					<h1> Voeg uw contract toe </h1>
 					<img src='../../../icons/line.svg' alt="underline"/> 
 					<p> Maak een foto of upload een document </p> 
 				</div>
-				<div className='icons'>
-					<img src='../../../icons/camIcon.svg' alt='camera'/>
-					<img src='../../../icons/fileUploadIcon.svg' alt='camera'/>
-				</div>
-				<div>
+				<AddIcons/>
+				<div className='bottom-link'>
 					<p><Link to={'/HowTo'}>Lees hier tips over foto's maken en waar je document aan moet voldoen</Link></p>
 				</div>
 
-				<UploadForm onSubmit={this.handleSubmit} />
+				{/* <UploadForm onSubmit={this.handleSubmit} /> */}
 
 		{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
 		
