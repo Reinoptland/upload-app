@@ -1,0 +1,22 @@
+<svg width="300" height="319" viewBox="0 0 300 319" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="300" height="319" fill="white"/>
+<rect width="300" height="300" transform="translate(0 19)" fill="#E2E6E7"/>
+<circle cx="18" cy="18" r="18" transform="translate(249 1)" fill="#D74236"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.25C0 1.00736 1.00736 0 2.25 0H14.7206C15.9632 0 16.9706 1.00736 16.9706 2.25C16.9706 3.49264 15.9632 4.5 14.7206 4.5H2.25C1.00736 4.5 0 3.49264 0 2.25Z" transform="translate(259.671 24.5245) rotate(-47.7043)" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.25C0 1.00736 1.00736 0 2.25 0H14.7206C15.9632 0 16.9706 1.00736 16.9706 2.25C16.9706 3.49264 15.9632 4.5 14.7206 4.5H2.25C1.00736 4.5 0 3.49264 0 2.25Z" transform="translate(259.671 15.0284) scale(1 -1) rotate(-47.7043)" fill="white"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="19" width="300" height="300">
+<rect width="300" height="300" transform="translate(0 19)" fill="#E2E6E7"/>
+</mask>
+<g mask="url(#mask0)">
+<path d="M0 241V0H177V241H0Z" transform="translate(84.1121 146) rotate(13.9532)" fill="#FDFEFF"/>
+<path d="M0 0V241H177V0H0Z" transform="translate(84.1121 146) rotate(13.9532)" stroke="#EE6832" stroke-width="8"/>
+<line y1="-2.5" x2="45" y2="-2.5" transform="translate(87.3662 215.846) rotate(13.9532)" stroke="#EE6832" stroke-width="5"/>
+<line y1="-2.5" x2="45" y2="-2.5" transform="translate(83.5083 231.374) rotate(13.9532)" stroke="#EE6832" stroke-width="5"/>
+<line y1="-2.5" x2="45" y2="-2.5" transform="translate(79.8914 245.931) rotate(13.9532)" stroke="#EE6832" stroke-width="5"/>
+<line y1="-2.5" x2="65" y2="-2.5" transform="translate(82.1631 307.289) rotate(13.9532)" stroke="#EE6832" stroke-width="5"/>
+<line y1="-2.5" x2="65" y2="-2.5" transform="translate(78.5461 321.847) rotate(13.9532)" stroke="#EE6832" stroke-width="5"/>
+<rect x="2.5" y="2.5" width="132" height="86" transform="translate(74.1042 269.223) rotate(13.9532)" stroke="#EE6832" stroke-width="5"/>
+<rect width="134" height="10" transform="translate(76.2922 272.858) rotate(13.9532)" fill="#EE6832"/>
+<rect width="45" height="22" transform="translate(188.467 190.475) rotate(13.9532)" fill="#EE6832"/>
+</g>
+</svg>
