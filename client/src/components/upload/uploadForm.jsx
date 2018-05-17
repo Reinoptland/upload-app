@@ -1,5 +1,8 @@
 import React, {PureComponent} from 'react'
 
+//Styling
+import '../../css/uploadForm.css'
+
 class UploadForm extends PureComponent {
     constructor(props) {
         super(props);
@@ -9,7 +12,15 @@ class UploadForm extends PureComponent {
           description:null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+		const myFileReader = new FileReader()
+		myFileReader.onload = (e) => {
+            this.setState({ 
+                imageSrc: myFileReader.result, 
+
+            }); 
+		}
+		myFileReader.readAsDataURL(this.props.contract)
       }
 
 	handleSubmit = (e) => {
@@ -37,12 +48,11 @@ class UploadForm extends PureComponent {
 
             }); 
 		}
-		myFileReader.readAsDataURL(event.target.files[0])
+		myFileReader.readAsDataURL(this.props.contract)
 		
 
-
 		this.setState({
-			contract: event.target.files[0]
+			contract: this.props.contract
 		})
   	}	
 
@@ -50,13 +60,8 @@ class UploadForm extends PureComponent {
 		return (
 			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data">
 				
-				<div>
-					<label htmlFor="camera">Camera</label>
-					<input type="file" name="camera" id="camera" onChange={ this.handleContractChange } />
-				</div>
-                <div>
-					<label htmlFor="gallery">Gallery</label>
-					<input type="file" name="gallery" id="gallery" onChange={ this.handleContractChange } />
+				<div className='contract-pic'>
+					<img src={this.state.imageSrc} alt='contract'/>
 				</div>
 
 				<div>
