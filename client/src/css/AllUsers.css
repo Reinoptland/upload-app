@@ -1,0 +1,17 @@
+
+.usercard{
+    display:inline-flex;
+    flex-direction: row;
+    max-width: 20%;
+    margin:2%;
+    flex-wrap: wrap;
+    
+}
+.user-paper{
+       
+        margin-top: 20%;
+        margin: auto;
+        padding-top: 5%;
+        width: 60%;
+        padding-bottom: 2%
+}

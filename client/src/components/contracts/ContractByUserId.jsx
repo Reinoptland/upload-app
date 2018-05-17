@@ -5,6 +5,8 @@ import Typography from 'material-ui/Typography'
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers} from '../../actions/users'
 import {getAllContracts} from '../../actions/contracts'
+import Paper from 'material-ui/Paper'
+import '../../css/ContractByUserId.css'
 
 class ContractByUserId extends PureComponent {
 
@@ -60,8 +62,8 @@ class ContractByUserId extends PureComponent {
 
         return (
             <div>
-                <Card>
-                    <CardContent>
+                <Card className='contractcard'>
+                    <CardContent  className='contractcard'>
 
                         <Typography component="h1">
                             <img
@@ -105,13 +107,13 @@ class ContractByUserId extends PureComponent {
 
         return (
 
-            <div>
+            <Paper className='contract-paper'>
                 Email:{email} 
                 {this
                     .props
                     .contractsById
                     .map(eachcontract => this.renderContractDetails(eachcontract))}
-            </div>
+            </Paper>
 
         )
     }
