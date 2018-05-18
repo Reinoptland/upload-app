@@ -1,5 +1,7 @@
-import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError} from 'routing-controllers'
+import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError, UnauthorizedError} from 'routing-controllers'
 import Contract from './entity'
+import User from '../users/entity'
+import { verify, sign } from '../jwt'
 //import S3 from 'aws-sdk'
 const S3 = require('aws-sdk/clients/s3');
 
@@ -23,7 +25,14 @@ export default class ContractController {
     @Param('id') id:number,
     @Body() body: any,
     @UploadedFile('file') file: any) {
-        console.log(file)
+        const signed = sign({id})
+        const jwt = verify(signed)
+        
+        const user = await User.findOne({id})
+        if(!user) throw new NotFoundError('Geen gebruiker')
+
+        if(user.id !== jwt.id) throw new UnauthorizedError(`Contract not owned by you`)
+        
         let s3 = new S3()
         var params = {Bucket: 'hallorooscontracttest', Key: `${id}/${body.name}${file.originalname}`, Body: file.buffer};
         s3.upload(params, function(err, data) {
@@ -43,7 +52,7 @@ export default class ContractController {
     } 
     
 
-    @Authorized()
+    //@Authorized()
     @Get('/contracts/:userId')
     async getAllContractsByUserId(
     @Param('userId') userId : number) {
