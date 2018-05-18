@@ -14,6 +14,8 @@ export default class ContractController {
         return contractImages
     }
 
+    
+
     @Authorized()
     @Post('/contracts/:id')
     @HttpCode(201)
@@ -49,4 +51,20 @@ export default class ContractController {
         
     }
    
+    //@Authorized()
+    @Get('/contracts/:userId/:image')
+    async getContractImage(
+        @Param('userId') userId: number,
+        @Param('image') image: string) {
+        var s3 = new S3({region: 'eu-central-1'}, {signatureVersion: 'v4'});
+        var params = {Bucket: 'hallorooscontracttest', Key: `${userId}/${image}` , Expires: 60};
+        var url = s3.getSignedUrl('getObject', params);
+        console.log('The URL is', url)
+        return (url);
+    }
 }
+
+
+
+
+
