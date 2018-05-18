@@ -1,8 +1,8 @@
 .upload-page {
     min-width: 100%;
-    margin-top: 12%;
+    padding-top: 12%;
     background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
-    position: fixed;
+    height: 100%
 }
 
 /* header */
@@ -53,5 +53,5 @@
     text-align: center;
     font-size: 0.875em;
     padding: 0 15%;
-    margin: 55% auto;
+    margin: 45% auto;
 }
