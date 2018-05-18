@@ -35,7 +35,6 @@ class UploadForm extends PureComponent {
 			
 		this.props.upload(this.props.currentUser.userId,
 						this.props.contract,
-						this.state.name,
 						this.state.type,
 						this.state.provider))
 	}
@@ -53,7 +52,7 @@ class UploadForm extends PureComponent {
 
 				<div className="contract-type">
 					<p> Welk soort contract is het? </p>
-					<select className="type" onChange={ this.handleChange } placeholder="Contract Type">
+					<select className="type"  name="type" id="type" onChange={ this.handleChange }>
 						<option value="0">Aansprakelijkheidsverzekering</option>
   						<option value="1">AOV verzekering</option>
   						<option value="2">Autoverzekering</option>
@@ -82,10 +81,6 @@ class UploadForm extends PureComponent {
 					<input type="text" name="provider" id="provider" onChange={ this.handleChange } placeholder="Contract Provider"/>
 				</div>
 
-				<div className="contract-price">
-					<p> Hoeveel kost je dit ongeveer per maand? </p>
-					<input type="text" name="name" id="name" onChange={ this.handleChange } />
-				</div>
 				</div>
 			
 			{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }

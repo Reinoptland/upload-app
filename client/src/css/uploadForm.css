@@ -28,11 +28,9 @@
     padding: 5%;
     border: 1px solid #E2E6E7;
 }
-
-.contract-price {
-    margin-bottom: 10%;
+.contract-provider {
+    margin-bottom: 10%
 }
-
 .submit-form {
     display: block;
     background-color: #fff;
