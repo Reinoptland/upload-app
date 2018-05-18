@@ -20,7 +20,7 @@ function getModalStyle() {
 const styles = theme => ({
     paper: {
         position: 'absolute',
-        width: theme.spacing.unit * 50,
+        width: theme.spacing.unit *100,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing.unit * 4
@@ -79,7 +79,7 @@ class ContractByUserId extends PureComponent {
 
     renderContractDetails(eachcontract) {
         const {classes} = this.props;
-
+      console.log("called")
         return (
             <div className="cardwrapper">
                 <Card className='contractcard'>
@@ -92,7 +92,7 @@ class ContractByUserId extends PureComponent {
                                 maxHeight: '100px'
                             }}
                                 onClick={this.handleOpen}
-                                src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}/>
+                                src={`${eachcontract.contractImage}`}/>
                         </Typography>
                         <Modal
                             open={this.state.open}
@@ -105,8 +105,8 @@ class ContractByUserId extends PureComponent {
                                         style={{
                                         maxHeight: '500px'
                                     }}
-                                        src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}/>
-
+                                        src={`${eachcontract.contractImage}`}/>
+                            {console.log("image",eachcontract.contractImage)}
                                 </Typography>
                           
                             </div>
