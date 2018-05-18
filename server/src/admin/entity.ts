@@ -28,6 +28,4 @@ export default class Admin extends BaseEntity {
     return bcrypt.compare(rawPassword, this.password)
   }
 
-  @Column('boolean', {nullable: false})
-  privacy: boolean
 }
