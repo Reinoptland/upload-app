@@ -1,0 +1,18 @@
+.topBarBG {
+    background: linear-gradient(to right, #E84435, #F57F17);
+    height: 5.1rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    padding-left: 0.3rem;
+}
+
+.roosLogo {
+    height: 1.4rem;
+    
+}
+
+.loginButton {
+    padding-right: 0.3rem;
+    float: right;
+    width: 90px;
+}
