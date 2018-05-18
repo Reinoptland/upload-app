@@ -1,8 +1,8 @@
-import {USER_LOGIN_FAILED} from '../actions/users'
+import {ADMIN_LOGIN_FAILED} from '../actions/admins'
 
 export default function (state = {}, {type, payload}) {
 	switch (type) {
-		case USER_LOGIN_FAILED:
+		case ADMIN_LOGIN_FAILED:
 			return {
 				error: payload
 			}

@@ -1,14 +1,14 @@
-import {USER_LOGIN_SUCCESS, USER_LOGOUT} from './actions/users'
+import {ADMIN_LOGOUT, ADMIN_LOGIN_SUCCESS} from './actions/admins'
 import {localStorageJwtKey} from './constants'
 
 export const storeJwt = store => next => action => {
   try {
-    if (action.type === USER_LOGIN_SUCCESS) {
+    if (action.type === ADMIN_LOGIN_SUCCESS) {
       localStorage.setItem(localStorageJwtKey, action.payload.jwt)
       localStorage.setItem('userId', action.payload.userId)
      
     }
-    if (action.type === USER_LOGOUT) {
+    if (action.type === ADMIN_LOGOUT) {
       localStorage.removeItem(localStorageJwtKey)
     }
   }

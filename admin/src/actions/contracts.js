@@ -1,6 +1,6 @@
 import * as request from 'superagent'
 import {baseUrl} from '../constants'
-import {logout} from './users'
+import {logout} from './admins'
 import {isExpired} from '../jwt'
 
 export const GET_CONTRACTS_BY_ID="GET_CONTRACTS_BY_ID"
@@ -9,8 +9,8 @@ export const GET_ALL_CONTRACTS="GET_ALL_CONTRACTS"
 export const getUserDetails =(userid)=> (dispatch,getState)  => {
     
     const state = getState()
-    if (!state.currentUser) return null
-     const jwt = state.currentUser.jwt
+    if (!state.currentAdmin) return null
+     const jwt = state.currentAdmin.jwt
   
      if (isExpired(jwt)) return dispatch(logout())
       request
@@ -25,8 +25,8 @@ export const getUserDetails =(userid)=> (dispatch,getState)  => {
     export const getAllContracts =()=> (dispatch,getState)  => {
     
         const state = getState()
-        if (!state.currentUser) return null
-         const jwt = state.currentUser.jwt
+        if (!state.currentAdmin) return null
+         const jwt = state.currentAdmin.jwt
       
          if (isExpired(jwt)) return dispatch(logout())
           request

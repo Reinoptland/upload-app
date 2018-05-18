@@ -1,24 +1,16 @@
-import {ADD_USER, UPDATE_USERS} from '../actions/users'
+import {GET_ALL_USERS} from '../actions/users'
 
-/*
-The state will contain the users in an object with the game ID as key
-*/
+const initialState=[]
 
-export default (state = null, {type, payload}) => {
+export default (state = initialState, {type, payload}) => {
+  
   switch (type) {
-    case ADD_USER:
-      return {
-        ...state,
-        [payload.id]: payload
-      }
-
+   
     
-
-    case UPDATE_USERS:
-      return payload.reduce((users, user) => {
-        users[user.id] = user
-        return users
-      }, {})
+      case  GET_ALL_USERS:
+      {  
+          return payload
+      }
 
     default:
       return state

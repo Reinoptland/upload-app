@@ -85,6 +85,9 @@ class ContractByUserId extends PureComponent {
                         <Typography component="h1">
                             Provider : {eachcontract.contractProvider}
                         </Typography>
+                        <Typography component="h1">
+                            Status: {eachcontract.contractStatus}
+                        </Typography>
                     </CardContent>
                 </Card>
 
@@ -107,13 +110,19 @@ class ContractByUserId extends PureComponent {
 
         return (
             
-            <Paper className='contract-paper'>
-                <span style={{width:'100%',display:'block',marginTop:'75px'}} >Email:{email}</span> 
-                {this
-                    .props
-                    .contractsById
-                    .map(eachcontract => this.renderContractDetails(eachcontract))}
-            </Paper>
+            <div>
+
+                {this.props.contractsById.length === 0 && 
+                    <p>No contracts stored at the moment</p>
+                }
+                {this.props.contractsById.length > 0 && <Paper className='contract-paper'>
+                    <span style={{width:'100%',display:'block',marginTop:'75px'}} >Email:{email}</span> 
+                    {this
+                        .props
+                        .contractsById
+                        .map(eachcontract => this.renderContractDetails(eachcontract))}
+                </Paper>}
+            </div>
 
         )
     }
