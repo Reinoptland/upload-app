@@ -34,7 +34,7 @@ export default class ContractController {
         });
         const contract = new Contract()
         contract.userId = id
-        contract.contractImage = `${id}/${body.name}${file.originalname}`
+        contract.contractImage = `${body.name}${file.originalname}`
         contract.contractName = body.name
         contract.contractType = body.type
         contract.contractProvider = body.provider
@@ -51,16 +51,23 @@ export default class ContractController {
         
     }
    
+
     //@Authorized()
     @Get('/contracts/:userId/:image')
     async getContractImage(
         @Param('userId') userId: number,
         @Param('image') image: string) {
+        
+        const contract = await Contract.findOne({contractImage: `${userId}/${image}`})
+
         var s3 = new S3({region: 'eu-central-1'}, {signatureVersion: 'v4'});
         var params = {Bucket: 'hallorooscontracttest', Key: `${userId}/${image}` , Expires: 60};
         var url = s3.getSignedUrl('getObject', params);
-        console.log('The URL is', url)
-        return (url);
+        
+        if (!contract) throw new NotFoundError('Geen contract gevonden.')
+        contract.contractImage= url
+
+        return (contract);
     }
 }
 
