@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import { Link } from 'react-router-dom'
 import {upload} from '../../actions/upload'
 import {connect} from 'react-redux'
 
@@ -41,6 +42,7 @@ class UploadForm extends PureComponent {
 
 	render() {
 		return (
+			<div>
 			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data" className="upload-form">
 				
 				<div className="contract-pic">
@@ -73,7 +75,6 @@ class UploadForm extends PureComponent {
 						<option value="18">Uitvaartverzekering</option>
 						<option value="19">Zorgverzekering</option>
 					</select>
-					{/* <input type="text" name="type" id="type" onChange={ this.handleChange } placeholder="Contract Type" /> */}
 				</div>
 
 				<div className="contract-provider">
@@ -82,18 +83,26 @@ class UploadForm extends PureComponent {
 				</div>
 
 				</div>
-			
-			{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
 
 				<button type="submit" className="submit-form">Voeg mijn contract toe</button>
 			</form>	
+
+			<div className='bottom-nav'>
+				<img src="icons/home.svg" alt="home-icon"></img>
+				<img src="icons/contracten.svg" alt="contract-icon"></img>
+				<img src="icons/advies.svg" alt="advies-icon"></img>
+				<Link to={'/logout'}>
+				<img src="icons/loguit.svg" alt="loguit-icon"></img>
+				</Link>
+			</div>
+				
+			</div>
 		)
 	}
 }
 
 const mapStateToProps = state => ({
-	currentUser: state.currentUser,
-	error: state.upload.error
+	currentUser: state.currentUser
 })
 
 export default connect(mapStateToProps, {upload})(UploadForm) 
