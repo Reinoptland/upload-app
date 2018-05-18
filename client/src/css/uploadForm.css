@@ -1,6 +1,41 @@
-form img {
-    width: 100px;
+.upload-form {
+    margin: 27% 5%;
+    padding: 5%;
+    border: 2px solid #E2E6E7;
+    border-radius: 10px;
+    font-size: 1em;
 }
+.upload-form img {
+    width: 100px;
+    border: 2px dashed #F57F17;
+    margin: 0 5%;
+}
+.contract-pic {
+    display: block;
+    text-align: center;
+}
+.contract-field input {
+    width: 90%;
+    padding: 0 8%;
+}
+
+.submit-form {
+    display: block;
+    background-color: #fff;
+    border: 1.5px solid #F57F17;
+    padding: 0 6%;
+    margin: auto;
+    line-height: 40px;
+    color: #4A4A4A;
+    font-size: 1em;
+    border-radius: 20px
+}
+.submit-form:hover {
+    border: inherit;
+    background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
+    color: #fff;
+}
+
  
 
 

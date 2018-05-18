@@ -42,30 +42,34 @@ class UploadForm extends PureComponent {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data">
+			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data" className="upload-form">
 				
-				<div className='contract-pic'>
+				<div className="contract-pic">
+					<img src={this.state.imageSrc} alt='contract' />
 					<img src={this.state.imageSrc} alt='contract' />
 				</div>
 
-				<div>
-					<label htmlFor="name">Contract Name</label>
+				<div className="contract-field">
+
+				<div className="contract-type">
+					<p> Welk soort contract is het? </p>
+					<input type="text" name="type" id="type" onChange={ this.handleChange } placeholder="Contract Type" />
+				</div>
+
+				<div className="contract-provider">
+					<p>Bij wie heb je je contract afgesloten? </p>
+					<input type="text" name="provider" id="provider" onChange={ this.handleChange } placeholder="Contract Provider"/>
+				</div>
+
+				<div className="contract-price">
+					<p> Hoeveel kost je dit ongeveer per maand? </p>
 					<input type="text" name="name" id="name" onChange={ this.handleChange } />
 				</div>
-
-				<div>
-					<label htmlFor="type">Contract Type</label>
-					<input type="text" name="type" id="type" onChange={ this.handleChange } />
-				</div>
-
-				<div>
-					<label htmlFor="provider">Contract Provider</label>
-					<input type="text" name="provider" id="provider" onChange={ this.handleChange } />
 				</div>
 			
 			{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
 
-				<button type="submit" >Submit</button>
+				<button type="submit" className="submit-form">Voeg mijn contract toe</button>
 			</form>	
 		)
 	}
