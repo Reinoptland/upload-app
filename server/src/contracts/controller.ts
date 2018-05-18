@@ -56,7 +56,7 @@ export default class ContractController {
     async getContractImage(
         @Param('userId') userId: number,
         @Param('image') image: string) {
-        let s3 = new S3()
+        var s3 = new S3({region: 'eu-central-1'}, {signatureVersion: 'v4'});
         var params = {Bucket: 'hallorooscontracttest', Key: `${userId}/${image}` , Expires: 60};
         var url = s3.getSignedUrl('getObject', params);
         console.log('The URL is', url)
