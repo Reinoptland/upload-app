@@ -1,4 +1,4 @@
-import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized} from 'routing-controllers'
+import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError} from 'routing-controllers'
 import Contract from './entity'
 //import S3 from 'aws-sdk'
 const S3 = require('aws-sdk/clients/s3');
@@ -23,13 +23,16 @@ export default class ContractController {
     @UploadedFile('file') file: any) {
         console.log(file)
         let s3 = new S3()
-        var params = {Bucket: 'hallorooscontracttest', Key: `${id}/${body.name}`, Body: file.buffer};
+        var params = {Bucket: 'hallorooscontracttest', Key: `${id}/${body.name}${file.originalname}`, Body: file.buffer};
         s3.upload(params, function(err, data) {
-            console.log(err, data); //handle error and success
+            if (err) {
+                throw new NotFoundError('Er is een technisch probleem, probeer later nog een keer.')
+            } else 
+            console.log(err, data)
         });
         const contract = new Contract()
         contract.userId = id
-        contract.contractImage = `${id}/${body.name}` //TODO: keyname - need to make an original
+        contract.contractImage = `${id}/${body.name}${file.originalname}`
         contract.contractName = body.name
         contract.contractType = body.type
         contract.contractProvider = body.provider
