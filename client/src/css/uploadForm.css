@@ -7,7 +7,7 @@
 }
 .upload-form img {
     width: 100px;
-    border: 2px dashed #F57F17;
+    border: 2px dashed #E84435;
     margin: 0 5%;
 }
 .contract-pic {
@@ -15,14 +15,22 @@
     text-align: center;
 }
 .contract-field input {
-    width: 90%;
-    padding: 0 8%;
+    width: 80%;
+    padding: 5%;
+    border: 1px solid #E2E6E7;
+}
+.contract-provider {
+    
+}
+
+.contract-price {
+    margin-bottom: 10%;
 }
 
 .submit-form {
     display: block;
     background-color: #fff;
-    border: 1.5px solid #F57F17;
+    border: 1.5px solid #E84435;
     padding: 0 6%;
     margin: auto;
     line-height: 40px;
