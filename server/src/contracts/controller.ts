@@ -1,12 +1,12 @@
-import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile} from 'routing-controllers'
+import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized} from 'routing-controllers'
 import Contract from './entity'
 //import S3 from 'aws-sdk'
-var S3 = require('aws-sdk/clients/s3');
+const S3 = require('aws-sdk/clients/s3');
 
 @JsonController()
 export default class ContractController {
 
-    //@Authorized()
+    @Authorized()
     @Get('/contracts')
     async getAllContracts() {
         const contractImages = await Contract.find()
@@ -14,7 +14,7 @@ export default class ContractController {
         return contractImages
     }
 
-    //@Authorized()
+    @Authorized()
     @Post('/contracts/:id')
     @HttpCode(201)
     async postContractImage(
@@ -23,13 +23,13 @@ export default class ContractController {
     @UploadedFile('file') file: any) {
         console.log(file)
         let s3 = new S3()
-        var params = {Bucket: 'hallorooscontracttest', Key: file.originalname, Body: file.buffer};
+        var params = {Bucket: 'hallorooscontracttest', Key: `${id}/${body.name}`, Body: file.buffer};
         s3.upload(params, function(err, data) {
             console.log(err, data); //handle error and success
         });
         const contract = new Contract()
         contract.userId = id
-        contract.contractImage = file.originalname //TODO: keyname - need to make an original
+        contract.contractImage = `${id}/${body.name}` //TODO: keyname - need to make an original
         contract.contractName = body.name
         contract.contractType = body.type
         contract.contractProvider = body.provider
@@ -38,7 +38,7 @@ export default class ContractController {
     } 
     
 
-    // @Authorized()
+    @Authorized()
     @Get('/contracts/:userId')
     async getAllContractsByUserId(
     @Param('userId') userId : number) {
