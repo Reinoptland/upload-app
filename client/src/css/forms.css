@@ -6,7 +6,7 @@
     color: #BFBFBF
   }
 
-  input:focus{
+  input:focus, select:focus {
     outline: 2px solid #E84435;
     color: #4A4A4A;
   }

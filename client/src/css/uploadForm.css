@@ -14,13 +14,19 @@
     display: block;
     text-align: center;
 }
-.contract-field input {
-    width: 80%;
+.contract-field select {
+    width: 100%;
+    font-size: 0.8em;
+    font-family: 'BrandonText-Regular';
+    background-color: transparent;
+    color: #4A4A4A;
+    padding: 4%;
+}
+.contract-field input  {
+    width: 88%;
+    margin: 0 auto;
     padding: 5%;
     border: 1px solid #E2E6E7;
-}
-.contract-provider {
-    
 }
 
 .contract-price {
