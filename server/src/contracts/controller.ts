@@ -1,6 +1,6 @@
 import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile} from 'routing-controllers'
 import Contract from './entity'
-//import S3 from 'aws-sdk/clients/s3'
+//import S3 from 'aws-sdk'
 var S3 = require('aws-sdk/clients/s3');
 
 @JsonController()

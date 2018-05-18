@@ -11,6 +11,8 @@ export const upload = (userId, contract,name,type,provider) => (dispatch, getSta
     const state = getState()
     const jwt = state.currentUser.jwt
   
+    if (isExpired(jwt)) return dispatch(logout())
+    
     request
       .post(`${baseUrl}/contracts/${userId}`)
       .set('Authorization', `Bearer ${jwt}`)
