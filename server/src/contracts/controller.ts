@@ -11,6 +11,9 @@ export default class ContractController {
     @Authorized()
     @Get('/contracts')
     async getAllContracts() {
+
+        // add security 
+        
         const contractImages = await Contract.find()
         contractImages.forEach(x=>delete x.contractImage)
         return contractImages
@@ -56,6 +59,7 @@ export default class ContractController {
     @Get('/contracts/:userId')
     async getAllContractsByUserId(
     @Param('userId') userId : number) {
+        // add security 
         return  await Contract.find({userId})
         
     }
@@ -67,6 +71,7 @@ export default class ContractController {
         @Param('userId') userId: number,
         @Param('image') image: string) {
         
+            // add security  
         const contract = await Contract.findOne({contractImage: `${userId}/${image}`})
 
         var s3 = new S3({region: 'eu-central-1'}, {signatureVersion: 'v4'});
