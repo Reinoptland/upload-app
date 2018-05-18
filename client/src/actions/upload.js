@@ -30,7 +30,7 @@ export const upload = (userId, contract,name,type,provider) => (dispatch, getSta
       .catch(err => {
         dispatch({
           type: UPLOAD_FAILED,
-          payload: { error: err.message }
+          payload: 'upload mislukt'
         })
       })
   }
