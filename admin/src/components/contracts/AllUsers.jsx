@@ -3,8 +3,6 @@ import {connect} from 'react-redux'
 import Card, { CardContent} from 'material-ui/Card'
 import {Link} from 'react-router-dom'
 import Typography from 'material-ui/Typography'
-import {getUserDetails} from '../../actions/contracts'
-import {getAllContracts} from '../../actions/contracts'
 import Paper from 'material-ui/Paper'
 import {getUsers} from '../../actions/users'
 import '../../css/AllUsers.css'
@@ -12,48 +10,28 @@ import '../../css/AllUsers.css'
 const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
 
 class AllUsers extends PureComponent {
-    constructor() {
-        super()
-        this.handleClick = this
-            .handleClick
-            .bind(this)
+
+    componentWillMount() {   
+        this.props.getUsers() 
     }
 
-    componentWillMount() {
-        
-            this
-                .props
-                .getUsers()
-        
-    }
-
-    handleClick(userid) {
-       
-        this
-            .props
-            .getUserDetails(userid)
-
-    }
-
-    renderUser(eachuser) {
+    renderUser(eachUser) {
 
         return (
             <Card className='usercard'>
                 <CardContent className="card-content">
 
-                    <Link to ={`/users/${eachuser.id}`}>
+                    <Link to ={`/users/${eachUser.id}`}>
                         <Typography component="h1">
-                            <img
-                                onClick={() => this.handleClick(eachuser.id)}
-                                alt='userpicture'
-                                style={{
-                                maxHeight: '100px'
-                            }}
+                            <img 
+                                alt='userpicture' 
+                                style={{maxHeight: '100px'
+                                }}
                                 src={userimage}/>
                         </Typography>
                     </Link>
                     <Typography component="h1">
-                        Email:{eachuser.email}
+                        Email:{eachUser.email}
                     </Typography>
 
                 </CardContent>
@@ -63,9 +41,9 @@ class AllUsers extends PureComponent {
 
     render() {
 
-        let userslist = []
+        let usersList = []
         if (this.props.users !== null) {
-            userslist = Object.values(this.props.users)
+            usersList = Object.values(this.props.users)
         }
 
         return (
@@ -73,13 +51,13 @@ class AllUsers extends PureComponent {
                  {this.props.users.length > 0 &&<Paper className="user-paper">
 
                     <div>
-                        {userslist.map((eachuser,index) =>  <div key={eachuser.id}>{this.renderUser(eachuser)}</div>)}
+                        {usersList.map((eachUser,index) =>  <div key={eachUser.id}>{this.renderUser(eachUser)}</div>)}
                     </div>
 
                 </Paper>}
               
                 {this.props.users.length === 0 && <Paper className="user-paper">
-                    <p>No users and no contracts stored at the moment.</p>
+                    <p>No users in the database at the moment.</p>
                 </Paper>}
             </div>
         )
@@ -88,9 +66,7 @@ class AllUsers extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-    users: state.users,
-    contracts: state.contracts
-
+    users: state.users
 })
 
-export default connect(mapStateToProps, {getUserDetails, getAllContracts, getUsers})(AllUsers)
+export default connect(mapStateToProps, {getUsers})(AllUsers)
