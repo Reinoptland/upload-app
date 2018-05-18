@@ -21,3 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 .eslintrc
 .DS_Store
+.DS_Store
