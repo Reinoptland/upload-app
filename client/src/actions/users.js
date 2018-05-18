@@ -47,7 +47,8 @@ request
 		.send({ email, password, privacy })
 		.then(result => {
 			dispatch({
-				type: USER_SIGNUP_SUCCESS
+				type: USER_SIGNUP_SUCCESS,
+				payload:result.body
 			})
 		})
 		.catch(err => {
