@@ -1,6 +1,6 @@
 .upload-page {
     min-width: 100%;
-    margin-top: 12%;
+    margin-top: 80px;    
     background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
     position: fixed;
 }
@@ -54,4 +54,6 @@
     font-size: 0.875em;
     padding: 0 15%;
     margin: 55% auto;
+    color: #fff !important;
+    text-decoration: none;
 }
