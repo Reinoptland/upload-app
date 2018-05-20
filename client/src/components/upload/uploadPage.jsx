@@ -2,8 +2,8 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import AddIcons from './addicons'
 import {Redirect} from 'react-router-dom'
-import BottomNav from '../layout/BottomNav'
 import { Link } from 'react-router-dom'
+import BottomNav from '../layout/BottomNav'
 
 //Styling
 import '../../css/uploadPage.css'
@@ -26,7 +26,6 @@ class UploadPage extends PureComponent {
 				<div className='bottom-link'>
 					<p><Link to={'/HowTo'}>Lees hier tips over foto's maken en waar je document aan moet voldoen</Link></p>
 				</div>
-		
 				<BottomNav/>
 			</div>
 		)

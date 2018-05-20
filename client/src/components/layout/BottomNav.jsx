@@ -10,17 +10,15 @@ class BottomNav extends Component {
     return (
       <div className='bottom-nav'>
         <div className='left-icons'>
-            <img src="icons/home.svg" alt="home-icon"></img>
-            <img src="icons/contracten.svg" alt="contract-icon"></img>
+        <Link to={'/home'}><img src="icons/home.svg" alt="home-icon"></img></Link>
+        <Link to={'/contracts'}><img src="icons/contracten.svg" alt="contract-icon"></img></Link>
         </div>
         <div className='add-button'>
-        <img src="icons/addButton.svg" alt="home-icon"></img>
+        <Link to={'/upload'}><img src="icons/addButton.svg" alt="home-icon"></img></Link>
         </div>
         <div className='right-icons'>
-          <img src="icons/advies.svg" alt="advies-icon"></img>
-          <Link to={'/logout'}>
-            <img src="icons/loguit.svg" alt="loguit-icon"></img>
-          </Link>
+          <Link to={'/advice'}><img src="icons/advies.svg" alt="advies-icon"></img></Link>
+          <Link to={'/logout'}><img src="icons/loguit.svg" alt="loguit-icon"></img></Link>
         </div>
 
       </div>
