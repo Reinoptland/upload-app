@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import {upload} from '../../actions/upload'
 import {connect} from 'react-redux'
+import UploadPage from './uploadPage'
 
 //Styling
 import '../../css/uploadForm.css'
@@ -10,7 +11,9 @@ class UploadForm extends PureComponent {
 
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+			status: 'New'
+		}
         
 		const myFileReader = new FileReader()
 		myFileReader.onload = (e) => {
@@ -37,7 +40,9 @@ class UploadForm extends PureComponent {
 		this.props.upload(this.props.currentUser.userId,
 						this.props.contract,
 						this.state.type,
-						this.state.provider))
+						this.state.provider,
+						this.state.status))
+		
 	}
 
 	render() {
@@ -83,8 +88,9 @@ class UploadForm extends PureComponent {
 				</div>
 
 				</div>
-
+			
 				<button type="submit" className="submit-form">Voeg mijn contract toe</button>
+			
 			</form>	
 
 			<div className='nav'>
