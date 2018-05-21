@@ -23,9 +23,9 @@
     padding: 4%;
 }
 .contract-field input  {
-    width: 88%;
+    width: 96%;
     margin: 0 auto;
-    padding: 5%;
+    padding: 2%;
     border: 1px solid #E2E6E7;
 }
 .contract-provider {
@@ -47,7 +47,22 @@
     background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
     color: #fff;
 }
+.nav {
+    display: inline-flex;
+    background-color: #fff;
+    width: 90%;
+    padding: 0 5%;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+}
 
+@media screen and (min-width: 600px) {
+    .upload-form {
+        margin: 15% 5%;
+    }
+}
 
  
 

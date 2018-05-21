@@ -87,7 +87,7 @@ class UploadForm extends PureComponent {
 				<button type="submit" className="submit-form">Voeg mijn contract toe</button>
 			</form>	
 
-			<div className='bottom-nav'>
+			<div className='nav'>
 				<img src="icons/home.svg" alt="home-icon"></img>
 				<img src="icons/contracten.svg" alt="contract-icon"></img>
 				<img src="icons/advies.svg" alt="advies-icon"></img>
