@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import { Link } from 'react-router-dom'
 import {upload} from '../../actions/upload'
 import {connect} from 'react-redux'
 
@@ -9,7 +10,9 @@ class UploadForm extends PureComponent {
 
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+			status: 'New'
+		}
         
 		const myFileReader = new FileReader()
 		myFileReader.onload = (e) => {
@@ -35,45 +38,77 @@ class UploadForm extends PureComponent {
 			
 		this.props.upload(this.props.currentUser.userId,
 						this.props.contract,
-						this.state.name,
 						this.state.type,
-						this.state.provider))
+						this.state.provider,
+						this.state.status))
+
+		document.getElementById("form").reset()
 	}
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data">
+			<div>
+			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data" id="form" className="upload-form">
 				
-				<div className='contract-pic'>
-					<img src={this.state.imageSrc} alt='contract' />
+				<div className="contract-pic">
+					<img src={this.state.imageSrc} alt='contract' className='contract-preview'/>
+					<img src={'/icons/Addpic.svg'} alt='add-pic' className='add-icon' />
 				</div>
 
-				<div>
-					<label htmlFor="name">Contract Name</label>
-					<input type="text" name="name" id="name" onChange={ this.handleChange } />
+				<div className="contract-field">
+
+				<div className="contract-type">
+					<p> Welk soort contract is het? </p>
+					<select className="type"  name="type" id="type" onChange={ this.handleChange }>
+						<option value="0">Aansprakelijkheidsverzekering</option>
+  						<option value="1">AOV verzekering</option>
+  						<option value="2">Autoverzekering</option>
+  						<option value="3">Bootverzekering</option>
+						<option value="4">Dierenverzekering</option>
+						<option value="5">Energie</option>
+						<option value="6">Hypotheek</option>
+						<option value="7">Inboedelverzekering</option>
+						<option value="9">Internet, tv & bellen</option>
+						<option value="10">Kranten & tijdschriften</option>
+						<option value="11">Motorverzekering</option>
+						<option value="12">Opstalverzekering</option>
+						<option value="13">OV</option>
+						<option value="14">Overlijdensrisicoverzekering</option>
+						<option value="15">Rechtsbijstandverzekering</option>
+						<option value="16">Reisverzekering</option>
+						<option value="17">Scooterverzekering</option>
+						<option value="18">Uitvaartverzekering</option>
+						<option value="19">Zorgverzekering</option>
+					</select>
 				</div>
 
-				<div>
-					<label htmlFor="type">Contract Type</label>
-					<input type="text" name="type" id="type" onChange={ this.handleChange } />
+				<div className="contract-provider">
+					<p>Bij wie heb je je contract afgesloten? </p>
+					<input type="text" name="provider" id="provider" onChange={ this.handleChange } placeholder="Contract Provider"/>
 				</div>
 
-				<div>
-					<label htmlFor="provider">Contract Provider</label>
-					<input type="text" name="provider" id="provider" onChange={ this.handleChange } />
 				</div>
 			
-			{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
-
-				<button type="submit" >Submit</button>
+				<button type="submit" className="submit-form">Voeg mijn contract toe</button>
+			
 			</form>	
+
+			<div className='nav'>
+				<img src="icons/home.svg" alt="home-icon"></img>
+				<img src="icons/contracten.svg" alt="contract-icon"></img>
+				<img src="icons/advies.svg" alt="advies-icon"></img>
+				<Link to={'/logout'}>
+				<img src="icons/loguit.svg" alt="loguit-icon"></img>
+				</Link>
+			</div>
+				
+			</div>
 		)
 	}
 }
 
 const mapStateToProps = state => ({
-	currentUser: state.currentUser,
-	error: state.upload.error
+	currentUser: state.currentUser
 })
 
 export default connect(mapStateToProps, {upload})(UploadForm) 

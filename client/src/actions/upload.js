@@ -7,7 +7,7 @@ export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS'
 export const UPLOAD_FAILED = 'UPLOAD_FAILED'
 export const UPDATE_UPLOADS = 'UPDATE_UPLOADS'
 
-export const upload = (userId, contract,name,type,provider) => (dispatch, getState) => {
+export const upload = (userId, contract, type, provider, status) => (dispatch, getState) => {
     const state = getState()
     const jwt = state.currentUser.jwt
   
@@ -17,9 +17,9 @@ export const upload = (userId, contract,name,type,provider) => (dispatch, getSta
       .post(`${baseUrl}/contracts/${userId}`)
       .set('Authorization', `Bearer ${jwt}`)
       .attach('file',contract)
-      .field('name',name)
       .field('type',type)
       .field('provider',provider)
+      .field('status', status)
       .then(res => {
           console.log(res)
         dispatch({

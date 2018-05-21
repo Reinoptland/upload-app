@@ -1,7 +1,8 @@
-import {UPLOAD_FAILED,UPDATE_UPLOADS} from '../actions/upload'
+import {UPLOAD_FAILED, UPDATE_UPLOADS} from '../actions/upload'
 
 export default function (state = {}, {type, payload}) {
 	switch (type) {
+
 		case UPLOAD_FAILED:
 			return {
 				error: payload

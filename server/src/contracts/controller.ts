@@ -46,8 +46,7 @@ export default class ContractController {
         });
         const contract = new Contract()
         contract.userId = id
-        contract.contractImage = `${body.name}${file.originalname}`
-        contract.contractName = body.name
+        contract.contractImage = file
         contract.contractType = body.type
         contract.contractProvider = body.provider
 

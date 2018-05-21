@@ -19,10 +19,6 @@ export default class Contract extends BaseEntity {
 
     @IsString()
     @Column('text', {nullable: true})
-    contractName: string
-
-    @IsString()
-    @Column('text', {nullable: true})
     contractType: string
 
     @IsString()
@@ -32,6 +28,5 @@ export default class Contract extends BaseEntity {
     @IsString()
     @Column('text', {nullable: true})
     uploadStatus: Status
-   
 
 }
