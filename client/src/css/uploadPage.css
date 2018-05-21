@@ -20,7 +20,6 @@
 .header p {
     font-size: 0.875em;
     color: #fff;
-    /* font-weight: light  */
 }
 
 /* icons */
@@ -54,8 +53,80 @@
     text-align: center;
     font-size: 0.875em;
     padding: 0 15%;
-    margin: 35% auto 45% auto;
+    margin: 35% auto 65% auto;
 }
 .bottom-link a{
     color: #fff;
+}
+
+@media screen and (min-width: 600px) {
+    .upload-page {
+        padding-top: 0;
+        font-size: 1.5em;
+        position: fixed
+    }
+    .header {
+        padding-top: 15%;
+    }
+    .icons, .input {
+        left: 35%;
+        right: 25%;
+    }
+    .bottom-link{
+        margin: 35% auto 15% auto
+    }
+}
+@media screen and (min-width: 800px) {
+    .upload-page {
+        padding-top: 0;
+        font-size: 1.5em;
+        position: fixed
+    }
+    .header {
+        padding-top: 15%;
+    }
+    .icons, .input {
+        left: 35%;
+        right: 25%;
+    }
+    .bottom-link{
+        margin: 35% auto 15% auto
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .upload-page {
+        padding-top: 10%;
+        font-size: 1.5em;
+        position: fixed
+    }
+    .header {
+        padding-bottom: 5%;
+        padding-top: 5%;
+    }
+    .icons, .input {
+        left: 35%;
+        right: 25%;
+    }
+    .bottom-link{
+        margin: 25% auto
+    }
+}
+@media screen and (min-width: 1200px) {
+    .upload-page {
+        padding-top: 0;
+        font-size: 1.5em;
+        position: fixed
+    }
+    .header {
+        padding-bottom: 5%;
+        padding-top: 5%;
+    }
+    .icons, .input {
+        left: 35%;
+        right: 25%;
+    }
+    .bottom-link{
+        margin: 15% auto
+    }
 }
