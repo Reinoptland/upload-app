@@ -1,8 +1,7 @@
 import React, {PureComponent} from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {upload} from '../../actions/upload'
 import {connect} from 'react-redux'
-import UploadPage from './uploadPage'
 
 //Styling
 import '../../css/uploadForm.css'
@@ -42,17 +41,18 @@ class UploadForm extends PureComponent {
 						this.state.type,
 						this.state.provider,
 						this.state.status))
-		
+
+		document.getElementById("form").reset()
 	}
 
 	render() {
 		return (
 			<div>
-			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data" className="upload-form">
+			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data" id="form" className="upload-form">
 				
 				<div className="contract-pic">
-					<img src={this.state.imageSrc} alt='contract' />
-					<img src={this.state.imageSrc} alt='contract' />
+					<img src={this.state.imageSrc} alt='contract' className='contract-preview'/>
+					<img src={'/icons/Addpic.svg'} alt='add-pic' className='add-icon' />
 				</div>
 
 				<div className="contract-field">
