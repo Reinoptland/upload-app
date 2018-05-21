@@ -1,15 +1,15 @@
 import {
-	USER_SIGNUP_SUCCESS, USER_SIGNUP_FAILED
-} from '../actions/users'
+	ADMIN_SIGNUP_SUCCESS, ADMIN_SIGNUP_FAILED
+} from '../actions/admins'
 
 export default function (state = {}, {type, payload}) {
 	switch(type) {
-    case USER_SIGNUP_SUCCESS:
+    case ADMIN_SIGNUP_SUCCESS:
       return {
         success: true
       }
 
-    case USER_SIGNUP_FAILED:
+    case ADMIN_SIGNUP_FAILED:
       return {
         error: payload
       }

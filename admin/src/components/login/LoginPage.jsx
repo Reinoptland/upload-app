@@ -1,9 +1,8 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {login} from '../../actions/users'
+import {login} from '../../actions/admins'
 import LoginForm from './LoginForm'
 import {Redirect} from 'react-router-dom'
-import { Link } from 'react-router-dom'
 
 //styling
 import '../../css/login.css'
@@ -14,7 +13,7 @@ class LoginPage extends PureComponent {
 	}
 
 	render() {
-		if (this.props.currentUser) return (
+		if (this.props.currentAdmin) return (
 			<Redirect to="/users" />
 		)
 
@@ -26,9 +25,6 @@ class LoginPage extends PureComponent {
 
 		{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
 		
-				<div className="signuptext">
-					<Link to={'/signup'}>nog geen account? Inschrijven</Link>
-				</div>
 			</div>
 		)
 	}
@@ -36,7 +32,7 @@ class LoginPage extends PureComponent {
 
 const mapStateToProps = function (state) {
 	return {
-		currentUser: state.currentUser,
+		currentAdmin: state.currentAdmin,
     	error: state.login.error
 	}
 }

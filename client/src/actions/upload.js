@@ -11,6 +11,8 @@ export const upload = (userId, contract, type, provider, status) => (dispatch, g
     const state = getState()
     const jwt = state.currentUser.jwt
   
+    if (isExpired(jwt)) return dispatch(logout())
+    
     request
       .post(`${baseUrl}/contracts/${userId}`)
       .set('Authorization', `Bearer ${jwt}`)
@@ -28,7 +30,7 @@ export const upload = (userId, contract, type, provider, status) => (dispatch, g
       .catch(err => {
         dispatch({
           type: UPLOAD_FAILED,
-          payload: { error: err.message }
+          payload: 'upload mislukt'
         })
       })
   }

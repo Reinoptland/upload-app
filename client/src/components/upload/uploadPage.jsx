@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 import UploadForm from './uploadForm'
 import BottomNav from '../layout/BottomNav'
 
-
 //Styling
 import '../../css/uploadPage.css'
 

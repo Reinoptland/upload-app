@@ -2,6 +2,7 @@ import { IsString } from 'class-validator'
 import { JsonController, Post, Body, BadRequestError } from 'routing-controllers'
 import { sign } from '../jwt'
 import User from '../users/entity'
+import Admin from '../admin/entity';
 
 class AuthenticatePayload {
   @IsString()
@@ -24,6 +25,19 @@ export default class LoginController {
     if (!await user.checkPassword(password)) throw new BadRequestError('The password is not correct')
 
     const jwt = sign({ id: user.id! })
-    return { jwt:jwt,userId:user.id }
+    return { jwt:jwt, userId:user.id }
+  }
+
+  @Post('/loginsAdmin')
+  async authenticateAdmin(
+    @Body() { email, password }: AuthenticatePayload
+  ) {
+    const user = await Admin.findOne({ where: { email } })
+    if (!user) throw new BadRequestError('A user with this email does not exist')
+
+    if (!await user.checkPassword(password)) throw new BadRequestError('The password is not correct')
+
+    const jwt = sign({ id: user.id! })
+    return { jwt:jwt, userId:user.id }
   }
 }

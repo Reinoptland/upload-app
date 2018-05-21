@@ -35,27 +35,28 @@ body, html {
 /* Typography */
 
 h1 {
-  font-weight: bold;
+  font-family: 'BrandonText-Bold';
   font-size: 1.25em;
 }
 
 h2 {
-  font-weight: bold;
+  font-family: 'BrandonText-Bold';
   font-size: 1.125em;
 }
 
 h3 {
-  font-weight: bold;
+  font-family: 'BrandonText-Bold';
   font-size: 1em;
 }
 
 p {
-  font-weight: bold;
-  font-size: 0.9375em;
+  font-family: 'BrandonText-Regular';
+  font-size: 1em;
 }
 
 p, li {
-  font-size: 0.9375em;
+  font-family: 'BrandonText-Regular';
+  font-size: 1em;
 }
 
 a {

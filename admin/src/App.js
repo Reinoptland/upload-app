@@ -6,11 +6,7 @@ import LogoutPage from './components/logout/LogoutPage'
 import AllUsers from './components/contracts/AllUsers'
 import ContractByUserId from './components/contracts/ContractByUserId'
 import { createBrowserHistory, createHashHistory } from 'history'
-
-
-//Styling
-// import TopBar from './components/layout/TopBar'
-import Top from './components/layout/Top'
+import TopBar from './components/layout/TopBar';
 
 function configureHistory() {
   if(window.matchMedia('(display-mode: standalone)').matches) {
@@ -28,7 +24,7 @@ class App extends PureComponent {
       <Router history={configureHistory()}>
         <div>
           <nav>
-            <Top/>
+            <TopBar/>
           </nav>
           <main>
             <Route exact path="/login" component={LoginPage} />
