@@ -21,7 +21,8 @@ const BottomNav = (props) => {
         {location.pathname.indexOf('contracts') > 0 && <Link to={'/contracts'}><img src="icons/contractenActive.svg" alt="contracts-icon"></img></Link>}
         </div>
         <div className='add-button'>
-        <Link to={'/upload'}><img src="icons/addButton.svg" alt="home-icon"></img></Link>
+        {location.pathname.indexOf('upload') < 0 && <Link to={'/upload'}><img src="icons/addButton.svg" alt="add-icon"></img></Link>}
+        {location.pathname.indexOf('upload') > 0 && <Link to={'/upload'}><img src="icons/addButtonActive.svg" alt="add-icon"></img></Link>}
         </div>
         <div className='right-icons'>
           {location.pathname.indexOf('advice') > 0 && <Link to={'/advice'}><img src="icons/adviesActive.svg" alt="advice-icon"></img></Link>}
