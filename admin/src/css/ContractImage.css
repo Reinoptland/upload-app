@@ -15,7 +15,8 @@
     
     margin:auto;
     padding:60px;
-    
-    min-height: 700px
-
+    max-width:1250px;
+    min-height: 700px;
+    max-height: 700px;
+    min-width :1250px;
 }
