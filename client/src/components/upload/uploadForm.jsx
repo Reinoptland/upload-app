@@ -61,7 +61,6 @@ class UploadForm extends PureComponent {
 	}
 
 	handleChange = (e) => {
-		console.log(this.state)
 		const {name,value} = e.target
 		this.setState({
 			[name]: value
@@ -69,10 +68,12 @@ class UploadForm extends PureComponent {
 	}
 	  
 	handleSubmit = (e) => {
+		console.log(this.state.contracten)
+
 		e.preventDefault(
 			
 		this.props.upload(this.props.currentUser.userId,
-						this.props.contract,
+						this.state.contracten,
 						this.state.type,
 						this.state.provider,
 						this.state.uploadStatus))

@@ -31,6 +31,8 @@ export default class ContractController {
         const signed = sign({id})
         const jwt = verify(signed)
         
+        console.log('BACKEND', file)
+
         const user = await User.findOne({id})
         if(!user) throw new NotFoundError('Geen gebruiker')
 
@@ -44,6 +46,7 @@ export default class ContractController {
             } else 
             console.log(err, data)
         });
+        
         const contract = new Contract()
         contract.userId = id
         contract.contractImage = `${body.type}${file.originalname}`
