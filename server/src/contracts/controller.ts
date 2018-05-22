@@ -1,4 +1,4 @@
-import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError, UnauthorizedError} from 'routing-controllers'
+import { JsonController, Get, Post,Patch, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError, UnauthorizedError} from 'routing-controllers'
 import Contract from './entity'
 import User from '../users/entity'
 import { verify, sign } from '../jwt'
@@ -37,7 +37,7 @@ export default class ContractController {
         if(user.id !== jwt.id) throw new UnauthorizedError(`Contract not owned by you`)
         
         let s3 = new S3()
-        var params = {Bucket: 'hallorooscontracttest', Key: `${id}/${body.name}${file.originalname}`, Body: file.buffer};
+        var params = {Bucket: 'hallorooscontracttest', Key: `${id}/${body.type}${file.originalname}`, Body: file.buffer};
         s3.upload(params, function(err, data) {
             if (err) {
                 throw new NotFoundError('Er is een technisch probleem, probeer later nog een keer.')
@@ -46,7 +46,7 @@ export default class ContractController {
         });
         const contract = new Contract()
         contract.userId = id
-        contract.contractImage = file
+        contract.contractImage = `${body.type}${file.originalname}`
         contract.contractType = body.type
         contract.contractProvider = body.provider
 
@@ -82,6 +82,20 @@ export default class ContractController {
 
         return (contract);
     }
+
+    @Authorized()
+    @Patch('/contracts/:userId/status')
+    async setUploadStatus(@Param('userId')id : number, @Body()update) {
+    const status = await Contract.findOneById(id)
+
+    if (!status) 
+      throw new NotFoundError(`User not found`)
+
+    const updatedStatus = Contract.merge(status, update)
+
+    const entity = await updatedStatus.save()
+    return entity
+  }
 }
 
 

@@ -63,7 +63,7 @@ export default class SignupForm extends PureComponent {
 					<p style={{color:'red'}}>The passwords do not match!</p>
 				}
 
-				<button className="customButton" disabled={!isEnabled} type="submit">Aanmelden</button>
+				<button className="customButton"  type="submit">Aanmelden</button>
 
 			</form>
 		)

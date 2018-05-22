@@ -47,7 +47,7 @@ export default class LoginForm extends PureComponent {
 					} onChange={ this.handleChange } />
 				</div>
 
-				<button className="customButton" disabled={!isEnabled} type="submit">Inloggen</button>
+				<button className="customButton" type="submit">Inloggen</button>
 			</form>
 		)
 	}
