@@ -6,6 +6,7 @@ import signup from './signup'
 import contracts from'./contracts'
 import contractsById from './contractsById'
 import upload from './upload'
+import appstatus from './appstatus'
 
 export default {
   users,
@@ -14,5 +15,6 @@ export default {
   signup,
   contracts,
   contractsById,
-  upload
+  upload,
+  appstatus
 }
