@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
 import { Link } from 'react-router-dom'
-import {upload} from '../../actions/upload'
+import {upload, uploading} from '../../actions/upload'
 import {connect} from 'react-redux'
+import {Uploading} from './uploading'
 
 //Styling
 import '../../css/uploadForm.css'
@@ -61,6 +62,7 @@ class UploadForm extends PureComponent {
 	}
 
 	handleChange = (e) => {
+		console.log(this.props.appStatus)
 		const {name,value} = e.target
 		this.setState({
 			[name]: value
@@ -68,7 +70,7 @@ class UploadForm extends PureComponent {
 	}
 	  
 	handleSubmit = (e) => {
-		console.log(this.state.contracten)
+		this.props.uploading()
 
 		e.preventDefault(
 			
@@ -82,6 +84,8 @@ class UploadForm extends PureComponent {
 	}
 
 	render() {
+
+		if (this.props.appStatus === "waiting") {
 		return (
 			<div>
 			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data" id="form" className="upload-form">
@@ -157,11 +161,35 @@ class UploadForm extends PureComponent {
 				
 			</div>
 		)
-	}
+
+			} else if (this.props.appStatus === "uploading") {
+				
+				return (
+					<div className="uploading">
+						<h1>Uw contract word opgeladen</h1>
+					</div>
+			)}
+
+			else if (this.props.appStatus === "uploadSucces") {
+				return (
+					<div className="uploading">
+						<h1>Uw contract werd succesvol opgeladen</h1>
+					</div>
+			)} 
+			
+			else {
+				return (
+					<div className="uploading">
+						<h1>Er is iets mis gegaan, probeer het later nogmaals</h1>
+					</div>
+			)}
+  }
 }
 
 const mapStateToProps = state => ({
-	currentUser: state.currentUser
+	currentUser: state.currentUser,
+	appStatus: state.appstatus
+
 })
 
-export default connect(mapStateToProps, {upload})(UploadForm) 
+export default connect(mapStateToProps, {upload, uploading})(UploadForm) 
