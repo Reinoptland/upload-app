@@ -1,8 +1,6 @@
 import {GET_ALL_CONTRACTS, CONTRACT_DELETED} from '../actions/contracts'
 
-const initialState = []
-
-export default (state = initialState, {type, payload}) => {
+export default (state = [], {type, payload}) => {
   
   switch (type) {
 
@@ -10,7 +8,7 @@ export default (state = initialState, {type, payload}) => {
       return payload
 
       case CONTRACT_DELETED:
-      return state.filter(contract => contract.id !== payload.id)
+      return state.filter(contract => contract.id !== payload)
 
     default:
       return state
