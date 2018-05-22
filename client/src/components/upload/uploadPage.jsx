@@ -35,8 +35,8 @@ class UploadPage extends PureComponent {
 				</div>
             
                 <div className='icons'>
-                    <img src='../../../icons/camIcon.svg' alt='camera' className='cam'/>
-                    <img src='../../../icons/fileUploadIcon.svg' alt='gallery' className='gal'/>
+                    <img src='icons/camIcon.svg' alt='camera' className='cam'/>
+                    <img src='icons/fileUploadIcon.svg' alt='gallery' className='gal'/>
                 </div>
                 <div className='input'>
                     <input type="file" name="camera" accept="image/*" capture="camera" id="camera" onChange={ this.handleContractChange } className='camIcon' />  
