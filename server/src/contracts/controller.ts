@@ -8,7 +8,7 @@ const S3 = require('aws-sdk/clients/s3');
 @JsonController()
 export default class ContractController {
 
-    @Authorized()
+    // @Authorized()
     @Get('/contracts')
     async getAllContracts() {
 
@@ -21,7 +21,7 @@ export default class ContractController {
 
     
 
-    @Authorized()
+    // @Authorized()
     @Post('/contracts/:id')
     @HttpCode(201)
     async postContractImage(
@@ -36,25 +36,26 @@ export default class ContractController {
 
         if(user.id !== jwt.id) throw new UnauthorizedError(`Contract not owned by you`)
         
-        let s3 = new S3()
-        var params = {Bucket: 'hallorooscontracttest', Key: `${id}/${body.name}${file.originalname}`, Body: file.buffer};
-        s3.upload(params, function(err, data) {
-            if (err) {
-                throw new NotFoundError('Er is een technisch probleem, probeer later nog een keer.')
-            } else 
-            console.log(err, data)
-        });
+        // let s3 = new S3()
+        // var params = {Bucket: 'hallorooscontracttest', Key: `${id}/${body.type}${file.originalname}`, Body: file.buffer};
+        // s3.upload(params, function(err, data) {
+        //     if (err) {
+        //         throw new NotFoundError('Er is een technisch probleem, probeer later nog een keer.')
+        //     } else 
+        //     console.log(err, data)
+        // });
         const contract = new Contract()
         contract.userId = id
-        contract.contractImage = file
+        contract.contractImage = `${file.originalname}`
         contract.contractType = body.type
         contract.contractProvider = body.provider
+        contract.uploadStatus = body.uploadStatus
 
         return await contract.save()
     } 
     
 
-    //@Authorized()
+    @Authorized()
     @Get('/contracts/:userId')
     async getAllContractsByUserId(
     @Param('userId') userId : number) {
@@ -64,7 +65,7 @@ export default class ContractController {
     }
    
 
-    //@Authorized()
+    @Authorized()
     @Get('/contracts/:userId/:image')
     async getContractImage(
         @Param('userId') userId: number,

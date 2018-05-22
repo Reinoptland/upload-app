@@ -7,7 +7,7 @@ export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS'
 export const UPLOAD_FAILED = 'UPLOAD_FAILED'
 export const UPDATE_UPLOADS = 'UPDATE_UPLOADS'
 
-export const upload = (userId, contract, type, provider, status) => (dispatch, getState) => {
+export const upload = (userId, contract, type, provider, uploadStatus) => (dispatch, getState) => {
     const state = getState()
     const jwt = state.currentUser.jwt
   
@@ -19,7 +19,7 @@ export const upload = (userId, contract, type, provider, status) => (dispatch, g
       .attach('file',contract)
       .field('type',type)
       .field('provider',provider)
-      .field('status', status)
+      .field('uploadStatus', uploadStatus)
       .then(res => {
           console.log(res)
         dispatch({
