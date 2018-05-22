@@ -72,14 +72,14 @@ export default class ContractController {
         @Param('image') image: string) {
         
             // add security  
-        const contract = await Contract.findOne({contractImage: `${userId}/${image}`})
+        const contract = await Contract.findOne({contractImage: `${image}`})
 
         var s3 = new S3({region: 'eu-central-1'}, {signatureVersion: 'v4'});
         var params = {Bucket: 'hallorooscontracttest', Key: `${userId}/${image}` , Expires: 60};
         var url = s3.getSignedUrl('getObject', params);
         
         if (!contract) throw new NotFoundError('Geen contract gevonden.')
-        contract.contractImage= url
+        contract.contractImage = url
 
         return (contract);
     }
