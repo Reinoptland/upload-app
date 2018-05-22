@@ -11,7 +11,7 @@ class UploadForm extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-			status: 'New'
+			uploadStatus: 'New'
 		}
         
 		const myFileReader = new FileReader()
@@ -40,8 +40,8 @@ class UploadForm extends PureComponent {
 						this.props.contract,
 						this.state.type,
 						this.state.provider,
-						this.state.status))
-
+						this.state.uploadStatus))
+		
 		document.getElementById("form").reset()
 	}
 
@@ -60,25 +60,25 @@ class UploadForm extends PureComponent {
 				<div className="contract-type">
 					<p> Welk soort contract is het? </p>
 					<select className="type"  name="type" id="type" onChange={ this.handleChange }>
-						<option value="0">Aansprakelijkheidsverzekering</option>
-  						<option value="1">AOV verzekering</option>
-  						<option value="2">Autoverzekering</option>
-  						<option value="3">Bootverzekering</option>
-						<option value="4">Dierenverzekering</option>
-						<option value="5">Energie</option>
-						<option value="6">Hypotheek</option>
-						<option value="7">Inboedelverzekering</option>
-						<option value="9">Internet, tv & bellen</option>
-						<option value="10">Kranten & tijdschriften</option>
-						<option value="11">Motorverzekering</option>
-						<option value="12">Opstalverzekering</option>
-						<option value="13">OV</option>
-						<option value="14">Overlijdensrisicoverzekering</option>
-						<option value="15">Rechtsbijstandverzekering</option>
-						<option value="16">Reisverzekering</option>
-						<option value="17">Scooterverzekering</option>
-						<option value="18">Uitvaartverzekering</option>
-						<option value="19">Zorgverzekering</option>
+						<option value="Aansprakelijkheidsverzekering">Aansprakelijkheidsverzekering</option>
+  						<option value="AOV verzekering">AOV verzekering</option>
+  						<option value="Autoverzekering">Autoverzekering</option>
+  						<option value="Bootverzekering">Bootverzekering</option>
+						<option value="Dierenverzekering">Dierenverzekering</option>
+						<option value="Energie">Energie</option>
+						<option value="Hypotheek">Hypotheek</option>
+						<option value="Inboedelverzekering">Inboedelverzekering</option>
+						<option value="Internet, tv & bellen">Internet, tv & bellen</option>
+						<option value="Kranten & tijdschriften">Kranten & tijdschriften</option>
+						<option value="Motorverzekering">Motorverzekering</option>
+						<option value="Opstalverzekering">Opstalverzekering</option>
+						<option value="OV">OV</option>
+						<option value="Overlijdensrisicoverzekering">Overlijdensrisicoverzekering</option>
+						<option value="Rechtsbijstandverzekering">Rechtsbijstandverzekering</option>
+						<option value="Reisverzekering">Reisverzekering</option>
+						<option value="Scooterverzekering">Scooterverzekering</option>
+						<option value="Uitvaartverzekering">Uitvaartverzekering</option>
+						<option value="Zorgverzekering">Zorgverzekering</option>
 					</select>
 				</div>
 

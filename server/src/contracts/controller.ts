@@ -8,7 +8,7 @@ const S3 = require('aws-sdk/clients/s3');
 @JsonController()
 export default class ContractController {
 
-    @Authorized()
+    // @Authorized()
     @Get('/contracts')
     async getAllContracts() {
 
@@ -49,6 +49,7 @@ export default class ContractController {
         contract.contractImage = `${body.type}${file.originalname}`
         contract.contractType = body.type
         contract.contractProvider = body.provider
+        contract.uploadStatus = body.uploadStatus
 
         return await contract.save()
     } 
@@ -64,21 +65,21 @@ export default class ContractController {
     }
    
 
-    //@Authorized()
+   // @Authorized()
     @Get('/contracts/:userId/:image')
     async getContractImage(
         @Param('userId') userId: number,
         @Param('image') image: string) {
         
             // add security  
-        const contract = await Contract.findOne({contractImage: `${userId}/${image}`})
+        const contract = await Contract.findOne({contractImage: `${image}`})
 
         var s3 = new S3({region: 'eu-central-1'}, {signatureVersion: 'v4'});
         var params = {Bucket: 'hallorooscontracttest', Key: `${userId}/${image}` , Expires: 60};
         var url = s3.getSignedUrl('getObject', params);
         
         if (!contract) throw new NotFoundError('Geen contract gevonden.')
-        contract.contractImage= url
+        contract.contractImage = url
 
         return (contract);
     }

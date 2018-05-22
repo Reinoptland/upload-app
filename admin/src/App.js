@@ -7,6 +7,7 @@ import AllUsers from './components/contracts/AllUsers'
 import ContractByUserId from './components/contracts/ContractByUserId'
 import { createBrowserHistory, createHashHistory } from 'history'
 import TopBar from './components/layout/TopBar';
+import ContractImage from './components/contracts/ContractImage'
 
 function configureHistory() {
   if(window.matchMedia('(display-mode: standalone)').matches) {
@@ -32,6 +33,7 @@ class App extends PureComponent {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/users" component={AllUsers}/>
             <Route exact path="/users/:id" component={ContractByUserId}/>
+            <Route exact path="/users/:id/:image" component={ContractImage}/>
             <Route exact path="/" render={ () => <Redirect to="/login" /> } />
           </main>
         </div>

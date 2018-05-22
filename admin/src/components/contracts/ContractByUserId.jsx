@@ -87,7 +87,7 @@ class ContractByUserId extends PureComponent {
 
       
         return (
-            <div className="cardwrapper">
+            <div key={eachcontract.id} className="cardwrapper">
                 <Card className='contractcard'>
                     <CardContent className='contractcard'>
 
@@ -97,7 +97,13 @@ class ContractByUserId extends PureComponent {
                                 style={{
                                 maxHeight: '100px'
                             }}
-                                src={eachcontract.contractImage}/>
+
+                             
+
+                            src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}
+                                onClick={() => window.location=`${eachcontract.contractImage}`}
+                                />
+
                         </Typography>
 
                         <Typography component="h1">
