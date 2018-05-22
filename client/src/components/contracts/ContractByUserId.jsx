@@ -49,14 +49,10 @@ class ContractByUserId extends PureComponent {
 
     componentWillMount() {
         if (this.props.users === null) {
-            this
-                .props
-                .getUsers()
+            this.props.getUsers()
         }
 
-        this
-            .props
-            .getUserDetails(this.props.match.params.id)
+        this.props.getUserDetails(this.props.match.params.id)
 
     }
 
