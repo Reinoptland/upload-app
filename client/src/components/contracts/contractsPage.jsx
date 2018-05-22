@@ -16,13 +16,18 @@ import '../../css/contracts.css'
       this.props.getAllContracts()
     }
 
-    renderContract() {
+    renderContract = (contract) => {
       
       return (
-        <Card> 
-          <h2> {contract.contractType} </h2>
-          <p> {contract.contractProvider} </p>
-          
+        <Card key={contract.id} className='contract-card'>
+          <div className='card-content'> 
+            <h2> {contract.contractType} </h2>
+            <p> {contract.contractProvider} </p>
+          </div>
+          <div className='card-action'>
+            <button className='card-button'> DETAILS </button>
+            <button className='card-button'>DELETE </button>
+          </div>
         </Card>
       )
     }

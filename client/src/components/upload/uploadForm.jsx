@@ -1,17 +1,17 @@
 import React, {PureComponent} from 'react'
-import { Link } from 'react-router-dom'
 import {upload} from '../../actions/upload'
 import {connect} from 'react-redux'
 
 //Styling
 import '../../css/uploadForm.css'
+import BottomNav from '../layout/BottomNav'
 
 class UploadForm extends PureComponent {
 
     constructor(props) {
         super(props);
         this.state = {
-			uploadStatus: 'New'
+			uploadStatus: 'New' 
 		}
         
 		const myFileReader = new FileReader()
@@ -41,7 +41,7 @@ class UploadForm extends PureComponent {
 						this.state.type,
 						this.state.provider,
 						this.state.uploadStatus))
-		
+		console.log(this.state.type)
 		document.getElementById("form").reset()
 	}
 
@@ -59,7 +59,8 @@ class UploadForm extends PureComponent {
 
 				<div className="contract-type">
 					<p> Welk soort contract is het? </p>
-					<select className="type"  name="type" id="type" onChange={ this.handleChange }>
+					<select className="type"  name="type" id="type"
+					onChange={ this.handleChange }>
 						<option value="Aansprakelijkheidsverzekering">Aansprakelijkheidsverzekering</option>
   						<option value="AOV verzekering">AOV verzekering</option>
   						<option value="Autoverzekering">Autoverzekering</option>
@@ -93,14 +94,7 @@ class UploadForm extends PureComponent {
 			
 			</form>	
 
-			<div className='nav'>
-				<img src="icons/home.svg" alt="home-icon"></img>
-				<img src="icons/contracten.svg" alt="contract-icon"></img>
-				<img src="icons/advies.svg" alt="advies-icon"></img>
-				<Link to={'/logout'}>
-				<img src="icons/loguit.svg" alt="loguit-icon"></img>
-				</Link>
-			</div>
+			<BottomNav/>
 				
 			</div>
 		)
