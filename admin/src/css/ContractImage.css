@@ -1,0 +1,22 @@
+.image-paper{
+
+    min-width: 245px;
+    margin:auto;
+    margin-top: 10px;
+    padding-top: 100px;
+    width: 80%;
+    padding-bottom: 2%;
+    text-align: center;
+    min-height: 245px;
+    height: 800px;
+}
+
+.image-contract{
+    
+    margin:auto;
+    padding:60px;
+    max-width:1250px;
+    min-height: 700px;
+    max-height: 700px;
+    min-width :1250px;
+}
