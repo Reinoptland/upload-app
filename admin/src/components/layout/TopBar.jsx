@@ -30,10 +30,15 @@ const TopBar = (props) => {
           location.pathname.indexOf('login') > 0 &&
           <Button color="inherit" onClick={() => history.push('/signup')}>Sign up</Button>
         }
+
         {
+          location.pathname.indexOf('users') > 0 &&
+          <Button color="inherit" onClick={() => history.push('/logout')}>Log out</Button>
+        }
+        {/* {
           /users$/.test(location.pathname) &&
           <Button  color="inherit" className="loginButton"  onClick={() => history.push('/logout')}>Log out</Button>
-        }
+        } */}
       </Toolbar>
     </AppBar>
   )
