@@ -5,6 +5,7 @@ import signup from './signup'
 import contracts from'./contracts'
 import contractsById from './contractsById'
 import admins from './admins'
+import contractImage from './contractImage'
 
 export default {
   users,
@@ -13,5 +14,6 @@ export default {
   signup,
   contracts,
   contractsById,
-  admins
+  admins,
+  contractImage
 }
