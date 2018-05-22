@@ -8,16 +8,16 @@ const S3 = require('aws-sdk/clients/s3');
 @JsonController()
 export default class ContractController {
 
-    // @Authorized()
-    @Get('/contracts')
-    async getAllContracts() {
+    // // @Authorized()
+    // @Get('/contracts')
+    // async getAllContracts() {
 
-        // add security 
+    //    // add security 
         
-        const contractImages = await Contract.find()
-        contractImages.forEach(x=>delete x.contractImage)
-        return contractImages
-    }
+    //     const contractImages = await Contract.find()
+    //     contractImages.forEach(x=>delete x.contractImage)
+    //     return contractImages
+    // }
 
     
 
