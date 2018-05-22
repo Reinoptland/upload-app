@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {getAllContracts} from '../../actions/contracts'
 
 //styling
-import Card, {CardContent} from 'material-ui/Card'
+import Card from 'material-ui/Card'
 import '../../css/index.css'
 import '../../css/contracts.css'
 
@@ -17,20 +17,24 @@ import '../../css/contracts.css'
     }
 
     renderContract() {
-      const {contracts} = this.props
+      
       return (
         <Card> 
+          <h2> {contract.contractType} </h2>
+          <p> {contract.contractProvider} </p>
           
         </Card>
       )
     }
 
     render() {
-    
+      const {contracts} = this.props
+
       return (
       <div>
         <div className="overview">
           <h1>Mijn contracten</h1>
+          {contracts.map(contract => this.renderContract(contract))}
         </div>
         
 
