@@ -1,6 +1,9 @@
 import React, {PureComponent} from 'react'
-import {upload} from '../../actions/upload'
+
+import { Link } from 'react-router-dom'
+import {upload, uploading} from '../../actions/upload'
 import {connect} from 'react-redux'
+import {Uploading} from './uploading'
 
 //Styling
 import '../../css/uploadForm.css'
@@ -11,22 +14,59 @@ class UploadForm extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-			uploadStatus: 'New' 
+
+			uploadStatus: 'New',
+			contracten: [this.props.contract]
+
 		}
         
 		const myFileReader = new FileReader()
 		myFileReader.onload = (e) => {
             this.setState({ 
-                imageSrc: myFileReader.result, 
+				imageSrc1: myFileReader.result, 
             }); 
 		}
-		myFileReader.readAsDataURL(this.props.contract)
+		
+		if (this.state.contracten.length === 1) {
+			
+			myFileReader.readAsDataURL(this.state.contracten[0])
+		} 
 	
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	}
 
+	handleImageChange = (event) => {
+		if (this.state.contracten.length < 3) {
+			this.state.contracten.push( event.target.files[0])
+		} 
+		
+		if (this.state.contracten.length > 1 && this.state.contracten.length < 3) {
+			
+			const myFileReader2 = new FileReader()
+				myFileReader2.onload = (e) => {
+					this.setState({ 
+						imageSrc2: myFileReader2.result, 
+					}); 
+				}
+			myFileReader2.readAsDataURL(this.state.contracten[1])
+
+		}
+		if (this.state.contracten.length > 2) {
+			
+			const myFileReader3 = new FileReader()
+				myFileReader3.onload = (e) => {
+					this.setState({ 
+						imageSrc3: myFileReader3.result, 
+					}); 
+				}
+
+			myFileReader3.readAsDataURL(this.state.contracten[2])
+		}
+	}
+
 	handleChange = (e) => {
+		console.log(this.props.appStatus)
 		const {name,value} = e.target
 		this.setState({
 			[name]: value
@@ -34,10 +74,12 @@ class UploadForm extends PureComponent {
 	}
 	  
 	handleSubmit = (e) => {
+		this.props.uploading()
+
 		e.preventDefault(
 			
 		this.props.upload(this.props.currentUser.userId,
-						this.props.contract,
+						this.state.contracten,
 						this.state.type,
 						this.state.provider,
 						this.state.uploadStatus))
@@ -46,14 +88,33 @@ class UploadForm extends PureComponent {
 	}
 
 	render() {
+
+		if (this.props.appStatus === "waiting") {
 		return (
 			<div>
 			<form onSubmit={this.handleSubmit} encrypt="multipart/form-data" id="form" className="upload-form">
-				
+
 				<div className="contract-pic">
-					<img src={this.state.imageSrc} alt='contract' className='contract-preview'/>
-					<img src={'/icons/Addpic.svg'} alt='add-pic' className='add-icon' />
+					<img src={this.state.imageSrc1} alt='contract' className='contract-preview'/>
+
+					{this.state.contracten.length >= 2 &&
+					<img src={this.state.imageSrc2 || ''} alt='contract' className='contract-preview'/>
+					}
+
+					{this.state.contracten.length === 3 &&
+					<img src={this.state.imageSrc3 || ''} alt='contract' className='contract-preview'/>
+					}
+
+					{this.state.contracten.length < 3 && 
+					<label htmlFor="add-pic">
+						<img src={'/icons/Addpic.svg'} alt='add-pic'  className='add-icon' />
+					</label>}
+
+                    <input type="file" name="add-pic" id="add-pic" onChange={ this.handleImageChange} className='fileIcon'/>
+					
 				</div>
+
+				
 
 				<div className="contract-field">
 
@@ -100,11 +161,35 @@ class UploadForm extends PureComponent {
 				
 			</div>
 		)
-	}
+
+			} else if (this.props.appStatus === "uploading") {
+				
+				return (
+					<div className="uploading">
+						<h1>Uw contract word opgeladen</h1>
+					</div>
+			)}
+
+			else if (this.props.appStatus === "uploadSucces") {
+				return (
+					<div className="uploading">
+						<h1>Uw contract werd succesvol opgeladen</h1>
+					</div>
+			)} 
+			
+			else {
+				return (
+					<div className="uploading">
+						<h1>Er is iets mis gegaan, probeer het later nogmaals</h1>
+					</div>
+			)}
+  }
 }
 
 const mapStateToProps = state => ({
-	currentUser: state.currentUser
+	currentUser: state.currentUser,
+	appStatus: state.appstatus
+
 })
 
-export default connect(mapStateToProps, {upload})(UploadForm) 
+export default connect(mapStateToProps, {upload, uploading})(UploadForm) 

@@ -8,6 +8,7 @@ import {getAllContracts} from '../../actions/contracts'
 import Paper from 'material-ui/Paper'
 import {withStyles} from 'material-ui/styles';
 import Modal from 'material-ui/Modal';
+
 import '../../css/ContractByUserId.css'
 
 function getModalStyle() {
@@ -32,6 +33,7 @@ class ContractByUserId extends PureComponent {
     constructor() {
         super()
 
+
         this.state = {
             open: false
         };
@@ -47,17 +49,14 @@ class ContractByUserId extends PureComponent {
 
     componentWillMount() {
         if (this.props.users === null) {
-            this
-                .props
-                .getUsers()
+            this.props.getUsers()
         }
 
-        this
-            .props
-            .getUserDetails(this.props.match.params.id)
+        this.props.getUserDetails(this.props.match.params.id)
 
     }
 
+  
     getEmail(userId) {
         if (this.props.users !== null) {
             const users = Object.values(this.props.users)
@@ -79,7 +78,7 @@ class ContractByUserId extends PureComponent {
 
     renderContractDetails(eachcontract) {
         const {classes} = this.props;
-      console.log("called")
+        console.log("called")
         return (
             <div className="cardwrapper">
                 <Card className='contractcard'>
@@ -94,9 +93,7 @@ class ContractByUserId extends PureComponent {
                                 onClick={this.handleOpen}
                                 src={`${eachcontract.contractImage}`}/>
                         </Typography>
-                        <Modal
-                            open={this.state.open}
-                            onClose={this.handleClose}>
+                        <Modal open={this.state.open} onClose={this.handleClose}>
 
                             <div style={getModalStyle()} className={classes.paper}>
                                 <Typography variant="title" id={`${eachcontract.id}`}>
@@ -106,9 +103,9 @@ class ContractByUserId extends PureComponent {
                                         maxHeight: '500px'
                                     }}
                                         src={`${eachcontract.contractImage}`}/>
-                            {console.log("image",eachcontract.contractImage)}
+
                                 </Typography>
-                          
+
                             </div>
                         </Modal>
                         <Typography component="h1">
@@ -121,6 +118,9 @@ class ContractByUserId extends PureComponent {
                             Provider : {eachcontract.contractProvider}
                         </Typography>
                     </CardContent>
+                  
+
+                   
                 </Card>
 
             </div>

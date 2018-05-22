@@ -31,7 +31,6 @@ export default class SignupForm extends PureComponent {
 
 	render() {
 		const { email, password, confirmPassword, privacy } = this.state
-		const isEnabled = email.length > 0 && password.length > 0 && confirmPassword.length > 0 && privacy === true
 
 		return (
 			<form onSubmit={this.handleSubmit}>
@@ -63,7 +62,7 @@ export default class SignupForm extends PureComponent {
 					<p style={{color:'red'}}>The passwords do not match!</p>
 				}
 
-				<button className="customButton" disabled={!isEnabled} type="submit">Aanmelden</button>
+				<button className="customButton" type="submit">Aanmelden</button>
 
 			</form>
 		)

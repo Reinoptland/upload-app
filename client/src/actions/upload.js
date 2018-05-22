@@ -6,17 +6,20 @@ import {logout} from './users'
 export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS'
 export const UPLOAD_FAILED = 'UPLOAD_FAILED'
 export const UPDATE_UPLOADS = 'UPDATE_UPLOADS'
+export const UPLOADING_FILE = 'UPLOADING_FILE'
 
-export const upload = (userId, contract, type, provider, uploadStatus) => (dispatch, getState) => {
+export const upload = (userId, contracten, type, provider, uploadStatus) => (dispatch, getState) => {
     const state = getState()
     const jwt = state.currentUser.jwt
   
     if (isExpired(jwt)) return dispatch(logout())
     
-    request
+    contracten.map(file => { 
+
+    return request
       .post(`${baseUrl}/contracts/${userId}`)
       .set('Authorization', `Bearer ${jwt}`)
-      .attach('file',contract)
+      .attach('file',file)
       .field('type',type)
       .field('provider',provider)
       .field('uploadStatus', uploadStatus)
@@ -33,7 +36,9 @@ export const upload = (userId, contract, type, provider, uploadStatus) => (dispa
           payload: 'upload mislukt'
         })
       })
+    })
   }
+  
 
 export const getUploads = (id) => (dispatch, getState) => {
   const state = getState()
@@ -53,3 +58,7 @@ export const getUploads = (id) => (dispatch, getState) => {
     })
     .catch(err => console.error(err))
 }
+
+export const uploading = () => ({
+  type: UPLOADING_FILE
+})
