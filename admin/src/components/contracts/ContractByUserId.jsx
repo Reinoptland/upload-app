@@ -101,7 +101,7 @@ class ContractByUserId extends PureComponent {
                              
 
                             src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}
-                                onClick={() => window.location=`${eachcontract.contractImage}`}
+                                onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}
                                 />
 
                         </Typography>

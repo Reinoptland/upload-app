@@ -30,7 +30,7 @@ export default (state = [], {type, payload}) => {
                 
             })
             
-            console.log(updatedIndex)
+            //console.log(updatedIndex)
             console.log("index",contractIndex)
 
     return [...state, state[contractIndex].uploadStatus=payload.uploadStatus]
