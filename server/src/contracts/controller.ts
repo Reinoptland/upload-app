@@ -1,4 +1,4 @@
-import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError, UnauthorizedError} from 'routing-controllers'
+import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError, UnauthorizedError, Delete} from 'routing-controllers'
 import Contract from './entity'
 import User from '../users/entity'
 import { verify, sign } from '../jwt'
@@ -82,6 +82,19 @@ export default class ContractController {
         contract.contractImage= url
 
         return (contract);
+    }
+
+    @Authorized()
+    @Delete('/contracts/:id')
+    async deleteStudent(
+        @Param('id') id: number
+    ) {
+        const contract = await Contract.findOneById(id)
+        
+        if (!contract) throw new NotFoundError('Contract doesn\'t exist')
+
+        if (contract) Contract.remove(contract)
+        return 'Successfully deleted'
     }
 }
 
