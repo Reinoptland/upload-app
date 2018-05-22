@@ -47,7 +47,7 @@ export const deleteContract = (id) => (dispatch, getState) => {
   request
     .delete(`${baseUrl}/contracts/${id}`)
     .set('Authorization', `Bearer ${jwt}`)
-    .then(result => {
+    .then(response => {
       dispatch({
         type: CONTRACT_DELETED,
         payload: id

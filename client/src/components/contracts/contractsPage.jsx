@@ -29,7 +29,6 @@ import '../../css/contracts.css'
             <p> {contract.contractProvider} </p>
           </div>
           <div className='card-action'>
-            <button className='card-button'> DETAILS </button>
             <button className='card-button' onClick={this.handleDelete} value={contract.id}>DELETE </button>
           </div>
         </Card>

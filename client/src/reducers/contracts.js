@@ -10,7 +10,7 @@ export default (state = initialState, {type, payload}) => {
       return payload
 
       case CONTRACT_DELETED:
-      return state.splice(payload.id)
+      return state.filter(contract => contract.id !== payload.id)
 
     default:
       return state

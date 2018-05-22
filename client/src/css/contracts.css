@@ -5,17 +5,12 @@
 .contract-card {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     padding: 0 5%;
     margin-bottom: 3%
 }
-.card-action {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
 .card-button {
-    margin-top: 10px;
+    margin-bottom: 20%;
     padding: 10px 25px;
     border-radius: 3px;
     background: linear-gradient(0.25turn,#e84435, #f57f17);
