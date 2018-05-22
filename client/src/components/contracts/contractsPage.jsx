@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 // import { Link } from 'react-router-dom'
 import BottomNav from '../layout/BottomNav'
 import {connect} from 'react-redux'
-import {getAllContracts} from '../../actions/contracts'
+import {getAllContracts, deleteContract} from '../../actions/contracts'
 
 //styling
 import Card from 'material-ui/Card'
@@ -16,6 +16,10 @@ import '../../css/contracts.css'
       this.props.getAllContracts()
     }
 
+    handleDelete = event => {
+      this.props.deleteContract(event.target.value)
+    }
+
     renderContract = (contract) => {
       
       return (
@@ -26,7 +30,7 @@ import '../../css/contracts.css'
           </div>
           <div className='card-action'>
             <button className='card-button'> DETAILS </button>
-            <button className='card-button'>DELETE </button>
+            <button className='card-button' onClick={this.handleDelete} value={contract.id}>DELETE </button>
           </div>
         </Card>
       )
@@ -34,6 +38,8 @@ import '../../css/contracts.css'
 
     render() {
       const {contracts} = this.props
+
+      if (contracts === null) return null
 
       return (
       <div>
@@ -54,4 +60,4 @@ const mapStateToProps = (state) => ({
   contracts: state.contracts
 })
 
-export default connect(mapStateToProps, {getAllContracts})(ContractsPage)
+export default connect(mapStateToProps, {getAllContracts, deleteContract})(ContractsPage)
