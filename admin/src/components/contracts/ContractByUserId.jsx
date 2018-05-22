@@ -61,7 +61,7 @@ class ContractByUserId extends PureComponent {
     renderContractDetails(eachcontract) {
 
         return (
-            <div className="cardwrapper">
+            <div key={eachcontract.id} className="cardwrapper">
                 <Card className='contractcard'>
                     <CardContent  className='contractcard'>
 
@@ -71,10 +71,9 @@ class ContractByUserId extends PureComponent {
                                 style={{
                                 maxHeight: '100px'
                             }}
-                                onClick={this
-                                .togglePopup
-                                .bind(this)}
-                                src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}/>
+                            src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}
+                                onClick={() => window.location=`${eachcontract.contractImage}`}
+                                />
                         </Typography>
                         <Typography component="h1">
                             ContractName : {eachcontract.contractName}
