@@ -5,6 +5,7 @@ import {isExpired} from '../jwt'
 
 export const GET_CONTRACTS_BY_ID = "GET_CONTRACTS_BY_ID"
 export const GET_ALL_CONTRACTS = "GET_ALL_CONTRACTS"
+export const UPDATE_CONTRACTS="UPDATE_CONTRACTS"
 
 export const getUserDetails = (userid) => (dispatch, getState) => {
 
@@ -51,5 +52,6 @@ export const submitStatus = (uploadState) => (dispatch, getState) => {
     .patch(`${baseUrl}/contracts/${uploadState.id}/status`)
     .set('Authorization', `Bearer ${jwt}`)
     .send({uploadStatus: uploadState.uploadStatus})
+    .then(result => dispatch({type: UPDATE_CONTRACTS, payload: result.body}))
     .catch(err => console.error(err))
 }

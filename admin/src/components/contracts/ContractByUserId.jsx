@@ -47,9 +47,13 @@ class ContractByUserId extends PureComponent {
 
 
     handleSubmit() {
-
+       
         this.setState({hidden:!this.state.hidden})
         this.props.submitStatus(this.state)
+        
+        this
+        .props
+        .getUserDetails(this.props.match.params.id)
     }
 
     handleChange(id,event) {
@@ -95,18 +99,23 @@ class ContractByUserId extends PureComponent {
                             }}
                                 src={eachcontract.contractImage}/>
                         </Typography>
+
                         <Typography component="h1">
                             ContractName : {eachcontract.contractName}
                         </Typography>
+
                         <Typography component="h1">
                             ContractType : {eachcontract.contractType}
                         </Typography>
+
                         <Typography component="h1">
                             Provider : {eachcontract.contractProvider}
                         </Typography>
+
                         <Typography component="h1">
-                            Status: {eachcontract.contractStatus}
+                            Status: {eachcontract.uploadStatus}
                         </Typography>
+
                     </CardContent>
 
                     <Button
@@ -117,7 +126,8 @@ class ContractByUserId extends PureComponent {
                         onClick={this.handleSubmit}>
                         Update Contract Status
                     </Button>
-              
+
+                  { this.state.hidden ? null:
                    <div>
                    <label>
                         <input
@@ -147,7 +157,7 @@ class ContractByUserId extends PureComponent {
                             onChange={(event)=>this.handleChange(eachcontract.id,event)}/>not usable
                     </label>
                     </div>
-                   
+                   }
                 
                </Card>
 
