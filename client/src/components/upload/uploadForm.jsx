@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+
 import { Link } from 'react-router-dom'
 import {upload, uploading} from '../../actions/upload'
 import {connect} from 'react-redux'
@@ -6,14 +7,17 @@ import {Uploading} from './uploading'
 
 //Styling
 import '../../css/uploadForm.css'
+import BottomNav from '../layout/BottomNav'
 
 class UploadForm extends PureComponent {
 
     constructor(props) {
         super(props);
         this.state = {
+
 			uploadStatus: 'New',
 			contracten: [this.props.contract]
+
 		}
         
 		const myFileReader = new FileReader()
@@ -116,7 +120,10 @@ class UploadForm extends PureComponent {
 
 				<div className="contract-type">
 					<p> Welk soort contract is het? </p>
-					<select className="type"  name="type" id="type" onChange={ this.handleChange }>
+					<select required
+					className="type"  name="type" id="type"
+					onChange={ this.handleChange }>
+					 	<option value="">Contract Type</option>
 						<option value="Aansprakelijkheidsverzekering">Aansprakelijkheidsverzekering</option>
   						<option value="AOV verzekering">AOV verzekering</option>
   						<option value="Autoverzekering">Autoverzekering</option>
@@ -141,7 +148,7 @@ class UploadForm extends PureComponent {
 
 				<div className="contract-provider">
 					<p>Bij wie heb je je contract afgesloten? </p>
-					<input type="text" name="provider" id="provider" onChange={ this.handleChange } placeholder="Contract Provider"/>
+					<input type="text" name="provider" id="provider" onChange={ this.handleChange } placeholder="Contract Provider" required/>
 				</div>
 
 				</div>
@@ -150,14 +157,7 @@ class UploadForm extends PureComponent {
 			
 			</form>	
 
-			<div className='nav'>
-				<img src="icons/home.svg" alt="home-icon"></img>
-				<img src="icons/contracten.svg" alt="contract-icon"></img>
-				<img src="icons/advies.svg" alt="advies-icon"></img>
-				<Link to={'/logout'}>
-				<img src="icons/loguit.svg" alt="loguit-icon"></img>
-				</Link>
-			</div>
+			<BottomNav/>
 				
 			</div>
 		)

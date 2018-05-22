@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 
-
-
 //styling
 import '../../css/bottomNav.css'
 

@@ -2,34 +2,61 @@ import React, {PureComponent} from 'react'
 // import { Link } from 'react-router-dom'
 import BottomNav from '../layout/BottomNav'
 import {connect} from 'react-redux'
+import {getAllContracts, deleteContract} from '../../actions/contracts'
 
 //styling
+import Card from 'material-ui/Card'
 import '../../css/index.css'
 import '../../css/contracts.css'
 
 
   class ContractsPage extends PureComponent {
 
-  render() {
-  
-    return (
-          <div>
-          <div className="generalPage">
-          <h1>Contracten</h1>
-          <p>
-            Vind u straks hier.
-           </p>
+    componentWillMount() {
+      this.props.getAllContracts()
+    }
+
+    handleDelete = event => {
+      this.props.deleteContract(event.target.value)
+    }
+
+    renderContract = (contract) => {
+      
+      return (
+        <Card key={contract.id} className='contract-card'>
+          <div className='card-content'> 
+            <h2> {contract.contractType} </h2>
+            <p> {contract.contractProvider} </p>
           </div>
-          <div>
-          <BottomNav/>
+          <div className='card-action'>
+            <button className='card-button' onClick={this.handleDelete} value={contract.id}>DELETE </button>
           </div>
-          </div>
-    )
-  }
+        </Card>
+      )
+    }
+
+    render() {
+      const {contracts} = this.props
+
+      if (contracts === null) return null
+
+      return (
+      <div>
+        <div className="overview">
+          <h1>Mijn contracten</h1>
+          {contracts.map(contract => this.renderContract(contract))}
+        </div>
+        
+
+      <BottomNav/>
+      </div>
+      )
+    }
 }
 
 const mapStateToProps = (state) => ({
-	currentUser: state.currentUser
+  currentUser: state.currentUser,
+  contracts: state.contracts
 })
 
-export default connect(mapStateToProps)(ContractsPage)
+export default connect(mapStateToProps, {getAllContracts, deleteContract})(ContractsPage)

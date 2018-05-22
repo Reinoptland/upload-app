@@ -3,7 +3,7 @@
     src: local('brandontext-bold'), url(../fonts/brandontext-bold.woff) format('woff');
   }
 
-  /* Thanks Irene! */
+  /* Buttons */
 
 .customButton {
     margin-top: 10px;
@@ -15,7 +15,6 @@
     border: none;
     font-family: 'BrandonText-Bold';
     letter-spacing: 1px;
-    
   }
   
   .customButton:hover{
