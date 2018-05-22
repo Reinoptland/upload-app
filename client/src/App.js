@@ -12,8 +12,7 @@ import HowTo from './components/howto/HowTo'
 import HomePage from './components/home/homePage'
 import ContractsPage from './components/contracts/contractsPage'
 import AdvicePage from './components/advice/advicePage'
-
-import {createBrowserHistory, createHashHistory} from 'history'
+import { createBrowserHistory, createHashHistory } from 'history'
 
 import Top from './components/layout/Top'
 
@@ -55,5 +54,4 @@ class App extends PureComponent {
     )
   }
 }
-
 export default App

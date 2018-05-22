@@ -1,4 +1,4 @@
-import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError, UnauthorizedError} from 'routing-controllers'
+import { JsonController, Get, Post,Patch, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError, UnauthorizedError} from 'routing-controllers'
 import Contract from './entity'
 import User from '../users/entity'
 import { verify, sign } from '../jwt'
@@ -83,6 +83,20 @@ export default class ContractController {
 
         return (contract);
     }
+
+    @Authorized()
+    @Patch('/contracts/:userId/status')
+    async setUploadStatus(@Param('userId')id : number, @Body()update) {
+    const status = await Contract.findOneById(id)
+
+    if (!status) 
+      throw new NotFoundError(`User not found`)
+
+    const updatedStatus = Contract.merge(status, update)
+
+    const entity = await updatedStatus.save()
+    return entity
+  }
 }
 
 
