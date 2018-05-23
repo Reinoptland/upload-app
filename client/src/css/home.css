@@ -47,5 +47,12 @@
     }
     
 }
+@media screen and (min-width: 1000px) {
+    .home-Page {
+        position: fixed;
+        padding-top: 8%;
+    }
+    
+}
 
 
