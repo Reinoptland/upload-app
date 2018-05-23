@@ -26,8 +26,8 @@ class ContractByUserId extends PureComponent {
         <Card key={eachcontract.id} className='contract-card'>
             <div className='card-content'>
                 <h2>{eachcontract.contractType}</h2>
-                <p className="card-paragraph">Provider: {eachcontract.contractProvider}</p>
-                <p className="card-paragraph">Status: {eachcontract.uploadStatus}</p>
+                <p>Provider: {eachcontract.contractProvider}</p>
+                <p>Status: {eachcontract.uploadStatus}</p>
             </div>
             <div className='card-action'>
                 <Button className="card-button"

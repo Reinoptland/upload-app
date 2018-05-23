@@ -11,15 +11,15 @@ const S3 = require('aws-sdk/clients/s3');
 export default class ContractController {
 
     // // @Authorized()
-    // @Get('/contracts')
-    // async getAllContracts() {
+    @Get('/contracts')
+    async getAllContracts() {
 
-    //    // add security 
+       // add security 
         
-    //     const contractImages = await Contract.find()
-    //     contractImages.forEach(x=>delete x.contractImage)
-    //     return contractImages
-    // }
+        const contractImages = await Contract.find()
+        contractImages.forEach(x=>delete x.contractImage)
+        return contractImages
+    }
 
     
 
@@ -89,7 +89,7 @@ export default class ContractController {
         return (contract);
     }
 
-    @Put('/contracts/:id')
+    @Put('/contracts/:id/')
     async updateStatus(
     
         @Param('id') id: number,
@@ -113,18 +113,18 @@ export default class ContractController {
         return 'Successfully deleted'
     }
 
-    @Patch('/contracts/:userId/status')
-    async setUploadStatus(@Param('userId')id : number, @Body()update) {
-    const status = await Contract.findOneById(id)
+//     @Patch('/contracts/:userId/')
+//     async setUploadStatus(@Param('userId') userId : number, @Body()update) {
+//     const status = await Contract.findOne({where: {userId}})
 
-    if (!status) 
-      throw new NotFoundError(`User not found`)
+//     if (!status) 
+//       throw new NotFoundError(`User not found`)
 
-    const updatedStatus = Contract.merge(status, update)
+//     const updatedStatus = Contract.merge(status, update)
 
-    const entity = await updatedStatus.save()
-    return entity
-  }
+//     const entity = await updatedStatus.save()
+//     return entity
+//   }
 
 
 }
