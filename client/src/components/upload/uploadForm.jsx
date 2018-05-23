@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react'
 import {upload, uploading} from '../../actions/upload'
 import {connect} from 'react-redux'
-//import {Uploading} from './uploading'
 
 //Styling
 import '../../css/uploadForm.css'
