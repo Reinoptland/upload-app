@@ -16,7 +16,7 @@ import '../../css/contracts.css'
     }
 
     componentWillMount() {
-      this.props.getAllContracts()
+      this.props.getAllContracts(this.props.currentUser.userId)
     }
 
     handleChange = (event) => {
