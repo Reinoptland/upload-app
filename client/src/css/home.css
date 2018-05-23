@@ -1,6 +1,7 @@
 .home-Page {
     min-width: 100%;
     padding-top: 12%;
+    padding-bottom: 50%;
     background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
     height: 100%; 
     z-index: 1;
