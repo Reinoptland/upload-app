@@ -113,18 +113,18 @@ export default class ContractController {
         return 'Successfully deleted'
     }
 
-//     @Patch('/contracts/:userId/')
-//     async setUploadStatus(@Param('userId') userId : number, @Body()update) {
-//     const status = await Contract.findOne({where: {userId}})
+    @Patch('/contracts/:id')
+    async setUploadStatus(@Param('id') id : number, @Body()update) {
+    const status = await Contract.findOneById(id)
 
-//     if (!status) 
-//       throw new NotFoundError(`User not found`)
+    if (!status) 
+      throw new NotFoundError(`User not found`)
 
-//     const updatedStatus = Contract.merge(status, update)
+    const updatedStatus = Contract.merge(status, update)
 
-//     const entity = await updatedStatus.save()
-//     return entity
-//   }
+    const entity = await updatedStatus.save()
+    return entity
+  }
 
 
 }
