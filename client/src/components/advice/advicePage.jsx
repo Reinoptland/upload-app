@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react'
-import { Link } from 'react-router-dom'
 import BottomNav from '../layout/BottomNav'
 import {connect} from 'react-redux'
 
