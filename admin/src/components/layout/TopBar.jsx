@@ -24,16 +24,16 @@ const TopBar = (props) => {
 
         {
           location.pathname.indexOf('signup') > 0 &&
-          <Button color="inherit" onClick={() => history.push('/login')}>Login</Button>
+          <Button color="inherit" onClick={() => history.push('/login')}>Inloggen</Button>
         }
         {
           location.pathname.indexOf('login') > 0 &&
-          <Button color="inherit" onClick={() => history.push('/signup')}>Sign up</Button>
+          <Button color="inherit" onClick={() => history.push('/signup')}>Aanmelden</Button>
         }
 
         {
           location.pathname.indexOf('users') > 0 &&
-          <Button color="inherit" onClick={() => history.push('/logout')}>Log out</Button>
+          <Button color="inherit" onClick={() => history.push('/logout')}>Uitloggen</Button>
         }
         {/* {
           /users$/.test(location.pathname) &&

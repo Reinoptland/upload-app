@@ -60,26 +60,26 @@ class UpdateStatusForm extends PureComponent {
                             type={'radio'}
                             name='uploadStatus'
                             value={'new' || this.state.uploadStatus}
-                            onChange={(event) => this.handleChange(event, this.props.details2.id)}/>new
+                            onChange={(event) => this.handleChange(event, this.props.details2.id)}/>nieuw
                     </label>
                     <label>
                         <input
                             type={'radio'}
                             name='uploadStatus'   
                             value={'processed'}
-                            onChange={(event) => this.handleChange(event, this.props.details2.id)}/>processed
+                            onChange={(event) => this.handleChange(event, this.props.details2.id)}/>behandeld
                     </label>
                     <label>
                         <input
                             type={'radio'}
                             name='uploadStatus'
                             value={'not usable'}
-                            onChange={(event) => this.handleChange(event, this.props.details2.id)}/>not usable
+                            onChange={(event) => this.handleChange(event, this.props.details2.id)}/>niet bruikbaar
                     </label>
                 <div>
                    
                     <Button style={{background: "linear-gradient(0.25turn,#e84435, #f57f17)",
-                        color:"white"}} variant="raised" type="submit"> Submit </Button>
+                        color:"white"}} variant="raised" type="submit"> Verzenden </Button>
                 </div>
 			</form>
 
