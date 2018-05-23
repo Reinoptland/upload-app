@@ -29,7 +29,7 @@ import '../../css/contracts.css'
           </div>
           <div className='card-action'>
             <button className='card-button' onClick={this.handleDelete} value={contract.id}>DELETE </button>
-            <Link to={`/contracts/${contract.contractImage}`}><button className='card-button' value={contract.id}>DETAILS </button></Link>
+            <button className='card-button' value={contract.id}><Link to={`/contracts/${contract.contractImage}`}>DETAILS </Link></button>
           </div>
         </Card>
       )
