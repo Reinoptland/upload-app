@@ -44,11 +44,9 @@ class ContractImage extends PureComponent {
             this.setState({open: false});
         };
    
-    
-    
     toggleEdit = () => {
         this.setState({
-          edit: !this.state.edit
+        edit: !this.state.edit
         })
     }
 
@@ -57,8 +55,10 @@ class ContractImage extends PureComponent {
     }
 
     updateStatus = (details) => {
+       
         this.toggleEdit()
-        this.props.updateStatus(this.props.details.id, details)   
+        this.props.submitStatus(details) 
+        
       }
 
     render(){
@@ -66,7 +66,7 @@ class ContractImage extends PureComponent {
         const {details,classes} = this.props
        
         if (!details) return null
-        
+
         return(
             <div key={details.id} className="cardwrapper">
 
@@ -88,8 +88,9 @@ class ContractImage extends PureComponent {
                                 style={{
                                 maxHeight: '250px'
                             }}
+
                             
-                            src={'https://images.template.net/wp-content/uploads/2017/01/19061258/Business-Consulting-Contract-Sample.jpg'}                            
+                            src={details.contractImage}                            
                             onClick={this.handleOpen}
                                 />
 
@@ -101,20 +102,23 @@ class ContractImage extends PureComponent {
                                     <img  className='contract_image'
                                         alt='userpicture'
                                       
-                                        src={`https://images.template.net/wp-content/uploads/2017/01/19061258/Business-Consulting-Contract-Sample.jpg`}/>
+                                        src={details.contractImage}/>
 
                                 </Typography>
 
                             </div>
                         </Modal>
                         
+
                         <p >ContractType : {details.contractType}</p>
                         <p className="card-paragraph">Provider : {details.contractProvider}</p>         
                         <p className="card-paragraph1">Status : {details.uploadStatus}</p>
 
                     </CardContent>
+
                      { this.state.edit &&
-                    <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus.bind(this)}/>
+                     <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus} />
+                    
                     }
                     { !this.state.edit && 
                     <Button
@@ -122,7 +126,7 @@ class ContractImage extends PureComponent {
                         variant="raised"
                         className="create-batch"
                         type="submit"
-                        onClick={()=>this.toggleEdit()}>
+                        onClick={this.toggleEdit}>
                         Update Contract Status
                     </Button>
                     }  

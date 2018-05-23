@@ -28,14 +28,13 @@ class UpdateStatusForm extends PureComponent {
 
     handleSubmit(e) {
         e.preventDefault()
-        console.log(this.props.details.id)
-        this.props.submitStatus(this.state)
+        // this.props.submitStatus(this.state)
+        this.props.onSubmit(this.state) 
         
     }
 
     handleChange(event,id) {
 
-        console.log(this.props.details.id)
         this.setState({id:id})
         this.setState({uploadStatus: event.target.value})
 
@@ -60,22 +59,22 @@ class UpdateStatusForm extends PureComponent {
                         <input
                             type={'radio'}
                             name='uploadStatus'
-                            value={'new'}
-                            onChange={(event) => this.handleChange(event, this.props.details.id)}/>new
+                            value={'new' || this.state.uploadStatus}
+                            onChange={(event) => this.handleChange(event, this.props.details2.id)}/>new
                     </label>
                     <label>
                         <input
                             type={'radio'}
                             name='uploadStatus'   
                             value={'processed'}
-                            onChange={(event) => this.handleChange(event, this.props.details.id)}/>processed
+                            onChange={(event) => this.handleChange(event, this.props.details2.id)}/>processed
                     </label>
                     <label>
                         <input
                             type={'radio'}
                             name='uploadStatus'
                             value={'not usable'}
-                            onChange={(event) => this.handleChange(event, this.props.details.id)}/>not usable
+                            onChange={(event) => this.handleChange(event, this.props.details2.id)}/>not usable
                     </label>
                 <div>
                    
@@ -89,6 +88,6 @@ class UpdateStatusForm extends PureComponent {
 
 
 const mapStateToProps = (state) => ({
-    details: state.contractImage
+    details2: state.contractImage
 })
 export default connect (mapStateToProps, {submitStatus, getContractImage})(UpdateStatusForm)

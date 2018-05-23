@@ -57,6 +57,7 @@
 }
 .bottom-link a{
     color: #fff;
+    border-bottom: 0.5px solid; 
 }
 
 @media screen and (min-width: 600px) {

@@ -5,6 +5,32 @@ import { Link } from 'react-router-dom'
 import '../../css/forms.css'
 import '../../css/button.css'
 
+import { FormControlLabel } from 'material-ui/Form'
+import Checkbox from 'material-ui/Checkbox'
+
+import PropTypes from 'prop-types'
+import { withStyles } from 'material-ui/styles'
+import deepOrange from 'material-ui/colors/orange'
+import grey from 'material-ui/colors/grey'
+
+const styles = {
+	root: {
+	  color: grey[300],
+	  '&$checked': {
+		color: deepOrange[800],
+	  },
+	},
+	checked: {},
+	size: {
+	  width: 40,
+	  height: 40,
+	},
+	sizeIcon: {
+	  fontSize: 20,
+	}
+  }
+
+
 function validate(email, password, confirmPassword, privacy) {
 	// true means invalid, so our conditions got reversed
 	let checkerbox = ''
@@ -23,14 +49,14 @@ function validate(email, password, confirmPassword, privacy) {
 	}
   }
 
-export default class SignupForm extends PureComponent {
+class SignupForm extends PureComponent {
 	constructor() {
 		super()
 		this.state = {
 			email: '',
 			password: '',
 			confirmPassword: '',
-			privacy: '',
+			privacy: false,
 
 			touched: {
 				email: false,
@@ -63,7 +89,7 @@ handleBlur = (field) => (evt) => {
   }
 
 	render() {
-		
+		const { classes } = this.props
 		const errors = validate(this.state.email, this.state.password, this.state.confirmPassword, this.state.privacy)
 		const isDisabled = Object.keys(errors).some(x => errors[x])
 		
@@ -98,15 +124,22 @@ handleBlur = (field) => (evt) => {
 				</div>
 
 				<div>
-				<input type="checkbox"
-						value={`${this.state.privacy}` || ''}
+				<FormControlLabel
+					control={
+					<Checkbox
+						checked={this.state.privacy}
 						onChange={this.handleChange}
-						onBlur={this.handleBlur('privacy')}
-						name="privacy"
-						id="privacy"
-					/> 
-				<p>Ik ga akkoord met het <Link to={'/Privacy'}>privacy beleid van Roos</Link></p>
-					
+						value="privacy"
+						classes={{
+							root: classes.root,
+							checked: classes.checked
+						  }}
+						style={{color: grey}}  
+					/>
+					}
+					label={<p>Ik ga akkoord met het <Link to={'/Privacy'}>privacy beleid van Roos</Link></p>}
+				/>
+
 				</div>
 
 				{
@@ -122,3 +155,9 @@ handleBlur = (field) => (evt) => {
 		)
 	}
 }
+
+SignupForm.propTypes = {
+	classes: PropTypes.object.isRequired
+  }
+
+export default withStyles(styles)(SignupForm)
