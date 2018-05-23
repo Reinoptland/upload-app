@@ -11,20 +11,32 @@ import '../../css/contracts.css'
 
 
   class ContractsPage extends PureComponent {
+    constructor(){
+      super()
+      this.state = {}
+    }
 
     componentWillMount() {
       this.props.getAllContracts()
     }
 
-    handleDelete = event => {
+    handleChange = (event) => {
+      this.setState({contracttype: event.target.value})
+      console.log(this.state)
+    }
+
+    handleDelete = (event) => {
       this.props.deleteContract(event.target.value)
     }
 
+
     renderContract = (contract) => {
-      
+
       return (
+
+
         <Card key={contract.id} className='contract-card'>
-          <div className='card-content'> 
+          <div className='card-content'>
             <h2> {contract.contractType} </h2>
             <p> {contract.contractProvider} </p>
           </div>
@@ -32,6 +44,7 @@ import '../../css/contracts.css'
             <button className='card-button' onClick={this.handleDelete} value={contract.id}>DELETE </button>
           </div>
         </Card>
+
       )
     }
 
@@ -39,14 +52,49 @@ import '../../css/contracts.css'
       const {contracts} = this.props
 
       if (contracts === null) return null
+      console.log('state',this.state.contracttype)
+
+      const filteredContracts = this.props.contracts.filter(contract => {return contract.contractType === this.state.contracttype})
+      console.log(filteredContracts)
+
 
       return (
       <div>
+
+
         <div className="overview">
           <h1>Mijn contracten</h1>
-          {contracts.map(contract => this.renderContract(contract))}
+          <p>Filter hier op type:</p>
+          <select required
+          className="type"  name="type" id="type"
+          onChange={ this.handleChange }>
+            <option value="">Contract Type</option>
+            <option value="Aansprakelijkheidsverzekering">Aansprakelijkheidsverzekering</option>
+              <option value="AOV verzekering">AOV verzekering</option>
+              <option value="Autoverzekering">Autoverzekering</option>
+              <option value="Bootverzekering">Bootverzekering</option>
+            <option value="Dierenverzekering">Dierenverzekering</option>
+            <option value="Energie">Energie</option>
+            <option value="Hypotheek">Hypotheek</option>
+            <option value="Inboedelverzekering">Inboedelverzekering</option>
+            <option value="Internet, tv & bellen">Internet, tv & bellen</option>
+            <option value="Kranten & tijdschriften">Kranten & tijdschriften</option>
+            <option value="Motorverzekering">Motorverzekering</option>
+            <option value="Opstalverzekering">Opstalverzekering</option>
+            <option value="OV">OV</option>
+            <option value="Overlijdensrisicoverzekering">Overlijdensrisicoverzekering</option>
+            <option value="Rechtsbijstandverzekering">Rechtsbijstandverzekering</option>
+            <option value="Reisverzekering">Reisverzekering</option>
+            <option value="Scooterverzekering">Scooterverzekering</option>
+            <option value="Uitvaartverzekering">Uitvaartverzekering</option>
+            <option value="Zorgverzekering">Zorgverzekering</option>
+          </select>
+          {!this.state.contracttype && contracts.map(contract => this.renderContract(contract))}
+          {this.state.contracttype && filteredContracts.map(contract => this.renderContract(contract))}
+
+
         </div>
-        
+
 
       <BottomNav/>
       </div>
