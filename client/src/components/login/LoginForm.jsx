@@ -37,7 +37,8 @@ export default class LoginForm extends PureComponent {
     this.setState({
       [name]: value
     })
-  }
+	}
+	
   handleBlur = (field) => (evt) => {
     this.setState({
       touched: { ...this.state.touched, [field]: true },

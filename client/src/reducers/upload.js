@@ -4,9 +4,7 @@ export default function (state = {}, {type, payload}) {
 	switch (type) {
 
 		case UPLOAD_FAILED:
-			return {
-				error: payload
-            }
+		return {error: payload}
         
         case UPDATE_UPLOADS:
             return payload.reduce((uploads, upload) => {

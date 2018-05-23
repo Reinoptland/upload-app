@@ -34,21 +34,21 @@ export default class SignupForm extends PureComponent {
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<div>
-					<label htmlFor="email"><p>Email</p></label>
+					<label htmlFor="email"><p>E-mail</p></label>
 					<input type="email" name="email" id="email" value={
 						this.state.email || ''
 					} onChange={ this.handleChange } />
 				</div>
 
 				<div>
-					<label htmlFor="password"><p>Password</p></label>
+					<label htmlFor="password"><p>Wachtwoord</p></label>
 					<input type="password" name="password" id="password" value={
 						this.state.password || ''
 					} onChange={ this.handleChange } />
 				</div>
 
 				<div>
-					<label htmlFor="confirmPassword"><p>Confirm password</p></label>
+					<label htmlFor="confirmPassword"><p>Bevestig wachtwoord</p></label>
 					<input type="password" name="confirmPassword" id="confirmPassword" value={
 						this.state.confirmPassword || ''
 					} onChange={ this.handleChange } />
@@ -58,7 +58,7 @@ export default class SignupForm extends PureComponent {
 					this.state.password &&
 					this.state.confirmPassword &&
 					this.state.password !== this.state.confirmPassword &&
-					<p style={{color:'red'}}>The passwords do not match!</p>
+					<p style={{color:'red'}}>De wachtwoorden zijn niet hetzelfde</p>
 				}
 
 				<button className="customButton" type="submit">Aanmelden</button>

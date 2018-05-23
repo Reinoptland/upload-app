@@ -1,19 +1,14 @@
-import {GET_ALL_CONTRACTS, UPDATE_CONTRACTS} from '../actions/contracts'
+// import {UPDATE_CONTRACTS} from '../actions/contracts'
 
-const initialState=[]
-
-export default (state = initialState, {type, payload}) => {
+// export default (state = null, {type, payload}) => {
   
-  switch (type) {
-   
-    
-      case  GET_ALL_CONTRACTS:
-          return payload
-      case UPDATE_CONTRACTS:
-          return {...state,
-          ...payload}
+//   switch (type) {
+      
+//     case UPDATE_CONTRACTS:
+//     console.log(payload, 'reducer')
+//         return payload
 
-    default:
-      return state
-  }
-}
+//     default:
+//       return state
+//   }
+// }
