@@ -10,18 +10,16 @@ const S3 = require('aws-sdk/clients/s3');
 @JsonController()
 export default class ContractController {
 
-    // // @Authorized()
-    // @Get('/contracts')
-    // async getAllContracts() {
+    @Authorized()
+    @Get('/contracts')
+    async getAllContracts() {
 
-    //    // add security 
+       // add security 
         
-    //     const contractImages = await Contract.find()
-    //     contractImages.forEach(x=>delete x.contractImage)
-    //     return contractImages
-    // }
+        const contractImages = await Contract.find()
 
-    
+        return contractImages
+    }
 
     @Authorized()
     @Post('/contracts/:id')
@@ -60,7 +58,7 @@ export default class ContractController {
     } 
     
 
-    //@Authorized()
+    @Authorized()
     @Get('/contracts/:userId')
     async getAllContractsByUserId(
     @Param('userId') userId : number) {
@@ -69,8 +67,7 @@ export default class ContractController {
         
     }
    
-
-   // @Authorized()
+    @Authorized()
     @Get('/contracts/:userId/:image')
     async getContractImage(
         @Param('userId') userId: number,
