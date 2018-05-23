@@ -90,7 +90,7 @@ export default class ContractController {
         return (contract);
     }
 
-    @Put('/contracts/:id')
+    @Put('/contracts/:id/')
     async updateStatus(
 
         @Param('id') id: number,
@@ -114,18 +114,19 @@ export default class ContractController {
         return 'Successfully deleted'
     }
 
-    @Patch('/contracts/:userId/status')
-    async setUploadStatus(@Param('userId')id : number, @Body()update) {
-    const status = await Contract.findOneById(id)
+//     @Patch('/contracts/:userId/')
+//     async setUploadStatus(@Param('userId') userId : number, @Body()update) {
+//     const status = await Contract.findOne({where: {userId}})
 
-    if (!status)
-      throw new NotFoundError(`User not found`)
 
-    const updatedStatus = Contract.merge(status, update)
+//     if (!status) 
+//       throw new NotFoundError(`User not found`)
 
-    const entity = await updatedStatus.save()
-    return entity
-  }
+//     const updatedStatus = Contract.merge(status, update)
+
+//     const entity = await updatedStatus.save()
+//     return entity
+//   }
 
 
 }

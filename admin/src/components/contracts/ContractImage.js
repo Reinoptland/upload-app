@@ -10,14 +10,11 @@ import UpdateStatusForm from './UpdateStatusForm'
 
 class ContractImage extends PureComponent {
 
-    constructor() {
-        super()
-
-        this.state = {
-            
+        state = {
+            edit: false,
             showPopup: false
         };
-    }
+    
  
     
     togglePopup() {
@@ -25,8 +22,6 @@ class ContractImage extends PureComponent {
             showPopup: !this.state.showPopup
         });
     }
-
-    state={edit: false}
     
     toggleEdit = () => {
         this.setState({
@@ -46,6 +41,8 @@ class ContractImage extends PureComponent {
     render(){
 
         const {details} = this.props
+        if (!details) return null
+        
         return(
             <div key={details.id} className="cardwrapper">
                 <Card className='contractcard'>
@@ -70,9 +67,9 @@ class ContractImage extends PureComponent {
                         <p className="card-paragraph1">Status : {details.uploadStatus}</p>
 
                     </CardContent>
-{console.log(details)}
+{console.log(this.props.details.id)}
                      { this.state.edit &&
-                    <UpdateStatusForm onSubmit={this.updateStatus}/>
+                    <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus.bind(this)}/>
                     }
                     { !this.state.edit && 
                     <Button
