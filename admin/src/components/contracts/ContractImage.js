@@ -21,13 +21,13 @@ function getModalStyle() {
 const styles = theme => ({
     paper: {
         position: 'absolute',
-        width: theme.spacing.unit *215,
+        width: theme.spacing.unit * 140,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing.unit * 4,
-        height:theme.spacing.unit*100
+        height:theme.spacing.unit* 90,
     }
-});
+});;
 
 class ContractImage extends PureComponent {
 
