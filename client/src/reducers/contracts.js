@@ -9,7 +9,7 @@ export default (state = [], {type, payload}) => {
 
       case CONTRACT_DELETED:
       console.log('payload',payload);
-      return state = state.filter(contract =>{return contract.id !== parseInt(payload)})
+        return state = state.filter(contract =>{return contract.id !== parseInt(payload, 10)})
 
     default:
       return state
