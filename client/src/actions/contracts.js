@@ -23,18 +23,17 @@ export const getAllContracts = () => (dispatch, getState)  => {
       .catch(err => console.error(err))
 }
 
-
-export const getContractImage = (userid, image) => (dispatch)  => {
+export const getContractImage = (userid, image) => (dispatch, getState)  => {
    
-    // const state = getState()
-    // if (!state.currentAdmin) return null
-    // const jwt = state.currentAdmin.jwt
+    const state = getState()
+    if (!state.currentUser) return null
+    const jwt = state.currentUser.jwt
   
-    // if (isExpired(jwt)) return dispatch(logout())
+    if (isExpired(jwt)) return dispatch(logout())
     
     request
       .get(`${baseUrl}/contracts/${userid}/${image}`)
-      // .set('Authorization', `Bearer ${jwt}`)
+      .set('Authorization', `Bearer ${jwt}`)
       .then(result => dispatch({type: GET_CONTRACT_IMAGE, payload: result.body}))
       .catch(err => console.error(err))
 }

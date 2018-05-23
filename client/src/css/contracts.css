@@ -23,4 +23,17 @@
     letter-spacing: 1px;
 }
 
+/* Css for Contracts Details */
+.contract-details {
+    margin-top: 22%;
+    text-align: center
+}
+.contract-details img {
+    width: 400px;
+}
+.go-back-btn {
+    float: right;
+    margin: 5%
+}
+
    

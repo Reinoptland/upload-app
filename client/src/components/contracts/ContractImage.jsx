@@ -1,24 +1,32 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
+import { Link } from 'react-router-dom'
 import {getContractImage} from '../../actions/contracts'
 
 // Styling
-
+import '../../css/contracts.css'
 
 class ContractImage extends PureComponent {
 
     componentWillMount() {
         const contractImage = (window.location.href).split('/').pop()
-        console.log(contractImage)
         this.props.getContractImage(this.props.currentUser.userId, contractImage)
     }
 
     render(){
-        console.log(this.props.contractImage.contractImage)
+        const {contractDetails} = this.props
         
         return(
-            <div className="cardwrapper">
-            <img src={this.props.contractImage.contractImage} alt={this.props.contractImage.id}/>
+            <div className="contract-details">
+    
+            <h1> {contractDetails.contractType}</h1>
+            <p>{contractDetails.contractProvider}</p>
+            <img src={contractDetails.contractImage} alt={contractDetails.id}/>
+
+            <div className="go-back-btn">
+            <Link to={`/contracts`}><button className='card-button'> TERUG </button></Link>    
+            </div>
+
             </div>
         )
     }
@@ -26,7 +34,7 @@ class ContractImage extends PureComponent {
 
 const mapStateToProps = (state) => ({
     currentUser: state.currentUser,
-    contractImage: state.contractImage
+    contractDetails: state.contractImage
 })
 
 export default (connect(mapStateToProps,{ getContractImage})(ContractImage))
