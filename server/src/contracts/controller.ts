@@ -10,7 +10,7 @@ const S3 = require('aws-sdk/clients/s3');
 @JsonController()
 export default class ContractController {
 
-    // // @Authorized()
+    // @Authorized()
     @Get('/contracts')
     async getAllContracts() {
 
