@@ -1,6 +1,9 @@
 import React, {PureComponent} from 'react'
 import {upload, uploading} from '../../actions/upload'
 import {connect} from 'react-redux'
+import ReactGA from 'react-ga';
+
+//import {Uploading} from './uploading'
 
 //Styling
 import '../../css/uploadForm.css'
@@ -60,10 +63,14 @@ class UploadForm extends PureComponent {
 
 			myFileReader3.readAsDataURL(this.state.contracten[2])
 		}
+		ReactGA.event({
+			category: 'Contract',
+			action: 'Added an image'
+		});
 	}
 
 	handleChange = (e) => {
-		console.log(this.props.appStatus)
+
 		const {name,value} = e.target
 		this.setState({
 			[name]: value
@@ -80,6 +87,13 @@ class UploadForm extends PureComponent {
 						this.state.type,
 						this.state.provider,
 						this.state.uploadStatus))
+		
+		document.getElementById("form").reset()
+
+		ReactGA.event({
+            category: 'Contract',
+            action: 'Submitted'
+        });
 	}
 
 	render() {
