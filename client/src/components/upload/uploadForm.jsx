@@ -2,6 +2,8 @@ import React, {PureComponent} from 'react'
 import {upload, uploading} from '../../actions/upload'
 import {connect} from 'react-redux'
 //import {Uploading} from './uploading'
+import UploadAnim from './uploadAnim'
+import { Link } from 'react-router-dom'
 
 //Styling
 import '../../css/uploadForm.css'
@@ -163,31 +165,51 @@ class UploadForm extends PureComponent {
 			} else if (this.props.appStatus === "uploading") {
 				
 				return (
-					<div className="uploading">
-						<h1>Uw contract word opgeladen</h1>
-						<div>
-                			<BottomNav/>
-            			</div>
+					<div>
+						<div className="uploading-Page">
+					<div className="header-uploading">
+						<h1>Wij slaan uw contract op</h1>
+						<p>
+                			Een moment geduld
+              			</p>
+						<div className="anim">
+						<UploadAnim />
+						</div>
 					</div>
+					</div>
+					<div>
+					<BottomNav/>
+				</div>
+				</div>
 			)}
 
 			else if (this.props.appStatus === "uploadSucces") {
 				return (
-					<div className="uploading">
-						<h1>Uw contract werd succesvol opgeladen</h1>
-						<div>
-                			<BottomNav/>
-            			</div>
+					<div>
+					<div className="uploading-Page">
+					<div className="header-uploading">
+						<h1>Uw contract is succesvol opgeslagen</h1>
+						<p><Link to={'/contracts'}>Bekijk uw contracten <span className="linkStyle">hier</span></Link></p>
+					</div>
+					</div>
+					<div>
+						<BottomNav/>
+            		</div>
 					</div>
 			)} 
 			
 			else {
 				return (
-					<div className="uploading">
-						<h1>Er is iets mis gegaan, probeer het later nogmaals</h1>
-						<div>
-                			<BottomNav/>
-            			</div>
+					<div>
+					<div className="uploading-Page">
+					<div className="header-uploading">
+						<h1>Er is iets mis gegaan</h1>
+						<p>probeer het later nogmaals...</p>
+					</div>
+					</div>
+					<div>
+						<BottomNav/>
+            		</div>
 					</div>
 			)}
   }
