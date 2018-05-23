@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 import { Router, Route, Redirect } from 'react-router-dom'
 import LoginPage from './components/login/LoginPage'
 import SignupPage from './components/signup/SignupPage'
-import LogoutPage from './components/layout/logout/LogoutPage'
+import LogoutPage from './components/logout/LogoutPage'
 import AllUsers from './components/contracts/AllUsers'
 import Privacy from './components/privacy/Privacy'
 import UploadPage from './components/upload/uploadPage'
