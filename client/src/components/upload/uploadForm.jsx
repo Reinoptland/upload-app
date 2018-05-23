@@ -80,8 +80,6 @@ class UploadForm extends PureComponent {
 						this.state.type,
 						this.state.provider,
 						this.state.uploadStatus))
-		
-		document.getElementById("form").reset()
 	}
 
 	render() {
@@ -110,8 +108,6 @@ class UploadForm extends PureComponent {
                     <input type="file" name="add-pic" id="add-pic" onChange={ this.handleImageChange} className='fileIcon'/>
 					
 				</div>
-
-				
 
 				<div className="contract-field">
 

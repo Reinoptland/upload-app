@@ -55,7 +55,7 @@
     padding: 0 15%;
     margin: 35% auto 65% auto;
 }
-.bottom-link a{
+.bottom-link a {
     color: #fff;
     border-bottom: 0.5px solid; 
 }
@@ -63,7 +63,7 @@
 @media screen and (min-width: 600px) {
     .upload-page {
         padding-top: 0;
-        font-size: 1.5em;
+        font-size: 1.2em;
         position: fixed
     }
     .header {
@@ -74,30 +74,30 @@
         right: 25%;
     }
     .bottom-link{
-        margin: 35% auto 15% auto
+        margin: 25% auto 15% auto
     }
 }
 @media screen and (min-width: 800px) {
     .upload-page {
         padding-top: 0;
-        font-size: 1.5em;
+        font-size: 1.4em;
         position: fixed
     }
     .header {
-        padding-top: 15%;
+        padding-top: 10%;
     }
     .icons, .input {
         left: 35%;
         right: 25%;
     }
     .bottom-link{
-        margin: 35% auto 15% auto
+        margin: 20% auto 15% auto
     }
 }
 
 @media screen and (min-width: 900px) {
     .upload-page {
-        padding-top: 10%;
+        padding-top: 5%;
         font-size: 1.5em;
         position: fixed
     }
@@ -110,12 +110,12 @@
         right: 25%;
     }
     .bottom-link{
-        margin: 25% auto
+        margin: 20% auto
     }
 }
 @media screen and (min-width: 1200px) {
     .upload-page {
-        padding-top: 0;
+        padding-top: 2%;
         font-size: 1.5em;
         position: fixed
     }

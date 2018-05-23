@@ -5,20 +5,19 @@
     border-radius: 10px;
     font-size: 1em;
 }
-
 .contract-preview {
-    width: 100px;
+    width: 90px;
     border: 2px dashed #E84435;
-    margin: 0 10%;
+    margin: 0 2%;
 }
 .add-icon {
     width: 40px;
     margin: 0 10%;
 }
 .contract-pic {
-    display: inline-flex;
-    width: 100%;
-    justify-content: center;
+    display: flex;
+    max-width: 100%;
+    justify-content: flex-start;
     align-items: center;
 }
 .contract-field select {
@@ -66,17 +65,19 @@
     position: fixed;
     bottom: 0;
 }
+.uploading {
+    margin-top: 100px;
+    color: black;
+}
 
 @media screen and (min-width: 600px) {
     .upload-form {
         margin: 15% 5%;
     }
+
 }
 
-.uploading {
-    margin-top: 100px;
-    color: black;
-}
+
 
  
 
