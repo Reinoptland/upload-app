@@ -20,7 +20,7 @@ import '../../css/advice.css'
               </p>
                 <div className="advice-link">
                   <p>
-                    <a href="https://halloroos.nl/login" target="_blank">
+                    <a href="https://halloroos.nl/login" target="_blank" rel="noopener noreferrer">
                       voor nu ga naar <span className="linkStyle">halloroos.nl</span> en login in om uw advies pagina te bekijken
                     </a>
                   </p>
