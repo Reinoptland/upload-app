@@ -1,5 +1,6 @@
 
 .usercard{
+    
     display:inline-flex;
     flex-direction: row;
     min-width: 235px;
@@ -14,7 +15,6 @@
     min-width: 245px;
     margin:auto;
     margin-top: 10px;
-    
     padding-top: 100px;
     width: 60%;
     padding-bottom: 2%;

@@ -2,6 +2,7 @@ import {ADMIN_LOGIN_SUCCESS, ADMIN_LOGOUT} from '../actions/admins'
 import {localStorageJwtKey} from '../constants'
 
 let initialState = null
+
 try {
   const jwt = localStorage.getItem(localStorageJwtKey)
   const userId = localStorage.getItem('userId')
@@ -9,18 +10,23 @@ try {
   if (jwt) {
     initialState = { jwt, userId }
   }
+
 }
 catch (e) {
   console.log(`Error retrieving data from local storage`, e)
 }
 
+
+
 export default function (state = initialState, {type, payload}) {
+
 	switch (type) {
+
     case ADMIN_LOGIN_SUCCESS:
     {
-      console.log(payload)
 			return payload
     }
+
     case ADMIN_LOGOUT:
       return null
 

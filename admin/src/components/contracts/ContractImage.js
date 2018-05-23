@@ -4,21 +4,23 @@ import {getContractImage} from '../../actions/contracts'
 import Card, {CardContent} from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
-import '../../css/ContractByUserId.css'
 import {submitStatus} from '../../actions/contracts'
 import UpdateStatusForm from './UpdateStatusForm'
 import Modal from 'material-ui/Modal';
 import {Link} from 'react-router-dom'
 import {withStyles} from 'material-ui/styles';
+import '../../css/ContractByUserId.css'
 
 function getModalStyle() {
+
     const top = 40;
     const left = 40;
-
     return {top: `${top}%`, left: `${left}%`, transform: `translate(-${top}%, -${left}%)`};
+
 }
 
 const styles = theme => ({
+
     paper: {
         position: 'absolute',
         width: theme.spacing.unit * 140,
@@ -27,7 +29,8 @@ const styles = theme => ({
         padding: theme.spacing.unit * 4,
         height:theme.spacing.unit* 90,
     }
-});;
+
+});
 
 class ContractImage extends PureComponent {
 
@@ -44,11 +47,13 @@ class ContractImage extends PureComponent {
             this.setState({open: false});
         };
    
-    toggleEdit = () => {
-        this.setState({
-        edit: !this.state.edit
-        })
-    }
+        toggleEdit = () => {
+
+          this.setState({
+          edit: !this.state.edit
+          })
+
+        }
 
     componentWillMount() {
         this.props.getContractImage(this.props.match.params.id, this.props.match.params.image)
@@ -68,61 +73,66 @@ class ContractImage extends PureComponent {
         if (!details) return null
 
         return(
-            <div key={details.id} className="cardwrapper">
+        
+        <div key={details.id} className="cardwrapper">
 
-            <Link to ={`/users/${details.userId}`}> 
+         <Link to ={`/users/${details.userId}`}> 
+
          <Button 
           className='all-contracts-button'
           variant="raised"
           type="submit" >
           Alle contracten
          </Button>
+
          </Link>
 
-                <Card className='contractcard'>
-                    <CardContent className='contractcard'>
+         <Card className='contractcard'>
+
+         <CardContent className='contractcard'>
                     
-                        <Typography component="h1">
-                            <img 
+         <Typography component="h1">
+                           
+         <img 
+                 alt='userpicture'
+                 style={{
+                        maxHeight: '250px'
+                        }}
+                 src={details.contractImage}                            
+                 onClick={this.handleOpen}
+         />
+
+         </Typography>
+
+            <Modal open={this.state.open} onClose={this.handleClose}>
+
+                <div style={getModalStyle()} className={classes.paper}>
+                    <Typography variant="title" id={`${this.props.details.id}`}>
+                         <img  className='contract_image'
                                 alt='userpicture'
-                                style={{
-                                maxHeight: '250px'
-                            }}
+                                src={details.contractImage}/>
 
-                            
-                            src={details.contractImage}                            
-                            onClick={this.handleOpen}
-                                />
+                     </Typography>
 
-                        </Typography>
-                        <Modal open={this.state.open} onClose={this.handleClose}>
+                </div>
 
-                            <div style={getModalStyle()} className={classes.paper}>
-                                <Typography variant="title" id={`${this.props.details.id}`}>
-                                    <img  className='contract_image'
-                                        alt='userpicture'
-                                      
-                                        src={details.contractImage}/>
-
-                                </Typography>
-
-                            </div>
-                        </Modal>
+            </Modal>
                         
 
-                        <p >Contract type : {details.contractType}</p>
+            <p >Contract type : {details.contractType}</p>
                  
-                        <p className="card-paragraph">Provider : {details.contractProvider}</p>     
+            <p className="card-paragraph">Provider : {details.contractProvider}</p>     
                            
-                        <p className="card-paragraph1">Status : {details.uploadStatus}</p>
+            <p className="card-paragraph1">Status : {details.uploadStatus}</p>
 
-                    </CardContent>
+            </CardContent>
 
-                     { this.state.edit &&
-                     <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus} />
+            { this.state.edit &&
                     
-                    }
-                    { !this.state.edit && 
+                    <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus} />
+                    
+            }
+            { !this.state.edit && 
                     <Button                      
                         variant="raised"
                         className="card-button"
@@ -130,8 +140,9 @@ class ContractImage extends PureComponent {
                         onClick={this.toggleEdit}>
                         Contract status aanpassen
                     </Button>
-                    }  
-               </Card>
+            }  
+
+            </Card>
 
             </div>
 
@@ -140,7 +151,9 @@ class ContractImage extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
+
     details: state.contractImage
+
 })
 
 export default withStyles(styles)(connect(mapStateToProps,{getContractImage, submitStatus})(ContractImage))

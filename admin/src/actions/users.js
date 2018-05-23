@@ -6,9 +6,11 @@ import {logout} from './admins'
 export const GET_ALL_USERS = "GET_ALL_USERS"
 export const GET_USER = "GET_USER"
 
+
 export const getUsers = () => (dispatch, getState) => {
   const state = getState()
   if (!state.currentAdmin) return null
+
   const jwt = state.currentAdmin.jwt
 
   if (isExpired(jwt)) return dispatch(logout())
@@ -25,6 +27,8 @@ export const getUsers = () => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
+
+
 export const getUser = (userId) => (dispatch) => {
 
   request
@@ -34,6 +38,6 @@ export const getUser = (userId) => (dispatch) => {
       payload: response.body
     }))
     .catch(err => console.log(err))
-  }
+}
 
 
