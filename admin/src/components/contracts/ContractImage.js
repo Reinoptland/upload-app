@@ -10,22 +10,13 @@ import UpdateStatusForm from './UpdateStatusForm'
 
 class ContractImage extends PureComponent {
 
-        state = {
-            edit: false,
-            showPopup: false
-        };
-    
- 
-    
-    togglePopup() {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
-    }
-    
+    state = {
+        edit: false,
+    };
+
     toggleEdit = () => {
         this.setState({
-          edit: !this.state.edit
+        edit: !this.state.edit
         })
     }
 
@@ -34,15 +25,17 @@ class ContractImage extends PureComponent {
     }
 
     updateStatus = (details) => {
+       
         this.toggleEdit()
-        this.props.updateStatus(this.props.details.id, details)   
+        this.props.submitStatus(details) 
+        
       }
 
     render(){
 
         const {details} = this.props
         if (!details) return null
-        
+
         return(
             <div key={details.id} className="cardwrapper">
                 <Card className='contractcard'>
@@ -54,22 +47,21 @@ class ContractImage extends PureComponent {
                                 style={{
                                 maxHeight: '250px'
                             }}
-                            onClick={this
-                                .togglePopup
-                                .bind(this)}
+                           
                             src={details.contractImage}                            
                                 />
 
                         </Typography>
-                        
+             
                         <p >ContractType : {details.contractType}</p>
                         <p className="card-paragraph">Provider : {details.contractProvider}</p>         
                         <p className="card-paragraph1">Status : {details.uploadStatus}</p>
 
                     </CardContent>
-{console.log(this.props.details.id)}
+
                      { this.state.edit &&
-                    <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus.bind(this)}/>
+                     <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus} />
+                    
                     }
                     { !this.state.edit && 
                     <Button
@@ -77,7 +69,7 @@ class ContractImage extends PureComponent {
                         variant="raised"
                         className="create-batch"
                         type="submit"
-                        onClick={()=>this.toggleEdit()}>
+                        onClick={this.toggleEdit}>
                         Update Contract Status
                     </Button>
                     }  

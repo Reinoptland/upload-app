@@ -1,17 +1,16 @@
-import {GET_CONTRACT_IMAGE} from '../actions/contracts'
+import {GET_CONTRACT_IMAGE, UPDATE_CONTRACTS} from '../actions/contracts'
 
-const initialState=[]
-
-export default (state = initialState, {type, payload}) => {
+export default (state = [], {type, payload}) => {
   
-  switch (type) {
-   
-    
-      case  GET_CONTRACT_IMAGE:
-      {  
-          return payload
-      }
+  switch (type) {   
+      case  GET_CONTRACT_IMAGE:{
+          console.log('payload getcontimage',payload)
+          return payload}
 
+        case UPDATE_CONTRACTS:
+           // return {...state, ...payload}
+           return {...state, uploadStatus:payload.uploadStatus}
+      
     default:
       return state
   }
