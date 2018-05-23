@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react'
-// import { Link } from 'react-router-dom'
 import BottomNav from '../layout/BottomNav'
 import {connect} from 'react-redux'
 
@@ -13,17 +12,24 @@ import '../../css/advice.css'
   render() {
   
     return (
+      <div className="advice-Page">
+        <div className="header-advice" >
+            <h1>Advies</h1>
+              <p>
+                Binnenkort vind u hier ons advies met betrekking tot uw contracten.
+              </p>
+                <div className="advice-link">
+                  <p>
+                    <a href="https://halloroos.nl/login" target="_blank" rel="noopener noreferrer">
+                      voor nu ga naar <span className="linkStyle">halloroos.nl</span> en login in om uw advies pagina te bekijken
+                    </a>
+                  </p>
+                </div>
+        </div>
           <div>
-          <div className="generalPage">
-          <h1>Advies</h1>
-          <p>
-            Binnenkort vind u hier advies met betrekking tot uw contracten.
-           </p>
+            <BottomNav/>
           </div>
-          <div>
-          <BottomNav/>
-          </div>
-          </div>
+      </div>
     )
   }
 }
