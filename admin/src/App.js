@@ -10,23 +10,30 @@ import TopBar from './components/layout/TopBar';
 import ContractImage from './components/contracts/ContractImage'
 
 function configureHistory() {
+
   if(window.matchMedia('(display-mode: standalone)').matches) {
-    console.log("We are in home screen");
+   
     return createHashHistory()
-  } else {
-    console.log("We are in regular browser");
-    return createBrowserHistory()
+  } 
+  else {
+
+     return createBrowserHistory()
   }
 }
 
 class App extends PureComponent {
+  
   render() {
+
     return (
+
       <Router history={configureHistory()}>
+
         <div>
           <nav>
             <TopBar/>
           </nav>
+
           <main>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
@@ -36,9 +43,13 @@ class App extends PureComponent {
             <Route exact path="/users/:id/:image" component={ContractImage}/>
             <Route exact path="/" render={ () => <Redirect to="/login" /> } />
           </main>
+
         </div>
+
       </Router>
+
     )
   }
 }
+
 export default App

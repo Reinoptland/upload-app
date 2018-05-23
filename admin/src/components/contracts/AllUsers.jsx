@@ -11,7 +11,8 @@ const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg
 
 class AllUsers extends PureComponent {
 
-    componentWillMount() {   
+    componentWillMount() {  
+
         this.props.getUsers() 
     }
 
@@ -30,6 +31,7 @@ class AllUsers extends PureComponent {
                                 src={userimage}/>
                         </Typography>
                     </Link>
+
                     <Typography component="h1">
                         E-mail:{eachUser.email}
                     </Typography>
@@ -42,23 +44,27 @@ class AllUsers extends PureComponent {
     render() {
 
         let usersList = []
+
         if (this.props.users !== null) {
             usersList = Object.values(this.props.users)
         }
 
         return (
             <div>
-                 {this.props.users.length > 0 &&<Paper className="user-paper">
+                 {
+                    this.props.users.length > 0 &&<Paper className="user-paper">
 
                     <div>
                         {usersList.map((eachUser,index) =>  <div key={eachUser.id}>{this.renderUser(eachUser)}</div>)}
                     </div>
 
-                </Paper>}
+                    </Paper>
+                }
               
                 {this.props.users.length === 0 && <Paper className="user-paper">
                     <p>Geen gebruikers in de database op het moment.</p>
-                </Paper>}
+                </Paper>
+            }
             </div>
         )
 

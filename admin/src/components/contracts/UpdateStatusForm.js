@@ -1,22 +1,17 @@
 import React, {PureComponent} from 'react'
-import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import {submitStatus, getContractImage} from '../../actions/contracts'
 import {connect} from 'react-redux'
 
 class UpdateStatusForm extends PureComponent {
-    state={}
+   
+  constructor() {
 
-    constructor() {
         super()
 
-        this.handleSubmit = this
-            .handleSubmit
-            .bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
 
-         this.handleChange = this
-             .handleChange
-             .bind(this)
+        this.handleChange = this.handleChange.bind(this)
 
         this.state = {
             id:" ",
@@ -27,8 +22,8 @@ class UpdateStatusForm extends PureComponent {
 
 
     handleSubmit(e) {
+
         e.preventDefault()
-        // this.props.submitStatus(this.state)
         this.props.onSubmit(this.state) 
         
     }
@@ -40,17 +35,8 @@ class UpdateStatusForm extends PureComponent {
 
     }
 
-    // handleChange = e => {
-    //     const {name, value} = e.target
-    //     this.setState({
-    //      [name]:value
-    //     }) 
-        
-    // } 
-
-
 	render() {
-        const {classes} = this.props
+      
 		return (
 
 			<form onSubmit={this.handleSubmit}>
@@ -81,6 +67,7 @@ class UpdateStatusForm extends PureComponent {
                     <Button style={{background: "linear-gradient(0.25turn,#e84435, #f57f17)",
                         color:"white"}} variant="raised" type="submit"> Verzenden </Button>
                 </div>
+
 			</form>
 
 		)
@@ -89,6 +76,9 @@ class UpdateStatusForm extends PureComponent {
 
 
 const mapStateToProps = (state) => ({
+
     details2: state.contractImage
+    
 })
+
 export default connect (mapStateToProps, {submitStatus, getContractImage})(UpdateStatusForm)
