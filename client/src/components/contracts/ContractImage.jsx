@@ -21,7 +21,7 @@ class ContractImage extends PureComponent {
     
             <h1> {contractDetails.contractType}</h1>
             <p>{contractDetails.contractProvider}</p>
-            <img src={contractDetails.contractImage} alt={contractDetails.id}/>
+            <img src={contractDetails.contractImage} alt="Afbeelding is niet beschikbaar"/>
 
             <div className="go-back-btn">
             <Link to={`/contracts`}><button className='card-button'> TERUG </button></Link>    
