@@ -8,18 +8,6 @@ body, html {
   color: #4A4A4A;
 }
 
-.outer-paper {
-  margin-top: 20px;
-  margin: auto;
-  padding: 20px;
-  width: 60%;
-}
-.card-content{
-  margin:10px;
-  height:100px;
-  padding-bottom: 35px;
-}
-
 /* Font */
 
 @font-face {

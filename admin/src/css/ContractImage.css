@@ -10,10 +10,13 @@
     min-height: 245px;
     height: 800px;
 }
+.modal img {
+    margin: 0 auto;
+    height: 200px
+}
 
-.image-contract{
-    
-    margin:auto;
+.image-contract {
+    margin: 0 auto;
     padding:60px;
     max-width:1250px;
     min-height: 700px;

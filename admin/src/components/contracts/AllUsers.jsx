@@ -18,8 +18,8 @@ class AllUsers extends PureComponent {
     renderUser(eachUser) {
 
         return (
-            <Card className='usercard'>
-                <CardContent className="card-content">
+            <Card className='user-card'>
+                <CardContent>
 
                     <Link to ={`/users/${eachUser.id}`}>
                         <Typography component="h1">
@@ -31,7 +31,8 @@ class AllUsers extends PureComponent {
                         </Typography>
                     </Link>
                     <Typography component="h1">
-                        E-mail:{eachUser.email}
+                        E-mail: <br/>
+                        {eachUser.email}
                     </Typography>
 
                 </CardContent>
@@ -48,9 +49,9 @@ class AllUsers extends PureComponent {
 
         return (
             <div>
-                 {this.props.users.length > 0 &&<Paper className="user-paper">
+                 {this.props.users.length > 0 && <Paper className="user-paper">
 
-                    <div>
+                    <div className="user-page">
                         {usersList.map((eachUser,index) =>  <div key={eachUser.id}>{this.renderUser(eachUser)}</div>)}
                     </div>
 

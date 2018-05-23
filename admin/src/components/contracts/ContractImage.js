@@ -1,15 +1,17 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {getContractImage} from '../../actions/contracts'
+import {submitStatus} from '../../actions/contracts'
+import UpdateStatusForm from './UpdateStatusForm'
+import {Link} from 'react-router-dom'
+
+//Styling
 import Card, {CardContent} from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
 import '../../css/ContractByUserId.css'
-import {submitStatus} from '../../actions/contracts'
-import UpdateStatusForm from './UpdateStatusForm'
+import {withStyles} from 'material-ui/styles'
 import Modal from 'material-ui/Modal';
-import {Link} from 'react-router-dom'
-import {withStyles} from 'material-ui/styles';
 
 function getModalStyle() {
     const top = 40;
@@ -79,8 +81,8 @@ class ContractImage extends PureComponent {
          </Button>
          </Link>
 
-                <Card className='contractcard'>
-                    <CardContent className='contractcard'>
+                <Card className='contract-card'>
+                    <CardContent >
                     
                         <Typography component="h1">
                             <img 
@@ -95,13 +97,13 @@ class ContractImage extends PureComponent {
                                 />
 
                         </Typography>
-                        <Modal open={this.state.open} onClose={this.handleClose}>
+                        <Modal className= "modal"
+                        open={this.state.open} onClose={this.handleClose}>
 
                             <div style={getModalStyle()} className={classes.paper}>
                                 <Typography variant="title" id={`${this.props.details.id}`}>
-                                    <img  className='contract_image'
+                                    <img  
                                         alt='userpicture'
-                                      
                                         src={details.contractImage}/>
 
                                 </Typography>
