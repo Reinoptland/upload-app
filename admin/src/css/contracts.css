@@ -1,0 +1,26 @@
+.overview {
+    padding-top: 80px;
+    margin: 2% 6% 20% 6% ;
+}
+.contract-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 5%;
+    margin-bottom: 3%
+}
+.card-button {
+    margin-bottom: 20%;
+    padding: 10px 25px;
+    border-radius: 3px;
+    background: linear-gradient(0.25turn,#e84435, #f57f17);
+    color: white;
+    font-family: 'BrandonText-Bold';
+    letter-spacing: 1px;
+    size: 10px;
+}
+
+
+
+
+   

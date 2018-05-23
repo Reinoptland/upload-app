@@ -9,7 +9,7 @@ export default (state = initialState, {type, payload}) => {
     
       case  GET_CONTRACT_IMAGE:
       {  
-          return payload.contractImage
+          return payload
       }
 
     default:

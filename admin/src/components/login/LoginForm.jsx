@@ -28,8 +28,6 @@ export default class LoginForm extends PureComponent {
   }
 
 	render() {
-		const { email, password } = this.state
-		const isEnabled = email.length > 0 && password.length > 0
 
 		return (
 			<form onSubmit={this.handleSubmit}>

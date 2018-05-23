@@ -1,13 +1,14 @@
 
-
 .contractcard{
 
     display:inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin:5%;
     font-family: 'BrandonText-Regular';
-   
+    align-items: center;
+    justify-content: center;
+    padding-top: 13%;
+    padding-bottom: 10%;
 }
 
 .contract-paper{
@@ -25,8 +26,17 @@
 .cardwrapper {
     width:auto;
     display:inline-block;
-    width: 20%;
+    text-align: center;
+    width: 10%;
     min-width: 250px;
     font-family: 'BrandonText-Regular';
+    justify-self: end;
+    margin-top: 5%;
+
    
 }
+
+.card-paragraph {
+    margin:4%;
+}
+

@@ -1,5 +1,5 @@
 
-import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError, UnauthorizedError, Delete} from 'routing-controllers'
+import { JsonController, Get, Post, Body, HttpCode, Param,UploadedFile, Authorized, NotFoundError, UnauthorizedError, Delete, Put, Patch} from 'routing-controllers'
 
 import Contract from './entity'
 import User from '../users/entity'
@@ -89,6 +89,17 @@ export default class ContractController {
         return (contract);
     }
 
+    @Put('/contracts/:id')
+    async updateStatus(
+    
+        @Param('id') id: number,
+        @Body() update: Partial<Contract>) {
+        const contract = await Contract.findOne({id})
+        if (!contract) throw new NotFoundError('Cannot find contract')
+
+        return Contract.merge(contract, update).save()
+    }
+
     @Authorized()
     @Delete('/contracts/:id')
     async deleteStudent(
@@ -101,6 +112,20 @@ export default class ContractController {
         if (contract) Contract.remove(contract)
         return 'Successfully deleted'
     }
+
+    @Patch('/contracts/:userId/status')
+    async setUploadStatus(@Param('userId')id : number, @Body()update) {
+    const status = await Contract.findOneById(id)
+
+    if (!status) 
+      throw new NotFoundError(`User not found`)
+
+    const updatedStatus = Contract.merge(status, update)
+
+    const entity = await updatedStatus.save()
+    return entity
+  }
+
 
 }
 

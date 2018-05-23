@@ -8,9 +8,7 @@ export default (state = initialState, {type, payload}) => {
    
     
       case  GET_ALL_CONTRACTS:
-      {  
           return payload
-      }
 
     default:
       return state
