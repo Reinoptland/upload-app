@@ -78,7 +78,8 @@ class UpdateStatusForm extends PureComponent {
                     </label>
                 <div>
                    
-                    <Button variant="raised" type="submit"> Submit </Button>
+                    <Button style={{background: "linear-gradient(0.25turn,#e84435, #f57f17)",
+                        color:"white"}} variant="raised" type="submit"> Submit </Button>
                 </div>
 			</form>
 
