@@ -50,13 +50,29 @@ export const submitStatus = (uploadState) => (dispatch, getState) => {
   if (isExpired(jwt)) 
     return dispatch(logout())
   request
-    .patch(`${baseUrl}/contracts/${uploadState.id}/status`)
+    .put(`${baseUrl}/contracts/${uploadState.id}`)
     .set('Authorization', `Bearer ${jwt}`)
     .send({uploadStatus: uploadState.uploadStatus})
     .then(result => dispatch({type: UPDATE_CONTRACTS, payload: result.body}))
     .catch(err => console.error(err))
 }
 
+// export const submitStatus = (id, updates) => (dispatch, getState) => {
+
+//   const state = getState()
+//   if (!state.currentAdmin) 
+//     return null
+//   const jwt = state.currentAdmin.jwt
+
+//   if (isExpired(jwt)) 
+//     return dispatch(logout())
+//   request
+//     .put(`${baseUrl}/contracts/${id}`)
+//     .set('Authorization', `Bearer ${jwt}`)
+//     .send(updates)
+//     .then(result => dispatch({type: UPDATE_CONTRACTS, payload: result.body}))
+//     .catch(err => console.error(err))
+// }
 
 export const getContractImage =(userid, image)=> (dispatch,getState)  => {
     

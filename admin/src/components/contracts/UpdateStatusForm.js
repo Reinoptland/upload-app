@@ -1,8 +1,11 @@
 import React, {PureComponent} from 'react'
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
+import {submitStatus, getContractImage} from '../../actions/contracts'
+import {connect} from 'react-redux'
 
 class UpdateStatusForm extends PureComponent {
+    state={}
 
     constructor() {
         super()
@@ -11,9 +14,9 @@ class UpdateStatusForm extends PureComponent {
             .handleSubmit
             .bind(this)
 
-        this.handleChange = this
-            .handleChange
-            .bind(this)
+         this.handleChange = this
+             .handleChange
+             .bind(this)
 
         this.state = {
             id:" ",
@@ -22,13 +25,17 @@ class UpdateStatusForm extends PureComponent {
 
     }
 
+
     handleSubmit(e) {
         e.preventDefault()
-        this.props.onSubmit(this.state)
+        console.log(this.props.details.id)
+        this.props.submitStatus(this.state)
+        
     }
 
-    handleChange(id,event) {
-       
+    handleChange(event,id) {
+
+        console.log(this.props.details.id)
         this.setState({id:id})
         this.setState({uploadStatus: event.target.value})
 
@@ -53,24 +60,25 @@ class UpdateStatusForm extends PureComponent {
                         <input
                             type={'radio'}
                             name='uploadStatus'
-                            value='new'
-                            onChange={(event)=>this.handleChange(this.state.id,event)}/>new
+                            value={'new'}
+                            onChange={(event) => this.handleChange(event, this.props.details.id)}/>new
                     </label>
                     <label>
                         <input
                             type={'radio'}
                             name='uploadStatus'   
-                            value='processed'
-                            onChange={(event)=>this.handleChange(this.state.id,event)}/>processed
+                            value={'processed'}
+                            onChange={(event) => this.handleChange(event, this.props.details.id)}/>processed
                     </label>
                     <label>
                         <input
                             type={'radio'}
                             name='uploadStatus'
-                            value='not usable'
-                            onChange={(event)=>this.handleChange(this.state.id,event)}/>not usable
+                            value={'not usable'}
+                            onChange={(event) => this.handleChange(event, this.props.details.id)}/>not usable
                     </label>
                 <div>
+                   
                     <Button variant="raised" type="submit"> Submit </Button>
                 </div>
 			</form>
@@ -79,4 +87,8 @@ class UpdateStatusForm extends PureComponent {
 	}
 }
 
-export default UpdateStatusForm
+
+const mapStateToProps = (state) => ({
+    details: state.contractImage
+})
+export default connect (mapStateToProps, {submitStatus, getContractImage})(UpdateStatusForm)
