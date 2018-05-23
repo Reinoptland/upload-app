@@ -30,7 +30,6 @@ export default class SignupForm extends PureComponent {
   }
 
 	render() {
-		const { email, password, confirmPassword, privacy } = this.state
 
 		return (
 			<form onSubmit={this.handleSubmit}>

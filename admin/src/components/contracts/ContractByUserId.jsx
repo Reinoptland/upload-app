@@ -3,216 +3,95 @@ import {connect} from 'react-redux'
 import Card, {CardContent} from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import {getUserDetails} from '../../actions/contracts'
-import {getUsers} from '../../actions/users'
+import {getUsers, getUser} from '../../actions/users'
 import {getAllContracts} from '../../actions/contracts'
-import {submitStatus} from '../../actions/contracts'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
-import '../../css/ContractByUserId.css'
+import '../../css/index.css'
+import '../../css/contracts.css'
 
 class ContractByUserId extends PureComponent {
 
-    constructor() {
-        super()
-
-        this.handleSubmit = this
-            .handleSubmit
-            .bind(this)
-
-        this.handleChange = this
-            .handleChange
-            .bind(this)
-
-        this.state = {
-            id:" ",
-            uploadStatus: " ",
-            hidden:true
-        };
-
-    }
-
     componentWillMount() {
-
-        if ((this.props.users === null) ||(this.props.users.length===0)){
-            this
-                .props
-                .getUsers()
-        }
-
-        this
-            .props
-            .getUserDetails(this.props.match.params.id)
-
+        this.props.getUserDetails(this.props.match.params.id)
+        this.props.getUser(this.props.match.params.id)
     }
 
-
-    handleSubmit() {
-       
-        this.setState({hidden:!this.state.hidden})
-        this.props.submitStatus(this.state)
-        
-        this
-        .props
-        .getUserDetails(this.props.match.params.id)
-    }
-
-    handleChange(id,event) {
-       
-        this.setState({id:id})
-        this.setState({uploadStatus: event.target.value})
-
-    }
-
-    getEmail(userId) {
-        if (this.props.users !== null) {
-            const users = Object.values(this.props.users)
-
-            const selecteduser = users.filter((eachuser, index) => {
-
-                if (eachuser.id === userId) {
-
-                    return eachuser.email
-                } else {
-                    return null
-                }
-            })
-
-            const email = selecteduser.map(userdetails => userdetails.email)
-            
-            return email
-        }
-    }
-
-    renderContractDetails(eachcontract) {
-
+    renderContractDetails = (eachcontract, classes) => {
       
-        return (
-            <div key={eachcontract.id} className="cardwrapper">
-                <Card className='contractcard'>
-                    <CardContent className='contractcard'>
+      return (
 
-                        <Typography component="h1">
-                            <img
-                                alt='userpicture'
-                                style={{
-                                maxHeight: '100px'
-                            }}
-
-                             
-
-                            src={"https://oceanicmarinerisks.com.au/wp-content/uploads/2016/04/contract-2.jpg"}
-                                onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}
-                                />
-
-                        </Typography>
-
-                        <Typography component="h1">
-                            ContractName : {eachcontract.contractName}
-                        </Typography>
-
-                        <Typography component="h1">
-                            ContractType : {eachcontract.contractType}
-                        </Typography>
-
-                        <Typography component="h1">
-                            Provider : {eachcontract.contractProvider}
-                        </Typography>
-
-                        <Typography component="h1">
-                            Status: {eachcontract.uploadStatus}
-                        </Typography>
-
-                    </CardContent>
-
-                    <Button
-                        color="primary"
-                        variant="raised"
-                        className="create-batch"
-                        type="submit"
-                        onClick={this.handleSubmit}>
-                        Update Contract Status
-                    </Button>
-
-                  { this.state.hidden ? null:
-                   <div>
-                   <label>
-                        <input
-                            type={'radio'}
-                            name='status'
-                            key={eachcontract.id}
-                            value='new'
-                            onChange={(event)=>this.handleChange(eachcontract.id,event)}/>new
-                    </label>
-
-                    <label>
-                        <input
-                            type={'radio'}
-                            name='status'
-                            key={eachcontract.id}
-                            value='processed'
-                            onChange={(event)=>{
-                                console.log("image",event)
-                                this.handleChange(eachcontract.id,event)}}/>processed
-                    </label>
-                    <label>
-                        <input
-                            type={'radio'}
-                            name='status'
-                            key={eachcontract.id}
-                            value='not usable'
-                            onChange={(event)=>this.handleChange(eachcontract.id,event)}/>not usable
-                    </label>
-                    </div>
-                   }
-                
-               </Card>
-
+        <div key={eachcontract.id} className='contractDetails'>
+        
+        <Card key={eachcontract.id} className='contract-card'>
+            <div className='card-content'>
+                <h2>{eachcontract.contractType}</h2>
+                <p className="card-paragraph">Provider: {eachcontract.contractProvider}</p>
+                <p className="card-paragraph">Status: {eachcontract.uploadStatus}</p>
             </div>
-
-        )
+            <div className='card-action'>
+                <Button className="card-button"
+                    style={{backgroundColor: "#F57F17",
+                    color:"white"}}
+                    variant="raised"
+                    className="see-contract"
+                    type="submit"
+                    onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}>
+                    View Contract
+                </Button>
+            </div>
+        </Card>    
+      </div>
+      )
     }
 
     render() {
+
+        const {user} = this.props
+        if (!this.props.user) return null
         const userId = this
-            .props
-            .contractsById
-            .map((eachcontract) => {
-                return eachcontract.userId
-            })
-        let email = " "
-        if (userId.length > 0) {
-            email = this.getEmail(userId[0])
-        }
+        .props
+        .contractsById
+        .map((eachcontract) => {
+            return eachcontract.userId
+        })
 
-        return (
-
+      return (
+      <div>
+        <div className="overview">
+        
+            {this.props.contractsById.length === 0 && <p>No contracts stored at the moment</p>
+            }
+            {this.props.contractsById.length > 0 && 
             <div>
-
-                {this.props.contractsById.length === 0 && <p>No contracts stored at the moment</p>
-}
-                {this.props.contractsById.length > 0 && <Paper className='contract-paper'>
-                    <span
-                        style={{
-                        width: '100%',
-                        display: 'block',
-                        marginTop: '75px'
-                    }}>Email:{email}</span>
+                <h1 style={{textAlign:"center"}}>Mijn contracten</h1>
+                <p
+                    style={{
+                    width: '100%',
+                    display: 'block',
+                    marginTop: '75px',
+                    textAlign:"center"
+                    }}
+                >User : <br/> {user.email}
+                </p> 
+                <Paper className='contract-paper'>
+                    
                     {this
                         .props
                         .contractsById
                         .map(eachcontract => this.renderContractDetails(eachcontract))}
-                </Paper>}
-            </div>
-
-        )
+                </Paper>
+            </div>}
+        </div>       
+      </div>
+      )
     }
 }
 
 const mapStateToProps = (state) => ({
-    users: state.users === null
-        ? null
-        : state.users,
-    contractsById: state.contractsById
+    contractsById: state.contractsById,
+    user : state.user
 })
 
-export default connect(mapStateToProps, {getUserDetails, getUsers, getAllContracts,submitStatus})(ContractByUserId)
+export default connect(mapStateToProps, 
+    {getUserDetails, getUsers, getUser})(ContractByUserId)

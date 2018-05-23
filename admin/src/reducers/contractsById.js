@@ -1,14 +1,14 @@
 import {GET_CONTRACTS_BY_ID} from '../actions/contracts'
-import {UPDATE_CONTRACTS} from '../actions/contracts'
+ import {UPDATE_CONTRACTS} from '../actions/contracts'
 
-const initialState = [{
-    id:" ",
-    userId:" ",
-    contractImage:" ",
-    contractType:" ",
-    contractProvider:" ",
-    uploadStatus:" "
-}]
+// const initialState = [{
+//     id:" ",
+//     userId:" ",
+//     contractImage:" ",
+//     contractType:" ",
+//     contractProvider:" ",
+//     uploadStatus:" "
+// }]
 
 export default (state = [], {type, payload}) => {
 
@@ -23,12 +23,12 @@ export default (state = [], {type, payload}) => {
         {   
             
             //return [{...state, [state.uploadStatus]:payload.uploadStatus}]
-            const contractIndex=state.map((eachcontract,index)=>{
-                if(eachcontract.id===payload.id){
-                    return index
-                }
-                
-            })
+        const contractIndex=state.map((eachcontract,index)=>{
+            if(eachcontract.id===payload.id){
+                return index
+            }
+            
+        })
             
             //console.log(updatedIndex)
             console.log("index",contractIndex)

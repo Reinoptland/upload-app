@@ -4,6 +4,7 @@ import {isExpired} from '../jwt'
 import {logout} from './admins'
 
 export const GET_ALL_USERS = "GET_ALL_USERS"
+export const GET_USER = "GET_USER"
 
 export const getUsers = () => (dispatch, getState) => {
   const state = getState()
@@ -23,4 +24,16 @@ export const getUsers = () => (dispatch, getState) => {
     })
     .catch(err => console.error(err))
 }
+
+export const getUser = (userId) => (dispatch) => {
+
+  request
+    .get(`${baseUrl}/users/${userId}`)
+    .then(response => dispatch({
+      type: GET_USER,
+      payload: response.body
+    }))
+    .catch(err => console.log(err))
+  }
+
 
