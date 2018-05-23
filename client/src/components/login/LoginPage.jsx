@@ -27,7 +27,7 @@ class LoginPage extends PureComponent {
 		{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
 		
 				<div className="signuptext">
-					<Link to={'/signup'}>nog geen account? Inschrijven</Link>
+					<Link to={'/signup'}>nog geen account? <span className="linkStyle">Inschrijven</span></Link>
 				</div>
 			</div>
 		)
