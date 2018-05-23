@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { Router, Route, Redirect } from 'react-router-dom'
 import LoginPage from './components/login/LoginPage'
 import SignupPage from './components/signup/SignupPage'
-import LogoutPage from './components/logout/LogoutPage'
+import LogoutPage from './components/layout/logout/LogoutPage'
 import AllUsers from './components/contracts/AllUsers'
 import Privacy from './components/privacy/Privacy'
 import UploadPage from './components/upload/uploadPage'
@@ -11,6 +11,7 @@ import ContractByUserId from './components/contracts/ContractByUserId'
 import HowTo from './components/howto/HowTo'
 import HomePage from './components/home/homePage'
 import ContractsPage from './components/contracts/contractsPage'
+import ContractImage from './components/contracts/ContractImage';
 import AdvicePage from './components/advice/advicePage'
 import { createBrowserHistory, createHashHistory } from 'history'
 
@@ -41,6 +42,7 @@ class App extends PureComponent {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/Privacy" component={Privacy} />
             <Route exact path="/contracts" component={ContractsPage} />
+            <Route exact path="/contracts/:image" component={ContractImage} />
             <Route exact path="/HowTo" component={HowTo} />
             <Route exact path="/upload" component={UploadPage} />
             <Route exact path="/UploadForm" component={UploadForm} />

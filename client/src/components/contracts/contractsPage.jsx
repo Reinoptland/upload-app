@@ -1,14 +1,13 @@
 import React, {PureComponent} from 'react'
-// import { Link } from 'react-router-dom'
-import BottomNav from '../layout/BottomNav'
+import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getAllContracts, deleteContract} from '../../actions/contracts'
 
 //styling
 import Card from 'material-ui/Card'
+import BottomNav from '../layout/BottomNav'
 import '../../css/index.css'
 import '../../css/contracts.css'
-
 
   class ContractsPage extends PureComponent {
 
@@ -29,6 +28,7 @@ import '../../css/contracts.css'
             <p> {contract.contractProvider} </p>
           </div>
           <div className='card-action'>
+           <Link to={`/contracts/${contract.contractImage}`}><button className='card-button' value={contract.id}>DETAILS </button></Link>
             <button className='card-button' onClick={this.handleDelete} value={contract.id}>DELETE </button>
           </div>
         </Card>
