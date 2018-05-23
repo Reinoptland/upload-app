@@ -31,7 +31,7 @@ class AllUsers extends PureComponent {
                         </Typography>
                     </Link>
                     <Typography component="h1">
-                        Email:{eachUser.email}
+                        E-mail:{eachUser.email}
                     </Typography>
 
                 </CardContent>
@@ -57,7 +57,7 @@ class AllUsers extends PureComponent {
                 </Paper>}
               
                 {this.props.users.length === 0 && <Paper className="user-paper">
-                    <p>No users in the database at the moment.</p>
+                    <p>Geen gebruikers in de database op het moment.</p>
                 </Paper>}
             </div>
         )

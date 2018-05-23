@@ -7,6 +7,7 @@ import {getUsers, getUser} from '../../actions/users'
 import {getAllContracts} from '../../actions/contracts'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
+import {Link} from 'react-router-dom'
 import '../../css/index.css'
 import '../../css/contracts.css'
 
@@ -21,7 +22,7 @@ class ContractByUserId extends PureComponent {
       
       return (
 
-        <div key={eachcontract.id} className='contractDetails'>
+        <div key={eachcontract.id} className='contract-details'>
         
         <Card key={eachcontract.id} className='contract-card'>
             <div className='card-content'>
@@ -31,13 +32,13 @@ class ContractByUserId extends PureComponent {
             </div>
             <div className='card-action'>
                 <Button className="card-button"
-                    style={{backgroundColor: "#F57F17",
-                    color:"white"}}
+                    style={{background: "linear-gradient(0.25turn,#e84435, #f57f17)",
+                        color:"white"}}
                     variant="raised"
                     className="see-contract"
                     type="submit"
                     onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}>
-                    View Contract
+                    Bekijk Contract
                 </Button>
             </div>
         </Card>    
@@ -57,10 +58,21 @@ class ContractByUserId extends PureComponent {
         })
 
       return (
+
       <div>
+         
+         <Link to ='/users'> 
+         <Button 
+          className='all-users-button'
+          variant="raised"
+          type="submit" >
+          Alle gebruikers
+         </Button>
+         </Link>
+
         <div className="overview">
         
-            {this.props.contractsById.length === 0 && <p>No contracts stored at the moment</p>
+            {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>
             }
             {this.props.contractsById.length > 0 && 
             <div>
@@ -69,18 +81,18 @@ class ContractByUserId extends PureComponent {
                     style={{
                     width: '100%',
                     display: 'block',
-                    marginTop: '75px',
+                    marginTop: '50px',
                     textAlign:"center"
                     }}
-                >User : <br/> {user.email}
+                >Gebruiker :  {user.email}
                 </p> 
-                <Paper className='contract-paper'>
+            
                     
                     {this
                         .props
                         .contractsById
                         .map(eachcontract => this.renderContractDetails(eachcontract))}
-                </Paper>
+                
             </div>}
         </div>       
       </div>

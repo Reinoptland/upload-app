@@ -123,8 +123,6 @@ class UploadForm extends PureComponent {
 					
 				</div>
 
-				
-
 				<div className="contract-field">
 
 				<div className="contract-type">
