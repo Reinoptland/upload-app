@@ -8,15 +8,15 @@ export const GET_CONTRACT_IMAGE="GET_CONTRACT_IMAGE"
 export const CONTRACT_DELETED = "CONTRACT_DELETED"
 
 
-export const getAllContracts = () => (dispatch, getState)  => {
-  
+export const getAllContracts = (userId) => (dispatch, getState)  => {
+
   const state = getState()
   if (!state.currentUser) return null
   const jwt = state.currentUser.jwt
-      
+
   if (isExpired(jwt)) return dispatch(logout())
     request
-      .get(`${baseUrl}/contracts`)
+      .get(`${baseUrl}/contracts/${userId}`)
       .set('Authorization', `Bearer ${jwt}`)
       .then(result => dispatch(  {type: GET_ALL_CONTRACTS,
             payload: result.body}))
@@ -24,13 +24,13 @@ export const getAllContracts = () => (dispatch, getState)  => {
 }
 
 export const getContractImage = (userid, image) => (dispatch, getState)  => {
-   
+
     const state = getState()
     if (!state.currentUser) return null
     const jwt = state.currentUser.jwt
-  
+
     if (isExpired(jwt)) return dispatch(logout())
-    
+
     request
       .get(`${baseUrl}/contracts/${userid}/${image}`)
       .set('Authorization', `Bearer ${jwt}`)
@@ -39,7 +39,7 @@ export const getContractImage = (userid, image) => (dispatch, getState)  => {
 }
 
 export const deleteContract = (id) => (dispatch, getState) => {
-  
+
   const state = getState()
   if (!state.currentUser) return null
   const jwt = state.currentUser.jwt
@@ -57,4 +57,3 @@ export const deleteContract = (id) => (dispatch, getState) => {
     })
     .catch(err => console.error(err))
 }
-    
