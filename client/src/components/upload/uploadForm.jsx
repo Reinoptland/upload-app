@@ -1,9 +1,7 @@
 import React, {PureComponent} from 'react'
-
-import { Link } from 'react-router-dom'
 import {upload, uploading} from '../../actions/upload'
 import {connect} from 'react-redux'
-import {Uploading} from './uploading'
+//import {Uploading} from './uploading'
 
 //Styling
 import '../../css/uploadForm.css'
@@ -167,6 +165,9 @@ class UploadForm extends PureComponent {
 				return (
 					<div className="uploading">
 						<h1>Uw contract word opgeladen</h1>
+						<div>
+                			<BottomNav/>
+            			</div>
 					</div>
 			)}
 
@@ -174,6 +175,9 @@ class UploadForm extends PureComponent {
 				return (
 					<div className="uploading">
 						<h1>Uw contract werd succesvol opgeladen</h1>
+						<div>
+                			<BottomNav/>
+            			</div>
 					</div>
 			)} 
 			
@@ -181,6 +185,9 @@ class UploadForm extends PureComponent {
 				return (
 					<div className="uploading">
 						<h1>Er is iets mis gegaan, probeer het later nogmaals</h1>
+						<div>
+                			<BottomNav/>
+            			</div>
 					</div>
 			)}
   }
