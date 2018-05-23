@@ -1,14 +1,16 @@
 .overview {
-    
     margin: 2% 6% 20% 6% ;
+    
+}
+.contract-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .contract-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
     padding: 0 5%;
-    margin-bottom: 3%;
-    width: 500px;
+    margin: 3% auto;
+    width: 60%;
 }
 .card-button {
     margin-bottom: 20%;

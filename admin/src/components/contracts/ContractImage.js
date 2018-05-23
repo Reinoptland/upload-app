@@ -75,7 +75,7 @@ class ContractImage extends PureComponent {
           className='all-contracts-button'
           variant="raised"
           type="submit" >
-          ALL CONTRACTS
+          Alle contracten
          </Button>
          </Link>
 
@@ -110,7 +110,7 @@ class ContractImage extends PureComponent {
                         </Modal>
                         
 
-                        <p >ContractType : {details.contractType}</p>
+                        <p >Contract type : {details.contractType}</p>
                  
                         <p className="card-paragraph">Provider : {details.contractProvider}</p>     
                            
@@ -128,7 +128,7 @@ class ContractImage extends PureComponent {
                         className="card-button"
                         type="submit"
                         onClick={this.toggleEdit}>
-                        Update Contract Status
+                        Contract status aanpassen
                     </Button>
                     }  
                </Card>

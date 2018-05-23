@@ -22,7 +22,7 @@ class ContractByUserId extends PureComponent {
       
       return (
 
-        <div key={eachcontract.id} className='contractDetails'>
+        <div key={eachcontract.id} className='contract-details'>
         
         <Card key={eachcontract.id} className='contract-card'>
             <div className='card-content'>
@@ -38,7 +38,7 @@ class ContractByUserId extends PureComponent {
                     className="see-contract"
                     type="submit"
                     onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}>
-                    View Contract
+                    Bekijk Contract
                 </Button>
             </div>
         </Card>    
@@ -66,13 +66,13 @@ class ContractByUserId extends PureComponent {
           className='all-users-button'
           variant="raised"
           type="submit" >
-          ALL USERS
+          Alle gebruikers
          </Button>
          </Link>
 
         <div className="overview">
         
-            {this.props.contractsById.length === 0 && <p>No contracts stored at the moment</p>
+            {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>
             }
             {this.props.contractsById.length > 0 && 
             <div>
@@ -84,7 +84,7 @@ class ContractByUserId extends PureComponent {
                     marginTop: '50px',
                     textAlign:"center"
                     }}
-                >User :  {user.email}
+                >Gebruiker :  {user.email}
                 </p> 
             
                     
