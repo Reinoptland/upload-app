@@ -32,8 +32,8 @@ class ContractByUserId extends PureComponent {
             </div>
             <div className='card-action'>
                 <Button className="card-button"
-                    style={{backgroundColor: "#F57F17",
-                    color:"white"}}
+                    style={{background: "linear-gradient(0.25turn,#e84435, #f57f17)",
+                        color:"white"}}
                     variant="raised"
                     className="see-contract"
                     type="submit"

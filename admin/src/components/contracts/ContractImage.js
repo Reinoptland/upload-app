@@ -111,7 +111,9 @@ class ContractImage extends PureComponent {
                         
 
                         <p >ContractType : {details.contractType}</p>
-                        <p className="card-paragraph">Provider : {details.contractProvider}</p>         
+                 
+                        <p className="card-paragraph">Provider : {details.contractProvider}</p>     
+                           
                         <p className="card-paragraph1">Status : {details.uploadStatus}</p>
 
                     </CardContent>
@@ -121,10 +123,9 @@ class ContractImage extends PureComponent {
                     
                     }
                     { !this.state.edit && 
-                    <Button
-                        color="primary"
+                    <Button                      
                         variant="raised"
-                        className="create-batch"
+                        className="card-button"
                         type="submit"
                         onClick={this.toggleEdit}>
                         Update Contract Status
