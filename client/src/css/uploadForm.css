@@ -65,6 +65,7 @@
     position: fixed;
     bottom: 0;
 }
+
 .uploading {
     margin-top: 100px;
     color: black;
@@ -75,10 +76,35 @@
         margin: 15% 5%;
     }
 
+.uploading-Page {
+    min-width: 100%;
+    padding-top: 12%;
+    padding-bottom: 50%;
+    background: #fff;
+    height: 100%; 
+    z-index: 1;
 }
 
+.header-uploading {
+    padding: 15% 15% 10% 15%;
+    margin: 0 auto 5% auto;
+}
+.header-uploading h1 {
+    padding: 0 8% 5% 0;
+    border-bottom: 1px solid #4A4A4A;
+    letter-spacing: 0.4px;
+    color: #4A4A4A;
+}
 
+.header-uploading h3 {
+    color: #4A4A4A;
+}
 
- 
+.header-uploading p {
+    font-size: 0.875em;
+    color: #4A4A4A;
+}
+}
+
 
 
