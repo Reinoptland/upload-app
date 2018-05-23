@@ -7,30 +7,46 @@ import Button from 'material-ui/Button'
 import '../../css/ContractByUserId.css'
 import {submitStatus} from '../../actions/contracts'
 import UpdateStatusForm from './UpdateStatusForm'
+import Modal from 'material-ui/Modal';
+import {Link} from 'react-router-dom'
+import {withStyles} from 'material-ui/styles';
+
+function getModalStyle() {
+    const top = 40;
+    const left = 40;
+
+    return {top: `${top}%`, left: `${left}%`, transform: `translate(-${top}%, -${left}%)`};
+}
+
+const styles = theme => ({
+    paper: {
+        position: 'absolute',
+        width: theme.spacing.unit *215,
+        backgroundColor: theme.palette.background.paper,
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing.unit * 4,
+        height:theme.spacing.unit*100
+    }
+});
 
 class ContractImage extends PureComponent {
 
-    constructor() {
-        super()
-
-        this.state = {
-            
-            showPopup: false
+        state = {
+            edit: false,
+            open: false
         };
-    }
- 
     
-    togglePopup() {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
-    }
-
-    state={edit: false}
+        handleOpen = () => {
+            this.setState({open: true});
+        };
     
+        handleClose = () => {
+            this.setState({open: false});
+        };
+   
     toggleEdit = () => {
         this.setState({
-          edit: !this.state.edit
+        edit: !this.state.edit
         })
     }
 
@@ -39,40 +55,70 @@ class ContractImage extends PureComponent {
     }
 
     updateStatus = (details) => {
+       
         this.toggleEdit()
-        this.props.updateStatus(this.props.details.id, details)   
+        this.props.submitStatus(details) 
+        
       }
 
     render(){
 
-        const {details} = this.props
+        const {details,classes} = this.props
+       
+        if (!details) return null
+
         return(
             <div key={details.id} className="cardwrapper">
+
+            <Link to ={`/users/${details.userId}`}> 
+         <Button 
+          className='all-contracts-button'
+          variant="raised"
+          type="submit" >
+          ALL CONTRACTS
+         </Button>
+         </Link>
+
                 <Card className='contractcard'>
                     <CardContent className='contractcard'>
                     
                         <Typography component="h1">
-                            <img
+                            <img 
                                 alt='userpicture'
                                 style={{
                                 maxHeight: '250px'
                             }}
-                            onClick={this
-                                .togglePopup
-                                .bind(this)}
+
+                            
                             src={details.contractImage}                            
+                            onClick={this.handleOpen}
                                 />
 
                         </Typography>
+                        <Modal open={this.state.open} onClose={this.handleClose}>
+
+                            <div style={getModalStyle()} className={classes.paper}>
+                                <Typography variant="title" id={`${this.props.details.id}`}>
+                                    <img  className='contract_image'
+                                        alt='userpicture'
+                                      
+                                        src={details.contractImage}/>
+
+                                </Typography>
+
+                            </div>
+                        </Modal>
                         
+
                         <p >ContractType : {details.contractType}</p>
                         <p className="card-paragraph">Provider : {details.contractProvider}</p>         
                         <p className="card-paragraph1">Status : {details.uploadStatus}</p>
 
                     </CardContent>
-{console.log(details)}
+
                      { this.state.edit &&
-                    <UpdateStatusForm onSubmit={this.updateStatus}/>
+                     <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus} />
+                    
                     }
                     { !this.state.edit && 
                     <Button
@@ -80,7 +126,7 @@ class ContractImage extends PureComponent {
                         variant="raised"
                         className="create-batch"
                         type="submit"
-                        onClick={()=>this.toggleEdit()}>
+                        onClick={this.toggleEdit}>
                         Update Contract Status
                     </Button>
                     }  
@@ -96,4 +142,4 @@ const mapStateToProps = (state) => ({
     details: state.contractImage
 })
 
-export default (connect(mapStateToProps,{getContractImage, submitStatus})(ContractImage))
+export default withStyles(styles)(connect(mapStateToProps,{getContractImage, submitStatus})(ContractImage))

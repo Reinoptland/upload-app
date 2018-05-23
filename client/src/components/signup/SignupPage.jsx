@@ -11,22 +11,23 @@ class SignupPage extends PureComponent {
 	handleSubmit = (data) => {
 		this.props.postSignup(data.email, data.password, data.privacy)
 	}
-
+	
 	render() {
-		if (this.props.signup.success) return (
-			<Redirect to="/" />
+		const { signup } = this.props
+		const realSignup = signup[0]
+		if (realSignup) return (
+			<Redirect to="/login" />
 		)
-
+		
 		return (
 			<div className="generalPage">
 				<h1>Sign up</h1>
-
 				<SignupForm onSubmit={this.handleSubmit} />
 
 				<p style={{color:'red'}}>{ this.props.signup.error }</p>
 
 				<div className="logintext">
-					<Link to={'/login'}>heb je al een account? Inloggen</Link>
+					<Link to={'/login'}>heb je al een account? <span className="linkStyle">Inloggen</span></Link>
 				</div>
 			</div>
 		)

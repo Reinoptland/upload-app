@@ -7,6 +7,7 @@ import {getUsers, getUser} from '../../actions/users'
 import {getAllContracts} from '../../actions/contracts'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
+import {Link} from 'react-router-dom'
 import '../../css/index.css'
 import '../../css/contracts.css'
 
@@ -26,8 +27,8 @@ class ContractByUserId extends PureComponent {
         <Card key={eachcontract.id} className='contract-card'>
             <div className='card-content'>
                 <h2>{eachcontract.contractType}</h2>
-                <p className="card-paragraph">Provider: {eachcontract.contractProvider}</p>
-                <p className="card-paragraph">Status: {eachcontract.uploadStatus}</p>
+                <p>Provider: {eachcontract.contractProvider}</p>
+                <p>Status: {eachcontract.uploadStatus}</p>
             </div>
             <div className='card-action'>
                 <Button className="card-button"
@@ -57,7 +58,18 @@ class ContractByUserId extends PureComponent {
         })
 
       return (
+
       <div>
+         
+         <Link to ='/users'> 
+         <Button 
+          className='all-users-button'
+          variant="raised"
+          type="submit" >
+          ALL USERS
+         </Button>
+         </Link>
+
         <div className="overview">
         
             {this.props.contractsById.length === 0 && <p>No contracts stored at the moment</p>
@@ -69,18 +81,18 @@ class ContractByUserId extends PureComponent {
                     style={{
                     width: '100%',
                     display: 'block',
-                    marginTop: '75px',
+                    marginTop: '50px',
                     textAlign:"center"
                     }}
-                >User : <br/> {user.email}
+                >User :  {user.email}
                 </p> 
-                <Paper className='contract-paper'>
+            
                     
                     {this
                         .props
                         .contractsById
                         .map(eachcontract => this.renderContractDetails(eachcontract))}
-                </Paper>
+                
             </div>}
         </div>       
       </div>

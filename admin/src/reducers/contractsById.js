@@ -1,5 +1,5 @@
 import {GET_CONTRACTS_BY_ID} from '../actions/contracts'
- import {UPDATE_CONTRACTS} from '../actions/contracts'
+// import {UPDATE_CONTRACTS} from '../actions/contracts'
 
 // const initialState = [{
 //     id:" ",
@@ -19,23 +19,23 @@ export default (state = [], {type, payload}) => {
                 return payload
             }
        
-        case UPDATE_CONTRACTS:
-        {   
+        // case UPDATE_CONTRACTS:
+        // {   
             
             //return [{...state, [state.uploadStatus]:payload.uploadStatus}]
-        const contractIndex=state.map((eachcontract,index)=>{
-            if(eachcontract.id===payload.id){
-                return index
-            }
+        // const contractIndex=state.map((eachcontract,index)=>{
+        //     if(eachcontract.id===payload.id){
+        //         return index
+        //     }
             
-        })
+        // })
             
             //console.log(updatedIndex)
-            console.log("index",contractIndex)
+    //         console.log("index",contractIndex)
 
-    return [...state, state[contractIndex].uploadStatus=payload.uploadStatus]
+    // return [...state, state[contractIndex].uploadStatus=payload.uploadStatus]
     
-        }
+    //     }
 
         default:
             return state
