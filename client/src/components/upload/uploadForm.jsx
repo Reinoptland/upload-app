@@ -80,8 +80,6 @@ class UploadForm extends PureComponent {
 						this.state.type,
 						this.state.provider,
 						this.state.uploadStatus))
-		
-		document.getElementById("form").reset()
 	}
 
 	render() {
