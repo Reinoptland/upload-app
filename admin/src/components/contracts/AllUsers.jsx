@@ -22,7 +22,7 @@ class AllUsers extends PureComponent {
     renderUser(eachUser) {
 
         return (
-            <Grid item xs="6" sm="3">
+            <Grid item xs={6} sm={3}>
                 <Card className='user-card'>
                     <CardContent>
 
@@ -56,7 +56,7 @@ class AllUsers extends PureComponent {
         return (
             <div>
                  {this.props.users.length > 0 && <Paper className="user-paper">
-                 <Grid container spacing={24}>
+                <Grid container spacing={12}>
                     <div className="user-page">
                         {usersList.map((eachUser,index) =>  <div key={eachUser.id}>{this.renderUser(eachUser)}</div>)}
                     </div>
