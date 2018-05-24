@@ -48,7 +48,7 @@ class ContractByUserId extends PureComponent {
                 variant="raised"
                 className="button"
                 type="submit"
-                onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}>
+                onClick={() => window.location=`${eachContract.userId}/${eachContract.contractImage}`}>
                 Bekijk Contract
             </Button>
         </Card>
@@ -99,13 +99,11 @@ class ContractByUserId extends PureComponent {
                           <option value="niet bruikbaar">niet bruikbaar</option>
                          
                           </select>
+                          <p>Gebruiker : {user.email}</p> 
+                          
                        <div className="contract-details">
                         {(this.state.upload_Status==="alle") && this.props.contractsById.map(eachContract => this.renderContractDetails(eachContract))}
                         {(this.state.upload_Status!=="alle") && filteredContracts.map(eachContract => this.renderContractDetails(eachContract))}
-
-            <p>Gebruiker : {user.email}</p> 
-              
-            
 
             </div>
             </div>}
