@@ -5,7 +5,6 @@ let initialState = null
 try {
   const jwt = localStorage.getItem(localStorageJwtKey)
   const userId = localStorage.getItem('userId')
-  console.log('user', userId)
   if (jwt) {
     initialState = { jwt, userId }
   }
