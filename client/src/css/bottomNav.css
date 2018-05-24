@@ -12,7 +12,14 @@
 .left-icons, .right-icons {
     width: 45%;
     display: flex;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    align-items: center;
+}
+.right-icons {
+    padding-top: 2px
+}
+.logout {
+    padding-top: 7px
 }
 .add-button img {
     position: relative; 

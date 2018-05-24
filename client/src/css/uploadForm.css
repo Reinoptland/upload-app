@@ -1,5 +1,5 @@
 .upload-form {
-    margin: 27% 5%;
+    margin: 110px 25px;
     padding: 5%;
     border: 2px solid #E2E6E7;
     border-radius: 10px;
@@ -36,11 +36,12 @@
     border-radius: 4px
 }
 .contract-provider {
-    margin-bottom: 10%;
+    margin-bottom: 40px;
 }
 
 .submit-form {
     display: block;
+    width: 100%;
     background-color: #fff;
     border: 1.5px solid #E84435;
     padding: 0 6%;
@@ -48,12 +49,13 @@
     line-height: 40px;
     color: #4A4A4A;
     font-size: 1em;
-    border-radius: 20px
+    border-radius: 4px
 }
 .submit-form:hover {
     border: inherit;
     background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
     color: #fff;
+    border-radius: 4px
 }
 .nav {
     display: inline-flex;
@@ -69,10 +71,6 @@
 .uploading {
     margin-top: 100px;
     color: black;
-}
-
-.upload-form {
-    margin: 15% 5%;
 }
 
 .uploading-Page {
@@ -104,41 +102,13 @@ font-size: 0.875em;
 color: #4A4A4A;
 }
 
-
 @media screen and (min-width: 600px) {
-    .upload-form {
-        margin: 15% 5%;
+    .contract-field select {
+        padding: 4%;
     }
-
-.uploading-Page {
-    min-width: 100%;
-    padding-top: 12%;
-    padding-bottom: 50%;
-    background: #fff;
-    height: 100%; 
-    z-index: 1;
+    .contract-field input  {
+        width: 96%;
+        padding: 2%;
+    }
 }
-
-.header-uploading {
-    padding: 15% 15% 10% 15%;
-    margin: 12% auto 5% auto;
-}
-.header-uploading h1 {
-    padding: 0 8% 5% 0;
-    border-bottom: 1px solid #4A4A4A;
-    letter-spacing: 0.4px;
-    color: #4A4A4A;
-}
-
-.header-uploading h3 {
-    color: #4A4A4A;
-}
-
-.header-uploading p {
-    font-size: 0.875em;
-    color: #4A4A4A;
-}
-}
-
-
 

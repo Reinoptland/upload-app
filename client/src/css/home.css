@@ -35,118 +35,35 @@
 
 @media screen and (min-width: 600px) {
     .home-Page {
-        min-width: 100%;
-        padding-top: 12%;
-        padding-bottom: 50%;
-        background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
-        height: 100%;
-        z-index: 1;
+        padding-top: 8%;
+        position: fixed;
     }
-
-    .header-home {
-        padding: 15% 15% 10% 15%;
-        margin: 0 auto 5% auto;
-    }
-    .header-home h1 {
-        padding: 0 8% 5% 0;
-        border-bottom: 1px solid #fff;
-        letter-spacing: 0.4px;
-        color: #fff;
-    }
-
-    .header-home h3 {
-        color: #fff;
-    }
-
-    .header-home p {
-        font-size: 0.875em;
-        color: #fff;
-    }
-
 }
 @media screen and (min-width: 800px) {
     .home-Page {
-        min-width: 100%;
-        padding-top: 12%;
-        padding-bottom: 50%;
-        background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
-        height: 100%;
-        z-index: 1;
-    }
-
-    .header-home {
-        padding: 15% 15% 10% 15%;
-        margin: 0 auto 5% auto;
-    }
-    .header-home h1 {
-        padding: 0 8% 5% 0;
-        border-bottom: 1px solid #fff;
-        letter-spacing: 0.4px;
-        color: #fff;
-    }
-
-    .header-home h3 {
-        color: #fff;
-    }
-
-    .header-home p {
-        font-size: 0.875em;
-        color: #fff;
+        padding-top: 2%;
+        position: fixed;
     }
 }
-
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 800px) {
     .home-Page {
-        min-width: 100%;
-        padding-top: 12%;
-        padding-bottom: 50%;
-        background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
-        height: 100%;
-        z-index: 1;
+        padding-top: 10%;
+        position: fixed;
     }
-
     .header-home {
-        padding: 5% 15% 10% 15%;
-    }
-
-    .header-home h3 {
-        color: #fff;
-    }
-
-    .header-home p {
-        font-size: 0.875em;
-        color: #fff;
+        padding-top: 0;
     }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
     .home-Page {
-        min-width: 100%;
-        padding-top: 12%;
-        padding-bottom: 50%;
-        background: linear-gradient(90deg, #E84435 3.74%, #F57F17 100%);
-        height: 100%;
-        z-index: 1;
+        padding-top: 10%;
+        position: fixed;
+        font-size: 1.5em
     }
-
     .header-home {
-        padding: 15% 15% 10% 15%;
-        margin: 0 auto 5% auto;
-    }
-    .header-home h1 {
-        padding: 0 8% 5% 0;
-        border-bottom: 1px solid #fff;
-        letter-spacing: 0.4px;
-        color: #fff;
-    }
-
-    .header-home h3 {
-        color: #fff;
-    }
-
-    .header-home p {
-        font-size: 0.875em;
-        color: #fff;
+        padding-top: 4%;
     }
 }
+
 
 

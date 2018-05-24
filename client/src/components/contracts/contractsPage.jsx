@@ -52,27 +52,24 @@ import '../../css/contracts.css'
       const {contracts} = this.props
 
       if (contracts === null) return null
-      console.log('state',this.state.contracttype)
 
       const filteredContracts = this.props.contracts.filter(contract => {return contract.contractType === this.state.contracttype})
-      console.log(filteredContracts)
-
 
       return (
       <div>
 
-
         <div className="overview">
           <h1>Mijn contracten</h1>
+          <div className="filter">
           <p>Filter hier op type:</p>
           <select required
-          className="type"  name="type" id="type"
+          name="type" id="type"
           onChange={ this.handleChange }>
             <option value="">Contract Type</option>
             <option value="Aansprakelijkheidsverzekering">Aansprakelijkheidsverzekering</option>
-              <option value="AOV verzekering">AOV verzekering</option>
-              <option value="Autoverzekering">Autoverzekering</option>
-              <option value="Bootverzekering">Bootverzekering</option>
+            <option value="AOV verzekering">AOV verzekering</option>
+            <option value="Autoverzekering">Autoverzekering</option>
+            <option value="Bootverzekering">Bootverzekering</option>
             <option value="Dierenverzekering">Dierenverzekering</option>
             <option value="Energie">Energie</option>
             <option value="Hypotheek">Hypotheek</option>
@@ -89,12 +86,10 @@ import '../../css/contracts.css'
             <option value="Uitvaartverzekering">Uitvaartverzekering</option>
             <option value="Zorgverzekering">Zorgverzekering</option>
           </select>
+          </div>
           {!this.state.contracttype && contracts.map(contract => this.renderContract(contract))}
           {this.state.contracttype && filteredContracts.map(contract => this.renderContract(contract))}
-
-
         </div>
-
 
       <BottomNav/>
       </div>
