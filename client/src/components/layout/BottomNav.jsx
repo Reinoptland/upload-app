@@ -2,13 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
+import {newfile} from '../../actions/upload'
 
 //styling
 import '../../css/bottomNav.css'
 
 const BottomNav = (props) => {
 
-  
+
     const { location } = props
     return (
       <div className='bottom-nav'>
@@ -19,24 +20,24 @@ const BottomNav = (props) => {
         {location.pathname.indexOf('contracts') > 0 && <Link to={'/contracts'}><img src="icons/contractenActive.svg" alt="contracts-icon"></img></Link>}
         </div>
         <div className='add-button'>
-        {location.pathname.indexOf('upload') < 0 && <Link to={'/upload'}><img src="icons/addButton.svg" alt="add-icon"></img></Link>}
+        {location.pathname.indexOf('upload') < 0 && <Link to={'/upload'}><img src="icons/addButton.svg" alt="add-icon" ></img></Link>}
         {location.pathname.indexOf('upload') > 0 && <Link to={'/upload'}><img src="icons/addButtonActive.svg" alt="add-icon"></img></Link>}
         </div>
         <div className='right-icons'>
-          {location.pathname.indexOf('advice') > 0 && <Link to={'/advice'}><img src="icons/adviesActive.svg" alt="advice-icon"></img></Link>}
+          {location.pathname.indexOf('advice') > 0 && <Link to={'/advice'}><img src="icons/adviesActive.svg" alt="advice-icon" ></img></Link>}
           {location.pathname.indexOf('advice') < 0 && <Link to={'/advice'}><img src="icons/advies.svg" alt="advice-icon"></img></Link>}
           <Link to={'/logout'}><img src="icons/loguit.svg" alt="loguit-icon"></img></Link>
         </div>
 
       </div>
-      
+
     );
   }
 
   const mapStateToProps = state => ({
-    
+
   })
 
 export default withRouter(
-  connect(mapStateToProps)(BottomNav)
+  connect(mapStateToProps, {newfile})(BottomNav)
 )

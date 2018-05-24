@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import {upload, uploading} from '../../actions/upload'
+import {upload, uploading, newfile} from '../../actions/upload'
 import {connect} from 'react-redux'
 import ReactGA from 'react-ga';
 
@@ -21,19 +21,19 @@ class UploadForm extends PureComponent {
 			contracten: [this.props.contract]
 
 		}
-        
+
 		const myFileReader = new FileReader()
 		myFileReader.onload = (e) => {
-            this.setState({ 
-				imageSrc1: myFileReader.result, 
-            }); 
+            this.setState({
+				imageSrc1: myFileReader.result,
+            });
 		}
-		
+
 		if (this.state.contracten.length === 1) {
-			
+
 			myFileReader.readAsDataURL(this.state.contracten[0])
-		} 
-	
+		}
+
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	}
@@ -41,26 +41,26 @@ class UploadForm extends PureComponent {
 	handleImageChange = (event) => {
 		if (this.state.contracten.length < 3) {
 			this.state.contracten.push( event.target.files[0])
-		} 
-		
+		}
+
 		if (this.state.contracten.length > 1 && this.state.contracten.length < 3) {
-			
+
 			const myFileReader2 = new FileReader()
 				myFileReader2.onload = (e) => {
-					this.setState({ 
-						imageSrc2: myFileReader2.result, 
-					}); 
+					this.setState({
+						imageSrc2: myFileReader2.result,
+					});
 				}
 			myFileReader2.readAsDataURL(this.state.contracten[1])
 
 		}
 		if (this.state.contracten.length > 2) {
-			
+
 			const myFileReader3 = new FileReader()
 				myFileReader3.onload = (e) => {
-					this.setState({ 
-						imageSrc3: myFileReader3.result, 
-					}); 
+					this.setState({
+						imageSrc3: myFileReader3.result,
+					});
 				}
 
 			myFileReader3.readAsDataURL(this.state.contracten[2])
@@ -78,18 +78,18 @@ class UploadForm extends PureComponent {
 			[name]: value
 		})
 	}
-	  
+
 	handleSubmit = (e) => {
 		this.props.uploading()
 
 		e.preventDefault(
-			
+
 		this.props.upload(this.props.currentUser.userId,
 						this.state.contracten,
 						this.state.type,
 						this.state.provider,
 						this.state.uploadStatus))
-		
+
 		document.getElementById("form").reset()
 
 		ReactGA.event({
@@ -116,13 +116,13 @@ class UploadForm extends PureComponent {
 					<img src={this.state.imageSrc3 || ''} alt='contract' className='contract-preview'/>
 					}
 
-					{this.state.contracten.length < 3 && 
+					{this.state.contracten.length < 3 &&
 					<label htmlFor="add-pic">
 						<img src={'/icons/Addpic.svg'} alt='add-pic'  className='add-icon' />
 					</label>}
 
                     <input type="file" name="add-pic" id="add-pic" onChange={ this.handleImageChange} className='fileIcon'/>
-					
+
 				</div>
 
 				<div className="contract-field">
@@ -161,18 +161,18 @@ class UploadForm extends PureComponent {
 				</div>
 
 				</div>
-			
+
 				<button type="submit" className="submit-form">Voeg mijn contract toe</button>
-			
-			</form>	
+
+			</form>
 
 			<BottomNav/>
-				
+
 			</div>
 		)
 
 			} else if (this.props.appStatus === "uploading") {
-				
+
 				return (
 					<div>
 						<div className="uploading-Page">
@@ -198,15 +198,15 @@ class UploadForm extends PureComponent {
 					<div className="uploading-Page">
 					<div className="header-uploading">
 						<h1>Uw contract is succesvol opgeslagen</h1>
-						<p><Link to={'/contracts'}>Bekijk uw contracten <span className="linkStyle">hier</span></Link></p>
+						<p onClick={_=> this.props.newfile()}><Link to={'/contracts'}>Bekijk uw contracten <span className="linkStyle">hier</span></Link></p>
 					</div>
 					</div>
 					<div>
 						<BottomNav/>
             		</div>
 					</div>
-			)} 
-			
+			)}
+
 			else {
 				return (
 					<div>
@@ -230,4 +230,4 @@ const mapStateToProps = state => ({
 
 })
 
-export default connect(mapStateToProps, {upload, uploading})(UploadForm) 
+export default connect(mapStateToProps, {upload, uploading, newfile})(UploadForm)
