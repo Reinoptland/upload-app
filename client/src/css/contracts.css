@@ -59,6 +59,8 @@
 }
 .contract-details img {
     width: 350px;
+    display: block;
+    margin: 0 auto;
 }
 .go-back-btn {
     float: right;
