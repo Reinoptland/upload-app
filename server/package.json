@@ -9,6 +9,10 @@
     "watch": "node_modules/.bin/tsc -w",
     "compile": "node_modules/.bin/tsc -p ."
   },
+  "engines": {
+    "node": "8.5.0",
+    "npm": "5.8.0"
+  },
   "dependencies": {
     "@types/bcrypt": "^2.0.0",
     "@types/jsonwebtoken": "^7.2.6",
