@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {getUsers} from '../../actions/users'
 import {Link} from 'react-router-dom'
+import Grid from 'material-ui/Grid';
 
 // Styling
 import Typography from 'material-ui/Typography'
@@ -21,24 +22,26 @@ class AllUsers extends PureComponent {
     renderUser(eachUser) {
 
         return (
-            <Card className='user-card'>
-                <CardContent>
+            <Grid item xs="6" sm="3">
+                <Card className='user-card'>
+                    <CardContent>
 
-                    <Link to ={`/users/${eachUser.id}`}>
+                        <Link to ={`/users/${eachUser.id}`}>
+                            <Typography component="h1">
+                                <img 
+                                    alt='userpicture' 
+                                    src={userimage}/>
+                            </Typography>
+                        </Link>
+
                         <Typography component="h1">
-                            <img 
-                                alt='userpicture' 
-                                src={userimage}/>
+                            E-mail: <br/>
+                            {eachUser.email}
                         </Typography>
-                    </Link>
 
-                    <Typography component="h1">
-                        E-mail: <br/>
-                        {eachUser.email}
-                    </Typography>
-
-                </CardContent>
-            </Card>
+                    </CardContent>
+                </Card>
+            </Grid>
         )
     }
 
@@ -53,11 +56,11 @@ class AllUsers extends PureComponent {
         return (
             <div>
                  {this.props.users.length > 0 && <Paper className="user-paper">
-
+                 <Grid container spacing={24}>
                     <div className="user-page">
                         {usersList.map((eachUser,index) =>  <div key={eachUser.id}>{this.renderUser(eachUser)}</div>)}
                     </div>
-
+                </Grid>
                     </Paper>
                 }
               
