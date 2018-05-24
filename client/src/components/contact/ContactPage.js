@@ -24,7 +24,8 @@ import '../../css/index.css'
                 </p>
                 <h3>Social Media</h3>
                   <p>
-                    Je kan Roos ook altijd bereiken op <a href="https://www.facebook.com/roosnl">Facebook</a> en <a href="https://twitter.com/halloroosnl">Twitter</a> .
+                    Je kan Roos ook altijd bereiken op <a href="https://www.facebook.com/roosnl" target="_blank" rel="noopener noreferrer">Facebook</a> 
+                    en <a href="https://twitter.com/halloroosnl" target="_blank" rel="noopener noreferrer">Twitter</a> .
                   </p>
 
 
