@@ -4,14 +4,14 @@
 }
 .filter {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
     align-items: center;
     margin-bottom: 2%;
 }
 .filter select {
     width: 60%;
-    height: 20%;
-    text-align: center;
+    margin-left: 10px;
+    height: 25%;
     font-size: 0.8em;
     font-family: 'BrandonText-Regular';
     background-color: transparent;
