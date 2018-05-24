@@ -1,15 +1,18 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {getContractImage} from '../../actions/contracts'
+import {Link} from 'react-router-dom'
+
+import UpdateStatusForm from './UpdateStatusForm'
+
+import {getContractImage,submitStatus} from '../../actions/contracts'
+
+//Styling
+import '../../css/ContractByUserId.css'
+import {withStyles} from 'material-ui/styles'
 import Card, {CardContent} from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
-import {submitStatus} from '../../actions/contracts'
-import UpdateStatusForm from './UpdateStatusForm'
 import Modal from 'material-ui/Modal';
-import {Link} from 'react-router-dom'
-import {withStyles} from 'material-ui/styles';
-import '../../css/ContractByUserId.css'
 
 function getModalStyle() {
 

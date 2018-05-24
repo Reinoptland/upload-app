@@ -2,14 +2,11 @@ import * as request from 'superagent'
 import {baseUrl} from '../constants'
 
 export const ADD_ADMIN = 'ADD_ADMin'
-
 export const ADMIN_LOGIN_SUCCESS = 'ADMIN_LOGIN_SUCCESS'
 export const ADMIN_LOGIN_FAILED = 'ADMIN_LOGIN_FAILED'
-
-export const ADMIN_LOGOUT = 'ADMIN_LOGOUT'
-
 export const ADMIN_SIGNUP_SUCCESS = 'ADMIN_SIGNUP_SUCCESS'
 export const ADMIN_SIGNUP_FAILED = 'ADMIN_SIGNUP_FAILED'
+export const ADMIN_LOGOUT = 'ADMIN_LOGOUT'
 
 export const logout = () => ({
 

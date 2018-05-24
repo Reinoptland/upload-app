@@ -1,8 +1,12 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {signup} from '../../actions/admins'
-import SignupForm from './SignupForm'
 import {Redirect} from 'react-router-dom'
+
+import SignupForm from './SignupForm'
+
+import {signup} from '../../actions/admins'
+
+//Styling
 import '../../css/signup.css'
 
 class SignupPage extends PureComponent {
