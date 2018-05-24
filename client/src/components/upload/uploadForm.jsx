@@ -75,6 +75,7 @@ class UploadForm extends PureComponent {
 		this.setState({
 			[name]: value
 		})
+	
 	}
 	  
 	handleSubmit = (e) => {
@@ -128,6 +129,7 @@ class UploadForm extends PureComponent {
 				<div className="contract-type">
 					<p> Welk soort contract is het? </p>
 					<select required
+					name="type"
 					id="type"
 					onChange={ this.handleChange }>
 					 	<option value="">Contract Type</option>
