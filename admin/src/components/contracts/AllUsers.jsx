@@ -1,11 +1,14 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import Card, { CardContent} from 'material-ui/Card'
 import {Link} from 'react-router-dom'
-import Typography from 'material-ui/Typography'
-import Paper from 'material-ui/Paper'
+
 import {getUsers} from '../../actions/users'
+
+//Styling
 import '../../css/AllUsers.css'
+import Paper from 'material-ui/Paper'
+import Card, { CardContent} from 'material-ui/Card'
+import Typography from 'material-ui/Typography'
 
 const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
 

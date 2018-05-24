@@ -1,7 +1,10 @@
 import React, {PureComponent} from 'react'
-import Button from 'material-ui/Button';
-import {submitStatus, getContractImage} from '../../actions/contracts'
 import {connect} from 'react-redux'
+
+import {submitStatus, getContractImage} from '../../actions/contracts'
+
+//Styling
+import Button from 'material-ui/Button';
 
 class UpdateStatusForm extends PureComponent {
    

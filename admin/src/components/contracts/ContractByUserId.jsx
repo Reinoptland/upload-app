@@ -1,10 +1,13 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import Card from 'material-ui/Card'
+import {Link} from 'react-router-dom'
+
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers, getUser} from '../../actions/users'
+
+//Styling
+import Card from 'material-ui/Card'
 import Button from 'material-ui/Button'
-import {Link} from 'react-router-dom'
 import '../../css/index.css'
 import '../../css/contracts.css'
 

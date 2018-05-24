@@ -28,7 +28,6 @@ export const getUsers = () => (dispatch, getState) => {
 }
 
 
-
 export const getUser = (userId) => (dispatch) => {
 
   request

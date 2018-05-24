@@ -1,11 +1,13 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
+import {userId} from '../../jwt'
+
+//Styling
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
-import {withRouter} from 'react-router'
-import {userId} from '../../jwt'
-import {connect} from 'react-redux'
 import '../../css/topBar.css'
 
 const TopBar = (props) => {

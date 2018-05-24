@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react'
+
+//Styling
 import '../../css/forms.css'
 import '../../css/button.css'
 

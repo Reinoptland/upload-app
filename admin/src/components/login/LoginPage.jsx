@@ -1,8 +1,10 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {login} from '../../actions/admins'
-import LoginForm from './LoginForm'
 import {Redirect} from 'react-router-dom'
+import LoginForm from './LoginForm'
+import {login} from '../../actions/admins'
+
+//Styling
 import '../../css/login.css'
 
 class LoginPage extends PureComponent {
