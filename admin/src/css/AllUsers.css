@@ -1,15 +1,20 @@
 .user-paper {
-    margin: 12% auto;
-    width: 80%;
-    display: inline-block;
-    
-    
-
+    margin: 15% auto;
+    width: 80%; 
 }
-.user-paper .user-card {
-    width: 30%;
-    height: 30%;
-    margin: 20px;
+.user-page {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5%;
+}
+.user-card {
+    width: 200px;
+    text-align: center;
+}
+.user-card img {
+    width: 100px
 }
 
 

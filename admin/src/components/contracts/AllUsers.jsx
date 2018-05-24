@@ -1,10 +1,12 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import Card, { CardContent} from 'material-ui/Card'
+import {getUsers} from '../../actions/users'
 import {Link} from 'react-router-dom'
+
+// Styling
 import Typography from 'material-ui/Typography'
 import Paper from 'material-ui/Paper'
-import {getUsers} from '../../actions/users'
+import Card, { CardContent} from 'material-ui/Card'
 import '../../css/AllUsers.css'
 
 const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
@@ -25,8 +27,6 @@ class AllUsers extends PureComponent {
                         <Typography component="h1">
                             <img 
                                 alt='userpicture' 
-                                style={{maxHeight: '100px'
-                                }}
                                 src={userimage}/>
                         </Typography>
                     </Link>

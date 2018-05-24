@@ -10,6 +10,7 @@ import Card, {CardContent} from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
 import '../../css/ContractByUserId.css'
+import '../../css/index.css'
 import {withStyles} from 'material-ui/styles'
 import Modal from 'material-ui/Modal';
 
@@ -73,13 +74,13 @@ class ContractImage extends PureComponent {
             <div key={details.id} className="cardwrapper">
 
             <Link to ={`/users/${details.userId}`}> 
-         <Button 
-          className='all-contracts-button'
-          variant="raised"
-          type="submit" >
-          Alle contracten
-         </Button>
-         </Link>
+                <Button 
+                className='button'
+                variant="raised"
+                type="submit" >
+                Alle contracten
+                </Button>
+            </Link>
 
                 <Card className='contract-card'>
                     <CardContent >
@@ -87,11 +88,6 @@ class ContractImage extends PureComponent {
                         <Typography component="h1">
                             <img 
                                 alt='userpicture'
-                                style={{
-                                maxHeight: '250px'
-                            }}
-
-                            
                             src={details.contractImage}                            
                             onClick={this.handleOpen}
                                 />
@@ -127,7 +123,7 @@ class ContractImage extends PureComponent {
                     { !this.state.edit && 
                     <Button                      
                         variant="raised"
-                        className="card-button"
+                        className="button"
                         type="submit"
                         onClick={this.toggleEdit}>
                         Contract status aanpassen

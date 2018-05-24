@@ -1,33 +1,13 @@
 .cardwrapper {
-    margin: 8% 2% ;
+    margin: 110px 20px;
+    width: 100%
 }
-
 .contract-card {
     width: 50%;
+    margin: 8% auto;
     padding: 5%;
     text-align: center;
-    margin-top: 0 auto;
 }
-
-
-/* .contract-paper{
-       
-    margin-top: 25%;
-    margin: auto;
-    text-align:center;
-    padding-top: 5%;
-    width: 60%;
-    padding-bottom: 2%;
-    font-family: 'BrandonText-Regular';
-    align-items: center;
-    text-align: center
-} */
-
-
-.card-paragraph {
-    margin:4%;
-}
-
 .modal img {
     max-height: 750px;
     padding-left: 40px;
@@ -36,11 +16,4 @@
 }
 .card-button {
     margin-top: 2%
-}
-
-.all-contracts-button{
-    background: linear-gradient(0.25turn,#e84435, #f57f17)!important;
-    color: #fff !important;
-    margin: 5%;
-    width:160px!important;
 }
