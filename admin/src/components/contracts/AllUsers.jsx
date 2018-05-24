@@ -1,37 +1,40 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import Card, { CardContent} from 'material-ui/Card'
+import {getUsers} from '../../actions/users'
 import {Link} from 'react-router-dom'
+
+// Styling
 import Typography from 'material-ui/Typography'
 import Paper from 'material-ui/Paper'
-import {getUsers} from '../../actions/users'
+import Card, { CardContent} from 'material-ui/Card'
 import '../../css/AllUsers.css'
 
 const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
 
 class AllUsers extends PureComponent {
 
-    componentWillMount() {   
+    componentWillMount() {  
+
         this.props.getUsers() 
     }
 
     renderUser(eachUser) {
 
         return (
-            <Card className='usercard'>
-                <CardContent className="card-content">
+            <Card className='user-card'>
+                <CardContent>
 
                     <Link to ={`/users/${eachUser.id}`}>
                         <Typography component="h1">
                             <img 
                                 alt='userpicture' 
-                                style={{maxHeight: '100px'
-                                }}
                                 src={userimage}/>
                         </Typography>
                     </Link>
+
                     <Typography component="h1">
-                        E-mail:{eachUser.email}
+                        E-mail: <br/>
+                        {eachUser.email}
                     </Typography>
 
                 </CardContent>
@@ -42,23 +45,26 @@ class AllUsers extends PureComponent {
     render() {
 
         let usersList = []
+
         if (this.props.users !== null) {
             usersList = Object.values(this.props.users)
         }
 
         return (
             <div>
-                 {this.props.users.length > 0 &&<Paper className="user-paper">
+                 {this.props.users.length > 0 && <Paper className="user-paper">
 
-                    <div>
+                    <div className="user-page">
                         {usersList.map((eachUser,index) =>  <div key={eachUser.id}>{this.renderUser(eachUser)}</div>)}
                     </div>
 
-                </Paper>}
+                    </Paper>
+                }
               
                 {this.props.users.length === 0 && <Paper className="user-paper">
                     <p>Geen gebruikers in de database op het moment.</p>
-                </Paper>}
+                </Paper>
+            }
             </div>
         )
 

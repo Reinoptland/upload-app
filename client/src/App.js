@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import ReactGA from 'react-ga';
 import { Router, Route, Redirect } from 'react-router-dom'
 import LoginPage from './components/login/LoginPage'
 import SignupPage from './components/signup/SignupPage'
@@ -8,12 +9,16 @@ import UploadPage from './components/upload/uploadPage'
 import UploadForm from './components/upload/uploadForm'
 import HowTo from './components/howto/HowTo'
 import HomePage from './components/home/homePage'
+import ContactPage from './components/contact/ContactPage'
+import ProfilePage from './components/profile/ProfilePage'
 import ContractsPage from './components/contracts/contractsPage'
 import ContractImage from './components/contracts/ContractImage';
 import AdvicePage from './components/advice/advicePage'
 import { createBrowserHistory, createHashHistory } from 'history'
 
 import Top from './components/layout/Top'
+
+ReactGA.initialize('UA-119757382-2');
 
 function configureHistory() {
   if(window.matchMedia('(display-mode: standalone)').matches) {
@@ -24,11 +29,16 @@ function configureHistory() {
     return createBrowserHistory()
   }
 }
+const history = configureHistory()
+
+history.listen((location, action) => {
+  ReactGA.pageview(location.pathname);
+});
 
 class App extends PureComponent {
   render() {
     return (
-      <Router history={configureHistory()}>
+      <Router history={history}>
         <div>
           <nav>
             <Top/>

@@ -1,48 +1,43 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import Card, {CardContent} from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
+import {Link} from 'react-router-dom'
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers, getUser} from '../../actions/users'
-import {getAllContracts} from '../../actions/contracts'
-import Paper from 'material-ui/Paper'
+
+//Styling
+import Card from 'material-ui/Card'
 import Button from 'material-ui/Button'
-import {Link} from 'react-router-dom'
 import '../../css/index.css'
 import '../../css/contracts.css'
 
 class ContractByUserId extends PureComponent {
 
     componentWillMount() {
+
         this.props.getUserDetails(this.props.match.params.id)
         this.props.getUser(this.props.match.params.id)
     }
 
     renderContractDetails = (eachcontract, classes) => {
+
       
       return (
-
-        <div key={eachcontract.id} className='contract-details'>
-        
-        <Card key={eachcontract.id} className='contract-card'>
-            <div className='card-content'>
+        <div key={eachcontract.id} className='card'>
+        <Card className='card-content'>
+            <div>
                 <h2>{eachcontract.contractType}</h2>
                 <p>Provider: {eachcontract.contractProvider}</p>
                 <p>Status: {eachcontract.uploadStatus}</p>
             </div>
-            <div className='card-action'>
-                <Button className="card-button"
-                    style={{background: "linear-gradient(0.25turn,#e84435, #f57f17)",
-                        color:"white"}}
-                    variant="raised"
-                    className="see-contract"
-                    type="submit"
-                    onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}>
-                    Bekijk Contract
-                </Button>
-            </div>
-        </Card>    
-      </div>
+            <Button 
+                variant="raised"
+                className="button"
+                type="submit"
+                onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}>
+                Bekijk Contract
+            </Button>
+        </Card>
+        </div>    
       )
     }
 
@@ -59,51 +54,41 @@ class ContractByUserId extends PureComponent {
 
       return (
 
-      <div>
+      <div className="overview-page">
          
          <Link to ='/users'> 
          <Button 
-          className='all-users-button'
+          className='button'
           variant="raised"
           type="submit" >
           Alle gebruikers
          </Button>
          </Link>
 
-        <div className="overview">
+        <div className="contract-overview">
         
             {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>
             }
             {this.props.contractsById.length > 0 && 
             <div>
-                <h1 style={{textAlign:"center"}}>Mijn contracten</h1>
-                <p
-                    style={{
-                    width: '100%',
-                    display: 'block',
-                    marginTop: '50px',
-                    textAlign:"center"
-                    }}
-                >Gebruiker :  {user.email}
-                </p> 
             
-                    
-                    {this
-                        .props
-                        .contractsById
-                        .map(eachcontract => this.renderContractDetails(eachcontract))}
-                
+            <h1>Mijn contracten</h1>
+            <p>Gebruiker : {user.email}</p> 
+            
+            <div className="contract-details">     
+            {this
+                .props
+                .contractsById
+                .map(eachcontract => this.renderContractDetails(eachcontract))}
+            </div>
             </div>}
+            
         </div>       
       </div>
       )
     }
 }
 
-const mapStateToProps = (state) => ({
-    contractsById: state.contractsById,
-    user : state.user
-})
+const mapStateToProps = (state) => ({contractsById: state.contractsById, user: state.user})
 
-export default connect(mapStateToProps, 
-    {getUserDetails, getUsers, getUser})(ContractByUserId)
+export default connect(mapStateToProps, {getUserDetails, getUsers, getUser})(ContractByUserId)

@@ -1,18 +1,23 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {signup} from '../../actions/admins'
-import SignupForm from './SignupForm'
 import {Redirect} from 'react-router-dom'
 
-//styling
+import SignupForm from './SignupForm'
+
+import {signup} from '../../actions/admins'
+
+//Styling
 import '../../css/signup.css'
 
 class SignupPage extends PureComponent {
+
 	handleSubmit = (data) => {
+
 		this.props.postSignup(data.email, data.password, data.privacy)
 	}
 
 	render() {
+
 		if (this.props.signup.success) return (
 			<Redirect to="/" />
 		)
@@ -31,6 +36,7 @@ class SignupPage extends PureComponent {
 }
 
 const mapStateToProps = function (state) {
+	
 	return {
 		signup: state.signup
 	}
