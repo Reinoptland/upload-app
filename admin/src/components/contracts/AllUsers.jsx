@@ -1,14 +1,13 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
+import {getUsers} from '../../actions/users'
 import {Link} from 'react-router-dom'
 
-import {getUsers} from '../../actions/users'
-
-//Styling
-import '../../css/AllUsers.css'
+// Styling
+import Typography from 'material-ui/Typography'
 import Paper from 'material-ui/Paper'
 import Card, { CardContent} from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
+import '../../css/AllUsers.css'
 
 const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
 
@@ -22,21 +21,20 @@ class AllUsers extends PureComponent {
     renderUser(eachUser) {
 
         return (
-            <Card className='usercard'>
-                <CardContent className="card-content">
+            <Card className='user-card'>
+                <CardContent>
 
                     <Link to ={`/users/${eachUser.id}`}>
                         <Typography component="h1">
                             <img 
                                 alt='userpicture' 
-                                style={{maxHeight: '100px'
-                                }}
                                 src={userimage}/>
                         </Typography>
                     </Link>
 
                     <Typography component="h1">
-                        E-mail:{eachUser.email}
+                        E-mail: <br/>
+                        {eachUser.email}
                     </Typography>
 
                 </CardContent>
@@ -54,10 +52,9 @@ class AllUsers extends PureComponent {
 
         return (
             <div>
-                 {
-                    this.props.users.length > 0 &&<Paper className="user-paper">
+                 {this.props.users.length > 0 && <Paper className="user-paper">
 
-                    <div>
+                    <div className="user-page">
                         {usersList.map((eachUser,index) =>  <div key={eachUser.id}>{this.renderUser(eachUser)}</div>)}
                     </div>
 

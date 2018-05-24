@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers, getUser} from '../../actions/users'
 
@@ -35,79 +34,60 @@ class ContractByUserId extends PureComponent {
 
         return (
 
-            <div key={eachContract.id} className='contract-details'>
+            <div key={eachContract.id} className='card'>
 
-                <Card key={eachContract.id} className='contract-card'>
+                <Card className='card-content'>
 
-                    <div className='card-content'>
+                    <div>
                         <h2>{eachContract.contractType}</h2>
                         <p>Provider: {eachContract.contractProvider}</p>
                         <p>Status: {eachContract.uploadStatus}</p>
-                    </div>
-
-                    <div className='card-action'>
-
-                        <Button
-                            className="card-button"
-                            style={{
-                            background: "linear-gradient(0.25turn,#e84435, #f57f17)",
-                            color: "white"
-                        }}
-                            variant="raised"
-                            type="submit"
-                            onClick={() => window.location = `${eachContract.userId}/${eachContract.contractImage}`}>
-                            Bekijk Contract
-                        </Button>
-
-                    </div>
-
-                </Card>
-
+         
             </div>
-        )
+            <Button 
+                variant="raised"
+                className="button"
+                type="submit"
+                onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}>
+                Bekijk Contract
+            </Button>
+        </Card>
+        </div>    
+      )
     }
 
     render() {
 
         const {user} = this.props
-       
-        if (!this.props.user) 
-            return null
 
-        const filteredContracts = this.props.contractsById.filter(contract => {return contract.uploadStatus === this.state.upload_Status})
+        if (!this.props.user) return null
             
+        const filteredContracts = this.props.contractsById.filter(contract => {return contract.uploadStatus === this.state.upload_Status})
+      
 
-        return (
+      return (
 
+      <div className="overview-page">
+         
+         <Link to ='/users'> 
+         <Button 
+          className='button'
+          variant="raised"
+          type="submit" >
+          Alle gebruikers
+         </Button>
+         </Link>
+
+        <div className="contract-overview">
+        
+            {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>
+            }
+            {this.props.contractsById.length > 0 && 
             <div>
-
-                <Link to='/users'>
-                    <Button className='all-users-button' variant="raised" type="submit">
-                        Alle gebruikers
-                    </Button>
-                </Link>
-
-                <div className="overview">
-
-                    {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>}
-
-                    {this.props.contractsById.length > 0 && <div>
-                       
-                        <h1
-                            style={{
-                            textAlign: "center"
-                        }}>Mijn contracten</h1>
-                       
-                        <p
-                            style={{
-                            width: '100%',
-                            display: 'block',
-                            marginTop: '50px',
-                            textAlign: "center"
-                        }}>Gebruiker : {user.email}
-                        </p>
-
-                         <p>Filter hier op type:</p>
+            
+            <h1>Mijn contracten</h1>
+              
+                <p>Filter hier op type:</p>
 
                          <select required
                           className="filter-status"  name="type" id="type"
@@ -119,16 +99,20 @@ class ContractByUserId extends PureComponent {
                           <option value="niet bruikbaar">niet bruikbaar</option>
                          
                           </select>
-                   
+                       <div className="contract-details">
                         {(this.state.upload_Status==="alle") && this.props.contractsById.map(eachContract => this.renderContractDetails(eachContract))}
                         {(this.state.upload_Status!=="alle") && filteredContracts.map(eachContract => this.renderContractDetails(eachContract))}
 
-                    </div>
-                }
-                </div>
-                
+            <p>Gebruiker : {user.email}</p> 
+              
+            
+
             </div>
-        )
+            </div>}
+            
+        </div>       
+      </div>
+      )
     }
 }
 
