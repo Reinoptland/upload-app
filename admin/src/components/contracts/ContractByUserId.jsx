@@ -13,24 +13,36 @@ import '../../css/contracts.css'
 
 class ContractByUserId extends PureComponent {
 
+    constructor(){
+        super()
+        this.state={upload_Status:'All'}
+        this.handleChange=this.handleChange.bind(this)
+    }
+
     componentWillMount() {
 
         this.props.getUserDetails(this.props.match.params.id)
         this.props.getUser(this.props.match.params.id)
     }
 
-    renderContractDetails = (eachcontract, classes) => {
+    handleChange(event){
+       
+        this.setState({upload_Status: event.target.value})
+       
+    }
+
+    renderContractDetails = (eachContract, classes) => {
 
         return (
 
-            <div key={eachcontract.id} className='contract-details'>
+            <div key={eachContract.id} className='contract-details'>
 
-                <Card key={eachcontract.id} className='contract-card'>
+                <Card key={eachContract.id} className='contract-card'>
 
                     <div className='card-content'>
-                        <h2>{eachcontract.contractType}</h2>
-                        <p>Provider: {eachcontract.contractProvider}</p>
-                        <p>Status: {eachcontract.uploadStatus}</p>
+                        <h2>{eachContract.contractType}</h2>
+                        <p>Provider: {eachContract.contractProvider}</p>
+                        <p>Status: {eachContract.uploadStatus}</p>
                     </div>
 
                     <div className='card-action'>
@@ -43,7 +55,7 @@ class ContractByUserId extends PureComponent {
                         }}
                             variant="raised"
                             type="submit"
-                            onClick={() => window.location = `${eachcontract.userId}/${eachcontract.contractImage}`}>
+                            onClick={() => window.location = `${eachContract.userId}/${eachContract.contractImage}`}>
                             Bekijk Contract
                         </Button>
 
@@ -62,6 +74,9 @@ class ContractByUserId extends PureComponent {
         if (!this.props.user) 
             return null
 
+        const filteredContracts = this.props.contractsById.filter(contract => {return contract.uploadStatus === this.state.upload_Status})
+            
+
         return (
 
             <div>
@@ -73,6 +88,21 @@ class ContractByUserId extends PureComponent {
                 </Link>
 
                 <div className="overview">
+
+                <p>Filter hier op type:</p>
+
+                <select required
+                 className="type"  name="type" id="type"
+                 onChange={ this.handleChange }>
+                 
+                 <option value="All">All</option>
+                 <option value="nieuw">nieuw</option>
+                 <option value="behandeld">behandeld</option>
+                 <option value="niet bruikbaar">niet bruikbaar</option>
+
+                 </select>
+
+    
 
                     {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>
 }
@@ -91,11 +121,9 @@ class ContractByUserId extends PureComponent {
                             textAlign: "center"
                         }}>Gebruiker : {user.email}
                         </p>
-
-                        {this
-                            .props
-                            .contractsById
-                            .map(eachcontract => this.renderContractDetails(eachcontract))}
+                   
+                        {(this.state.upload_Status==="All") && this.props.contractsById.map(eachContract => this.renderContractDetails(eachContract))}
+                        {(this.state.upload_Status!=="All") && filteredContracts.map(eachContract => this.renderContractDetails(eachContract))}
 
                     </div>
                 }
