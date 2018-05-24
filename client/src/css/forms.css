@@ -13,8 +13,6 @@
 
   .error { border: 2px solid red; }
 
-  /* #E84435 */
-
   @-webkit-keyframes autofill {
     to {
         color: #666;
