@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getUsers} from '../../actions/users'
 import {Link} from 'react-router-dom'
 import Grid from 'material-ui/Grid';
+import userImage from '../../admin_people_img.jpg'
 
 // Styling
 import Typography from 'material-ui/Typography'
@@ -10,7 +11,6 @@ import Paper from 'material-ui/Paper'
 import Card, { CardContent} from 'material-ui/Card'
 import '../../css/AllUsers.css'
 
-const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
 
 class AllUsers extends PureComponent {
 
@@ -30,7 +30,7 @@ class AllUsers extends PureComponent {
                             <Typography component="h1">
                                 <img 
                                     alt='userpicture' 
-                                    src={userimage}/>
+                                    src={userImage}/>
                             </Typography>
                         </Link>
 
