@@ -80,8 +80,6 @@ class ContractImage extends PureComponent {
         <div key={details.id} className="cardwrapper">
 
          <Link to ={`/users/${details.userId}`}> 
-
-            <Link to ={`/users/${details.userId}`}> 
                 <Button 
                 className='button'
                 variant="raised"
