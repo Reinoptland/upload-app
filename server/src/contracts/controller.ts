@@ -9,7 +9,10 @@ const S3 = require('aws-sdk/clients/s3');
 
 @JsonController()
 export default class ContractController {
-
+    @Get('/')
+    intruder() {
+        return 'Silence is golden - xoxo'
+    }
     @Authorized()
     @Get('/contracts')
     async getAllContracts() {
