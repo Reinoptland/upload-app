@@ -2,8 +2,6 @@ import React, {PureComponent} from 'react'
 import {upload, uploading} from '../../actions/upload'
 import {connect} from 'react-redux'
 import ReactGA from 'react-ga';
-
-//import {Uploading} from './uploading'
 import UploadAnim from './uploadAnim'
 import { Link } from 'react-router-dom'
 
@@ -17,7 +15,7 @@ class UploadForm extends PureComponent {
         super(props);
         this.state = {
 
-			uploadStatus: 'New',
+			uploadStatus: 'nieuw',
 			contracten: [this.props.contract]
 
 		}
