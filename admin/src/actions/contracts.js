@@ -5,15 +5,18 @@ import {isExpired} from '../jwt'
 
 export const GET_CONTRACTS_BY_ID = "GET_CONTRACTS_BY_ID"
 export const GET_ALL_CONTRACTS = "GET_ALL_CONTRACTS"
-export const UPDATE_CONTRACTS="UPDATE_CONTRACTS"
-export const GET_CONTRACT_IMAGE="GET_CONTRACT_IMAGE"
-export const GET_CONTRACT="GET_CONTRACT"
+export const UPDATE_CONTRACTS = "UPDATE_CONTRACTS"
+export const GET_CONTRACT_IMAGE = "GET_CONTRACT_IMAGE"
+export const GET_CONTRACT = "GET_CONTRACT"
+
+
 
 export const getUserDetails = (userid) => (dispatch, getState) => {
 
   const state = getState()
   if (!state.currentAdmin) 
     return null
+
   const jwt = state.currentAdmin.jwt
 
   if (isExpired(jwt)) 
@@ -25,11 +28,14 @@ export const getUserDetails = (userid) => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
+
+
 export const getAllContracts = () => (dispatch, getState) => {
 
   const state = getState()
   if (!state.currentAdmin) 
     return null
+
   const jwt = state.currentAdmin.jwt
 
   if (isExpired(jwt)) 
@@ -41,11 +47,14 @@ export const getAllContracts = () => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
+
+
 export const submitStatus = (uploadState) => (dispatch, getState) => {
 
   const state = getState()
   if (!state.currentAdmin) 
     return null
+
   const jwt = state.currentAdmin.jwt
 
   if (isExpired(jwt)) 
@@ -58,46 +67,22 @@ export const submitStatus = (uploadState) => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
-// export const submitStatus = (id, updates) => (dispatch, getState) => {
 
-//   const state = getState()
-//   if (!state.currentAdmin) 
-//     return null
-//   const jwt = state.currentAdmin.jwt
 
-//   if (isExpired(jwt)) 
-//     return dispatch(logout())
-//   request
-//     .put(`${baseUrl}/contracts/${id}`)
-//     .set('Authorization', `Bearer ${jwt}`)
-//     .send(updates)
-//     .then(result => dispatch({type: UPDATE_CONTRACTS, payload: result.body}))
-//     .catch(err => console.error(err))
-// }
+export const getContractImage = (userid, image) => (dispatch, getState) => {
 
-// export const getContract = (userId) => (dispatch) => {
-
-//   request
-//     .get(`${baseUrl}/contracts/${userId}`)
-//     .then(response => dispatch({
-//       type: GET_CONTRACT,
-//       payload: response.body
-//     }))
-//     .catch(err => console.log(err))
-//   }
-
-export const getContractImage =(userid, image)=> (dispatch,getState)  => {
-    
   const state = getState()
-  if (!state.currentAdmin) return null
-   const jwt = state.currentAdmin.jwt
+  if (!state.currentAdmin) 
+    return null
 
-   if (isExpired(jwt)) return dispatch(logout())
-    request
-      .get(`${baseUrl}/contracts/${userid}/${image}`)
-      .set('Authorization', `Bearer ${jwt}`)
-      .then(result => dispatch(  {type: GET_CONTRACT_IMAGE,
-        payload: result.body}))
-      .catch(err => console.error(err))
+  const jwt = state.currentAdmin.jwt
+
+  if (isExpired(jwt)) 
+    return dispatch(logout())
+  request
+    .get(`${baseUrl}/contracts/${userid}/${image}`)
+    .set('Authorization', `Bearer ${jwt}`)
+    .then(result => dispatch({type: GET_CONTRACT_IMAGE, payload: result.body}))
+    .catch(err => console.error(err))
+
 }
-

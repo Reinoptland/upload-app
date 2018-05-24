@@ -11,7 +11,8 @@
     padding-bottom: 10%;
     align-content: center;
     text-align: center;
-    margin-top:10%
+    margin-top:10%;
+
 }
 
 .contract-paper{
@@ -43,15 +44,17 @@
 }
 
 .contract_image{
-    max-height:800px;
-    width:95%;
-    padding-left:40px;
+    max-height: 750px;
+    min-height: 600px;
+    padding-left: 40px;
     padding-right: 10px;
-    margin:auto
+    margin:auto;
+    min-width: 400px;
+    max-width: 1050px;
 }
 
 .all-contracts-button{
-    background-color: #F57F17!important;
+    background: linear-gradient(0.25turn,#e84435, #f57f17)!important;
     color:white!important;
     margin-left:10px!important;
     width:160px!important;

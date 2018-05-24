@@ -62,6 +62,7 @@
         font-size: 0.875em;
         color: #fff;
     }
+
 }
 @media screen and (min-width: 800px) {
     .home-Page {
@@ -105,14 +106,7 @@
     }
 
     .header-home {
-        padding: 15% 15% 10% 15%;
-        margin: 0 auto 5% auto;
-    }
-    .header-home h1 {
-        padding: 0 8% 5% 0;
-        border-bottom: 1px solid #fff;
-        letter-spacing: 0.4px;
-        color: #fff;
+        padding: 5% 15% 10% 15%;
     }
 
     .header-home h3 {
@@ -124,7 +118,7 @@
         color: #fff;
     }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
     .home-Page {
         min-width: 100%;
         padding-top: 12%;
@@ -154,3 +148,5 @@
         color: #fff;
     }
 }
+
+

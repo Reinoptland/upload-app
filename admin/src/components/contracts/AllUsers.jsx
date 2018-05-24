@@ -1,17 +1,21 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import Card, { CardContent} from 'material-ui/Card'
 import {Link} from 'react-router-dom'
-import Typography from 'material-ui/Typography'
-import Paper from 'material-ui/Paper'
+
 import {getUsers} from '../../actions/users'
+
+//Styling
 import '../../css/AllUsers.css'
+import Paper from 'material-ui/Paper'
+import Card, { CardContent} from 'material-ui/Card'
+import Typography from 'material-ui/Typography'
 
 const userimage = "https://thumbs.dreamstime.com/b/businessman-icon-18603234.jpg"
 
 class AllUsers extends PureComponent {
 
-    componentWillMount() {   
+    componentWillMount() {  
+
         this.props.getUsers() 
     }
 
@@ -30,8 +34,9 @@ class AllUsers extends PureComponent {
                                 src={userimage}/>
                         </Typography>
                     </Link>
+
                     <Typography component="h1">
-                        Email:{eachUser.email}
+                        E-mail:{eachUser.email}
                     </Typography>
 
                 </CardContent>
@@ -42,23 +47,27 @@ class AllUsers extends PureComponent {
     render() {
 
         let usersList = []
+
         if (this.props.users !== null) {
             usersList = Object.values(this.props.users)
         }
 
         return (
             <div>
-                 {this.props.users.length > 0 &&<Paper className="user-paper">
+                 {
+                    this.props.users.length > 0 &&<Paper className="user-paper">
 
                     <div>
                         {usersList.map((eachUser,index) =>  <div key={eachUser.id}>{this.renderUser(eachUser)}</div>)}
                     </div>
 
-                </Paper>}
+                    </Paper>
+                }
               
                 {this.props.users.length === 0 && <Paper className="user-paper">
-                    <p>No users in the database at the moment.</p>
-                </Paper>}
+                    <p>Geen gebruikers in de database op het moment.</p>
+                </Paper>
+            }
             </div>
         )
 

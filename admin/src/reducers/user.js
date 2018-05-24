@@ -7,7 +7,8 @@ export default (state = [], {type, payload}) => {
       case  GET_USER:
           return payload
 
-    default:
-      return state
+      default:
+          return state
+          
   }
 }

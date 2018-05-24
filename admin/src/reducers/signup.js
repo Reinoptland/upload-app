@@ -3,7 +3,9 @@ import {
 } from '../actions/admins'
 
 export default function (state = {}, {type, payload}) {
+
 	switch(type) {
+    
     case ADMIN_SIGNUP_SUCCESS:
       return {
         success: true
