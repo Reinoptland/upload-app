@@ -1,5 +1,5 @@
 .upload-form {
-    margin: 27% 5%;
+    margin: 25% 5%;
     padding: 5%;
     border: 2px solid #E2E6E7;
     border-radius: 10px;
@@ -69,10 +69,6 @@
 .uploading {
     margin-top: 100px;
     color: black;
-}
-
-.upload-form {
-    margin: 15% 5%;
 }
 
 .uploading-Page {

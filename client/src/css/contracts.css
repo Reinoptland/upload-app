@@ -2,6 +2,22 @@
     padding-top: 80px;
     margin: 2% 6% 20% 6% ;
 }
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2%;
+}
+.filter select {
+    width: 60%;
+    height: 20%;
+    text-align: center;
+    font-size: 0.8em;
+    font-family: 'BrandonText-Regular';
+    background-color: transparent;
+    color: #4A4A4A;
+    padding: 0 2%;
+}
 .contract-card {
     display: flex;
     flex-direction: column;

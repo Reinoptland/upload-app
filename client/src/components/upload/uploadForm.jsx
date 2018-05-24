@@ -130,7 +130,7 @@ class UploadForm extends PureComponent {
 				<div className="contract-type">
 					<p> Welk soort contract is het? </p>
 					<select required
-					className="type"  name="type" id="type"
+					name="type" id="type"
 					onChange={ this.handleChange }>
 					 	<option value="">Contract Type</option>
 						<option value="Aansprakelijkheidsverzekering">Aansprakelijkheidsverzekering</option>
