@@ -1,14 +1,17 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
+import {userId} from '../../jwt'
+
+//Styling
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
-import {withRouter} from 'react-router'
-import {userId} from '../../jwt'
-import {connect} from 'react-redux'
 import '../../css/topBar.css'
 
 const TopBar = (props) => {
+  
   const { location, history, user } = props
 
   return (
@@ -35,20 +38,17 @@ const TopBar = (props) => {
           location.pathname.indexOf('users') > 0 &&
           <Button color="inherit" onClick={() => history.push('/logout')}>Uitloggen</Button>
         }
-        {/* {
-          /users$/.test(location.pathname) &&
-          <Button  color="inherit" className="loginButton"  onClick={() => history.push('/logout')}>Log out</Button>
-        } */}
+        
       </Toolbar>
     </AppBar>
   )
 }
 
 const mapStateToProps = state => ({
+
   user: state.currentUser && state.users &&
     state.users[userId(state.currentUser.jwt)]
+
 })
 
-export default withRouter(
-  connect(mapStateToProps)(TopBar)
-)
+export default withRouter(connect(mapStateToProps)(TopBar))

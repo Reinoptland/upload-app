@@ -6,18 +6,14 @@ import {connect} from 'react-redux'
 import Button from 'material-ui/Button';
 
 class UpdateStatusForm extends PureComponent {
-    state={}
+   
+  constructor() {
 
-    constructor() {
         super()
 
-        this.handleSubmit = this
-            .handleSubmit
-            .bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
 
-         this.handleChange = this
-             .handleChange
-             .bind(this)
+        this.handleChange = this.handleChange.bind(this)
 
         this.state = {
             id:" ",
@@ -28,8 +24,8 @@ class UpdateStatusForm extends PureComponent {
 
 
     handleSubmit(e) {
+
         e.preventDefault()
-        // this.props.submitStatus(this.state)
         this.props.onSubmit(this.state) 
         
     }
@@ -41,17 +37,8 @@ class UpdateStatusForm extends PureComponent {
 
     }
 
-    // handleChange = e => {
-    //     const {name, value} = e.target
-    //     this.setState({
-    //      [name]:value
-    //     }) 
-        
-    // } 
-
-
 	render() {
-        
+
 		return (
 
 			<form onSubmit={this.handleSubmit}>
@@ -60,21 +47,21 @@ class UpdateStatusForm extends PureComponent {
                         <input
                             type={'radio'}
                             name='uploadStatus'
-                            value={'new' || this.state.uploadStatus}
+                            value={'nieuw' || this.state.uploadStatus}
                             onChange={(event) => this.handleChange(event, this.props.details2.id)}/>nieuw
                     </label>
                     <label>
                         <input
                             type={'radio'}
                             name='uploadStatus'   
-                            value={'processed'}
+                            value={'behandeld'}
                             onChange={(event) => this.handleChange(event, this.props.details2.id)}/>behandeld
                     </label>
                     <label>
                         <input
                             type={'radio'}
                             name='uploadStatus'
-                            value={'not usable'}
+                            value={'niet bruikbaar'}
                             onChange={(event) => this.handleChange(event, this.props.details2.id)}/>niet bruikbaar
                     </label>
                 <div>
@@ -82,6 +69,7 @@ class UpdateStatusForm extends PureComponent {
                     <Button style={{background: "linear-gradient(0.25turn,#e84435, #f57f17)",
                         color:"white"}} variant="raised" type="submit"> Verzenden </Button>
                 </div>
+
 			</form>
 
 		)
@@ -90,6 +78,9 @@ class UpdateStatusForm extends PureComponent {
 
 
 const mapStateToProps = (state) => ({
+
     details2: state.contractImage
+
 })
+
 export default connect (mapStateToProps, {submitStatus, getContractImage})(UpdateStatusForm)

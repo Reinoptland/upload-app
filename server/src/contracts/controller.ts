@@ -31,8 +31,6 @@ export default class ContractController {
         const signed = sign({id})
         const jwt = verify(signed)
 
-        console.log('BACKEND', file)
-
         const user = await User.findOne({id})
         if(!user) throw new NotFoundError('Geen gebruiker')
 
@@ -100,15 +98,26 @@ export default class ContractController {
 
     @Authorized()
     @Delete('/contracts/:id')
-    async deleteStudent(
+    async deleteContract(
         @Param('id') id: number
     ) {
         const contract = await Contract.findOneById(id)
 
-        if (!contract) throw new NotFoundError('Contract doesn\'t exist')
+        if (!contract) throw new NotFoundError('Geen contract met deze gegevens')
+        
+        console.log('delete', contract)
 
-        if (contract) Contract.remove(contract)
-        return 'Successfully deleted'
+        var s3 = new S3({region: 'eu-central-1'}, {signatureVersion: 'v4'});
+        var params = {Bucket: 'hallorooscontracttest', Key: `${contract.userId}/${contract.contractImage}`};
+        s3.deleteObject(params, function(err, data) {
+            if (err) {
+                throw new NotFoundError('Er is een technisch probleem, probeer later nog een keer.')
+            } else
+            console.log(err, data)
+        });
+
+        Contract.remove(contract)
+        return 'Succescol verwijderd'
     }
 
     @Patch('/contracts/:id')

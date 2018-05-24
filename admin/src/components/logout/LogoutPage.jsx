@@ -1,9 +1,11 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {logout} from '../../actions/admins'
 import {Redirect} from 'react-router-dom'
 
+import {logout} from '../../actions/admins'
+
 class LogoutPage extends PureComponent {
+
 	componentWillMount() {
 		this.props.logout()
 	}
@@ -22,6 +24,7 @@ class LogoutPage extends PureComponent {
 }
 
 const mapStateToProps = state => ({
+	
 	authenticated: state.currentAdmin!== null
 })
 

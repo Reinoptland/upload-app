@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {getContractImage} from '../../actions/contracts'
-import {submitStatus} from '../../actions/contracts'
+import {getContractImage, submitStatus} from '../../actions/contracts'
 import UpdateStatusForm from './UpdateStatusForm'
 import {Link} from 'react-router-dom'
 
@@ -14,14 +13,17 @@ import '../../css/index.css'
 import {withStyles} from 'material-ui/styles'
 import Modal from 'material-ui/Modal';
 
+
 function getModalStyle() {
+
     const top = 40;
     const left = 40;
-
     return {top: `${top}%`, left: `${left}%`, transform: `translate(-${top}%, -${left}%)`};
+
 }
 
 const styles = theme => ({
+
     paper: {
         position: 'absolute',
         width: theme.spacing.unit * 140,
@@ -30,7 +32,8 @@ const styles = theme => ({
         padding: theme.spacing.unit * 4,
         height:theme.spacing.unit* 90,
     }
-});;
+
+});
 
 class ContractImage extends PureComponent {
 
@@ -47,11 +50,13 @@ class ContractImage extends PureComponent {
             this.setState({open: false});
         };
    
-    toggleEdit = () => {
-        this.setState({
-        edit: !this.state.edit
-        })
-    }
+        toggleEdit = () => {
+
+          this.setState({
+          edit: !this.state.edit
+          })
+
+        }
 
     componentWillMount() {
         this.props.getContractImage(this.props.match.params.id, this.props.match.params.image)
@@ -71,7 +76,10 @@ class ContractImage extends PureComponent {
         if (!details) return null
 
         return(
-            <div key={details.id} className="cardwrapper">
+        
+        <div key={details.id} className="cardwrapper">
+
+         <Link to ={`/users/${details.userId}`}> 
 
             <Link to ={`/users/${details.userId}`}> 
                 <Button 
@@ -85,15 +93,20 @@ class ContractImage extends PureComponent {
                 <Card className='contract-card'>
                     <CardContent >
                     
-                        <Typography component="h1">
-                            <img 
-                                alt='userpicture'
-                            src={details.contractImage}                            
-                            onClick={this.handleOpen}
-                                />
+         <Typography component="h1">
+                           
+         <img 
+                 alt='userpicture'
+                 style={{
+                        maxHeight: '250px'
+                        }}
+                 src={details.contractImage}                            
+                 onClick={this.handleOpen}
+         />
 
-                        </Typography>
-                        <Modal className= "modal"
+         </Typography>
+
+            <Modal className= "modal"
                         open={this.state.open} onClose={this.handleClose}>
 
                             <div style={getModalStyle()} className={classes.paper}>
@@ -108,19 +121,20 @@ class ContractImage extends PureComponent {
                         </Modal>
                         
 
-                        <p >Contract type : {details.contractType}</p>
+            <p >Contract type : {details.contractType}</p>
                  
-                        <p className="card-paragraph">Provider : {details.contractProvider}</p>     
+            <p className="card-paragraph">Provider : {details.contractProvider}</p>     
                            
-                        <p className="card-paragraph1">Status : {details.uploadStatus}</p>
+            <p className="card-paragraph1">Status : {details.uploadStatus}</p>
 
-                    </CardContent>
+            </CardContent>
 
-                     { this.state.edit &&
-                     <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus} />
+            { this.state.edit &&
                     
-                    }
-                    { !this.state.edit && 
+                    <UpdateStatusForm initialValues={details} onSubmit={this.updateStatus} />
+                    
+            }
+            { !this.state.edit && 
                     <Button                      
                         variant="raised"
                         className="button"
@@ -128,8 +142,9 @@ class ContractImage extends PureComponent {
                         onClick={this.toggleEdit}>
                         Contract status aanpassen
                     </Button>
-                    }  
-               </Card>
+            }  
+
+            </Card>
 
             </div>
 
@@ -138,7 +153,9 @@ class ContractImage extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
+
     details: state.contractImage
+
 })
 
 export default withStyles(styles)(connect(mapStateToProps,{getContractImage, submitStatus})(ContractImage))

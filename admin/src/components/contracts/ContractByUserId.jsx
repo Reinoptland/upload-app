@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers, getUser} from '../../actions/users'
 
-// Styling
+//Styling
 import Card from 'material-ui/Card'
 import Button from 'material-ui/Button'
 import '../../css/index.css'
@@ -13,11 +13,13 @@ import '../../css/contracts.css'
 class ContractByUserId extends PureComponent {
 
     componentWillMount() {
+
         this.props.getUserDetails(this.props.match.params.id)
         this.props.getUser(this.props.match.params.id)
     }
 
     renderContractDetails = (eachcontract, classes) => {
+
       
       return (
         <div key={eachcontract.id} className='card'>
@@ -87,10 +89,6 @@ class ContractByUserId extends PureComponent {
     }
 }
 
-const mapStateToProps = (state) => ({
-    contractsById: state.contractsById,
-    user : state.user
-})
+const mapStateToProps = (state) => ({contractsById: state.contractsById, user: state.user})
 
-export default connect(mapStateToProps, 
-    {getUserDetails, getUsers, getUser})(ContractByUserId)
+export default connect(mapStateToProps, {getUserDetails, getUsers, getUser})(ContractByUserId)

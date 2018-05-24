@@ -5,7 +5,9 @@ import '../../css/forms.css'
 import '../../css/button.css'
 
 export default class SignupForm extends PureComponent {
+
 	constructor() {
+
 		super()
 		this.state = {
 			email: '',
@@ -16,11 +18,13 @@ export default class SignupForm extends PureComponent {
 	}
 
 	handleSubmit = (e) => {
+
 		e.preventDefault()
 		this.props.onSubmit(this.state)
 	}
 
 	handleChange = (event) => {
+
     const {name, value} = event.target
 
     this.setState({
@@ -33,6 +37,7 @@ export default class SignupForm extends PureComponent {
 
 		return (
 			<form onSubmit={this.handleSubmit}>
+			
 				<div>
 					<label htmlFor="email"><p>E-mail</p></label>
 					<input type="email" name="email" id="email" value={
