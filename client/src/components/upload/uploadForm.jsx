@@ -3,7 +3,6 @@ import {upload, uploading} from '../../actions/upload'
 import {connect} from 'react-redux'
 import ReactGA from 'react-ga';
 import UploadAnim from './uploadAnim'
-import { Link } from 'react-router-dom'
 
 //Styling
 import '../../css/uploadForm.css'
@@ -193,7 +192,7 @@ class UploadForm extends PureComponent {
 			)}
 
 			else if (this.props.appStatus === "uploadSucces") {
-				setTimeout(window.location.reload(), 3000)
+				setTimeout(window.location.assign('/contracts'), 3000)
 				return (
 					<div>
 					<div className="uploading-Page">
