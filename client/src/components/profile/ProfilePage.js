@@ -20,8 +20,8 @@ import '../../css/index.css'
     return (
           <div className="home-Page">
             <div className="header-home" >
-              <h1>Hey User</h1>
-              <h3>You are connected as: {this.props.user.email} </h3>
+              <h1>Hallo Roos gebruiker</h1>
+              <h3>Je bent ingeschreven als: {this.props.user.email} </h3>
 
 
 

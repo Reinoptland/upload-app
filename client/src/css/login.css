@@ -9,7 +9,6 @@
     color: #127ECF;
 }
 
-
 .login-Page {
     min-width: 100%;
     padding-top: 12%;
@@ -23,6 +22,7 @@
     padding: 15% 15% 10% 15%;
     margin: 0 auto 5% auto;
 }
+
 .header-login h1 {
     padding: 0 8% 5% 0;
     border-bottom: 1px solid #4A4A4A;
@@ -39,6 +39,7 @@
     color: #4A4A4A;
 }
 
+
 @media screen and (min-width: 600px) {
     .login-Page {
         min-width: 100%;
@@ -53,6 +54,7 @@
         padding: 15% 15% 10% 15%;
         margin: 0 auto 5% auto;
     }
+
     .header-login h1 {
         padding: 0 8% 5% 0;
         border-bottom: 1px solid #4A4A4A;
@@ -74,7 +76,7 @@
         min-width: 100%;
         padding-top: 12%;
         padding-bottom: 50%;
-        background: white);
+        background: white;
         height: 100%; 
         z-index: 1;
     }
@@ -83,6 +85,7 @@
         padding: 15% 15% 10% 15%;
         margin: 0 auto 5% auto;
     }
+
     .header-login h1 {
         padding: 0 8% 5% 0;
         border-bottom: 1px solid #4A4A4A;
