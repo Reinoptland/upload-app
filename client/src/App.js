@@ -57,7 +57,7 @@ class App extends PureComponent {
             <Route exact path="/upload" component={UploadPage} />
             <Route exact path="/UploadForm" component={UploadForm} />
             <Route exact path="/advice" component={AdvicePage} />
-            <Route exact path="/users" component={AllUsers}/>
+            <Route exact path="/users" component={AllUsers} />
             <Route exact path="/users/:id" component={ContractByUserId}/>
             <Route exact path="/contact" component={ContactPage}/>
             <Route exact path="/profile" component={ProfilePage}/>
