@@ -11,6 +11,8 @@ import UploadForm from './components/upload/uploadForm'
 import ContractByUserId from './components/contracts/ContractByUserId'
 import HowTo from './components/howto/HowTo'
 import HomePage from './components/home/homePage'
+import ContactPage from './components/contact/ContactPage'
+import ProfilePage from './components/profile/ProfilePage'
 import ContractsPage from './components/contracts/contractsPage'
 import ContractImage from './components/contracts/ContractImage';
 import AdvicePage from './components/advice/advicePage'
@@ -57,6 +59,8 @@ class App extends PureComponent {
             <Route exact path="/advice" component={AdvicePage} />
             <Route exact path="/users" component={AllUsers}/>
             <Route exact path="/users/:id" component={ContractByUserId}/>
+            <Route exact path="/contact" component={ContactPage}/>
+            <Route exact path="/profile" component={ProfilePage}/>
             <Route exact path="/" render={ () => <Redirect to="/login" /> } />
           </main>
         </div>
