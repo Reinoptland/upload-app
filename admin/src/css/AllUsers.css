@@ -1,25 +1,20 @@
-
-.usercard{
-    
-    display:inline-flex;
-    flex-direction: row;
-    min-width: 235px;
-    max-width: 20%;
-    margin:2%;
-    flex-wrap: wrap;
-    font-family: 'BrandonText-Regular';
-   
+.user-paper {
+    margin: 15% auto;
+    width: 80%; 
 }
-.user-paper{
-
-    min-width: 245px;
-    margin:auto;
-    margin-top: 10px;
-    padding-top: 100px;
-    width: 60%;
-    padding-bottom: 2%;
-    font-family: 'BrandonText-Regular';
+.user-page {
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    text-align: center
+    flex-wrap: wrap;
+    padding: 5%;
 }
+.user-card {
+    width: 200px;
+    text-align: center;
+}
+.user-card img {
+    width: 100px
+}
+
 

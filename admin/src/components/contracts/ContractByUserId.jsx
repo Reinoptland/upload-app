@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers, getUser} from '../../actions/users'
 
@@ -21,88 +20,72 @@ class ContractByUserId extends PureComponent {
 
     renderContractDetails = (eachcontract, classes) => {
 
-        return (
-
-            <div key={eachcontract.id} className='contract-details'>
-
-                <Card key={eachcontract.id} className='contract-card'>
-
-                    <div className='card-content'>
-                        <h2>{eachcontract.contractType}</h2>
-                        <p>Provider: {eachcontract.contractProvider}</p>
-                        <p>Status: {eachcontract.uploadStatus}</p>
-                    </div>
-
-                    <div className='card-action'>
-
-                        <Button
-                            className="card-button"
-                            style={{
-                            background: "linear-gradient(0.25turn,#e84435, #f57f17)",
-                            color: "white"
-                        }}
-                            variant="raised"
-                            type="submit"
-                            onClick={() => window.location = `${eachcontract.userId}/${eachcontract.contractImage}`}>
-                            Bekijk Contract
-                        </Button>
-
-                    </div>
-
-                </Card>
-
+      
+      return (
+        <div key={eachcontract.id} className='card'>
+        <Card className='card-content'>
+            <div>
+                <h2>{eachcontract.contractType}</h2>
+                <p>Provider: {eachcontract.contractProvider}</p>
+                <p>Status: {eachcontract.uploadStatus}</p>
             </div>
-        )
+            <Button 
+                variant="raised"
+                className="button"
+                type="submit"
+                onClick={() => window.location=`${eachcontract.userId}/${eachcontract.contractImage}`}>
+                Bekijk Contract
+            </Button>
+        </Card>
+        </div>    
+      )
     }
 
     render() {
 
         const {user} = this.props
-       
-        if (!this.props.user) 
-            return null
+        if (!this.props.user) return null
+        const userId = this
+        .props
+        .contractsById
+        .map((eachcontract) => {
+            return eachcontract.userId
+        })
 
-        return (
+      return (
 
+      <div className="overview-page">
+         
+         <Link to ='/users'> 
+         <Button 
+          className='button'
+          variant="raised"
+          type="submit" >
+          Alle gebruikers
+         </Button>
+         </Link>
+
+        <div className="contract-overview">
+        
+            {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>
+            }
+            {this.props.contractsById.length > 0 && 
             <div>
-
-                <Link to='/users'>
-                    <Button className='all-users-button' variant="raised" type="submit">
-                        Alle gebruikers
-                    </Button>
-                </Link>
-
-                <div className="overview">
-
-                    {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>
-}
-                    {this.props.contractsById.length > 0 && <div>
-                       
-                        <h1
-                            style={{
-                            textAlign: "center"
-                        }}>Mijn contracten</h1>
-                       
-                        <p
-                            style={{
-                            width: '100%',
-                            display: 'block',
-                            marginTop: '50px',
-                            textAlign: "center"
-                        }}>Gebruiker : {user.email}
-                        </p>
-
-                        {this
-                            .props
-                            .contractsById
-                            .map(eachcontract => this.renderContractDetails(eachcontract))}
-
-                    </div>
-                }
-                </div>
-                
+            
+            <h1>Mijn contracten</h1>
+            <p>Gebruiker : {user.email}</p> 
+            
+            <div className="contract-details">     
+            {this
+                .props
+                .contractsById
+                .map(eachcontract => this.renderContractDetails(eachcontract))}
             </div>
-        )
+            </div>}
+            
+        </div>       
+      </div>
+      )
     }
 }
 

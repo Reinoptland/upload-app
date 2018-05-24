@@ -1,34 +1,22 @@
-.overview {
-    margin: 2% 6% 20% 6% ;
-    
+.overview-page {
+    margin: 110px 20px;
+}
+.contract-overview {
+    margin: 5% 0;
+    text-align: center;
 }
 .contract-details {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: row; 
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
-.contract-card {
-    padding: 0 5%;
-    margin: 3% auto;
-    width: 60%;
+.card {
+    margin: 2% 0;
+    padding: 2% 0;
+    width: 40%
 }
-.card-button {
-    margin-bottom: 20%;
-    padding: 10px 25px;
-    border-radius: 3px;
-    background: linear-gradient(0.25turn,#e84435, #f57f17);
-    color: white !important;
-    font-family: 'BrandonText-Bold';
-    letter-spacing: 1px;
-    size: 10px;
+.card-content {
+    padding: 10%
 }
 
-
-.all-users-button{
-    background: linear-gradient(0.25turn,#e84435, #f57f17)!important;
-    color:white!important;
-    margin-top:100px!important;
-    padding-top:10px!important;
-    margin-left:10px!important;
-    width:160px!important;
-}

@@ -8,18 +8,6 @@ body, html {
   color: #4A4A4A;
 }
 
-.outer-paper {
-  margin-top: 20px;
-  margin: auto;
-  padding: 20px;
-  width: 60%;
-}
-.card-content{
-  margin:10px;
-  height:100px;
-  padding-bottom: 35px;
-}
-
 /* Font */
 
 @font-face {
@@ -70,6 +58,17 @@ a {
   margin-top: 6em;
 }
 
+.button {
+  margin-bottom: 20%;
+  padding: 10px 25px;
+  border-radius: 3px;
+  background: linear-gradient(0.25turn,#e84435, #f57f17);
+  color: white !important;
+  font-family: 'BrandonText-Bold';
+  letter-spacing: 1px;
+  size: 10px;
+}
+
 @media screen and (min-width: 600px) {
   .generalPage {
     padding: 0 30px;
@@ -77,13 +76,3 @@ a {
   }
 }
 
-.takephoto {
-  display: inline-block;
-  max-width: 300px;
-  padding-left: 0 30px;
-  margin: auto;
-}
-.card-action {
-  padding-bottom: 30px;
-
-}

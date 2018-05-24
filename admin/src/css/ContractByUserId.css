@@ -1,61 +1,19 @@
-
-.contractcard{
-
-    display:inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-family: 'BrandonText-Regular';
-    align-items: center;
-    justify-content: center;
-    padding-top: 5%;
-    padding-bottom: 10%;
-    align-content: center;
-    text-align: center;
-    margin-top:10%;
-
-}
-
-.contract-paper{
-       
-    margin-top: 25%;
-    margin: auto;
-    text-align:center;
-    padding-top: 5%;
-    width: 60%;
-    padding-bottom: 2%;
-    font-family: 'BrandonText-Regular';
-    align-items: center;
-    text-align: center
-}
-
 .cardwrapper {
-    width:auto;
-    display:inline-block;
-    width: 10%;
-    min-width: 250px;
-    font-family: 'BrandonText-Regular';
-    margin-top: 7%;
-    align-content: center;
-    align-items: center;
+    margin: 110px 20px;
+    width: 100%
 }
-
-.card-paragraph {
-    margin:4%;
+.contract-card {
+    width: 50%;
+    margin: 8% auto;
+    padding: 5%;
+    text-align: center;
 }
-
-.contract_image{
+.modal img {
     max-height: 750px;
-    min-height: 600px;
     padding-left: 40px;
-    padding-right: 10px;
-    margin:auto;
-    min-width: 400px;
-    max-width: 1050px;
+    display: flex;
+    margin: 0 auto;
 }
-
-.all-contracts-button{
-    background: linear-gradient(0.25turn,#e84435, #f57f17)!important;
-    color:white!important;
-    margin-left:10px!important;
-    width:160px!important;
+.card-button {
+    margin-top: 2%
 }

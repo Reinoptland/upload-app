@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-
 import {submitStatus, getContractImage} from '../../actions/contracts'
+import {connect} from 'react-redux'
 
 //Styling
 import Button from 'material-ui/Button';
@@ -39,7 +38,7 @@ class UpdateStatusForm extends PureComponent {
     }
 
 	render() {
-      
+
 		return (
 
 			<form onSubmit={this.handleSubmit}>
