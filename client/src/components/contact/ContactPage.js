@@ -3,7 +3,7 @@ import React, {PureComponent} from 'react'
 import BottomNav from '../layout/BottomNav'
 
 //styling
-import '../../css/home.css'
+import '../../css/top.css'
 import '../../css/index.css'
 
   class ContactPage extends PureComponent {
@@ -11,8 +11,8 @@ import '../../css/index.css'
   render() {
 
     return (
-          <div className="home-Page">
-            <div className="header-home" >
+          <div className="layout">
+            <div className="header" >
               <h1>Contact</h1>
               <h3>E-mail</h3>
                 <p>

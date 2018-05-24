@@ -2,8 +2,9 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import BottomNav from '../layout/BottomNav'
 import {getUser} from '../../actions/users'
+
 //styling
-import '../../css/home.css'
+import '../../css/top.css'
 import '../../css/index.css'
 
   class ProfilePage extends PureComponent {
@@ -15,15 +16,11 @@ import '../../css/index.css'
 
   render() {
 
-
-
     return (
-          <div className="home-Page">
-            <div className="header-home" >
+          <div className="layout">
+            <div className="header" >
               <h1>Hallo Roos gebruiker</h1>
-              <h3>Je bent ingeschreven als: {this.props.user.email} </h3>
-
-
+              <p>Je bent ingeschreven als: {this.props.user.email} </p>
 
             </div>
               <div>
