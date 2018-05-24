@@ -6,16 +6,21 @@
     width: 100%;
     display: inline-flex;
     justify-content: space-between;
+    align-items: center;
     z-index: 2;
 }
 
 
 .profile {
-    padding-left: 6%
+    padding-left: 6%;
+    width: 23px;
+    height: 20px;
 }
 
 .chat {
-    padding-right: 6%
+    padding-right: 6%;
+    width: 23px;
+    height: 20px;
 }
 
 
