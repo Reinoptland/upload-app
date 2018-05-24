@@ -87,7 +87,7 @@ class ContractByUserId extends PureComponent {
             
             <h1>Mijn contracten</h1>
               
-                <p>Filter hier op type:</p>
+                <p>Filter hier op status:</p>
 
                          <select required
                           className="filter-status"  name="type" id="type"
