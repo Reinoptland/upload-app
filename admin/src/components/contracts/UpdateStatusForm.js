@@ -1,8 +1,9 @@
 import React, {PureComponent} from 'react'
-import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
 import {submitStatus, getContractImage} from '../../actions/contracts'
 import {connect} from 'react-redux'
+
+//Styling
+import Button from 'material-ui/Button';
 
 class UpdateStatusForm extends PureComponent {
     state={}
@@ -50,7 +51,7 @@ class UpdateStatusForm extends PureComponent {
 
 
 	render() {
-        const {classes} = this.props
+        
 		return (
 
 			<form onSubmit={this.handleSubmit}>

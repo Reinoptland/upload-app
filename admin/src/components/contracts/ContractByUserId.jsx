@@ -3,12 +3,9 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {getUserDetails} from '../../actions/contracts'
 import {getUsers, getUser} from '../../actions/users'
-import {getAllContracts} from '../../actions/contracts'
 
 // Styling
-import Card, {CardContent} from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
-import Paper from 'material-ui/Paper'
+import Card from 'material-ui/Card'
 import Button from 'material-ui/Button'
 import '../../css/index.css'
 import '../../css/contracts.css'
