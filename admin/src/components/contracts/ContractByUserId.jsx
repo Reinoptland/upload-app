@@ -15,7 +15,7 @@ class ContractByUserId extends PureComponent {
 
     constructor(){
         super()
-        this.state={upload_Status:'All'}
+        this.state={upload_Status:'alle'}
         this.handleChange=this.handleChange.bind(this)
     }
 
@@ -89,23 +89,8 @@ class ContractByUserId extends PureComponent {
 
                 <div className="overview">
 
-                <p>Filter hier op type:</p>
+                    {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>}
 
-                <select required
-                 className="type"  name="type" id="type"
-                 onChange={ this.handleChange }>
-                 
-                 <option value="All">All</option>
-                 <option value="nieuw">nieuw</option>
-                 <option value="behandeld">behandeld</option>
-                 <option value="niet bruikbaar">niet bruikbaar</option>
-
-                 </select>
-
-    
-
-                    {this.props.contractsById.length === 0 && <p>Geen contracten opgeslagen op het moment</p>
-}
                     {this.props.contractsById.length > 0 && <div>
                        
                         <h1
@@ -121,9 +106,22 @@ class ContractByUserId extends PureComponent {
                             textAlign: "center"
                         }}>Gebruiker : {user.email}
                         </p>
+
+                         <p>Filter hier op type:</p>
+
+                         <select required
+                          className="filter-status"  name="type" id="type"
+                          onChange={ this.handleChange }>
+                          
+                          <option value="alle">alle</option>
+                          <option value="nieuw">nieuw</option>
+                          <option value="behandeld">behandeld</option>
+                          <option value="niet bruikbaar">niet bruikbaar</option>
+                         
+                          </select>
                    
-                        {(this.state.upload_Status==="All") && this.props.contractsById.map(eachContract => this.renderContractDetails(eachContract))}
-                        {(this.state.upload_Status!=="All") && filteredContracts.map(eachContract => this.renderContractDetails(eachContract))}
+                        {(this.state.upload_Status==="alle") && this.props.contractsById.map(eachContract => this.renderContractDetails(eachContract))}
+                        {(this.state.upload_Status!=="alle") && filteredContracts.map(eachContract => this.renderContractDetails(eachContract))}
 
                     </div>
                 }
