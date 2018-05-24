@@ -193,12 +193,12 @@ class UploadForm extends PureComponent {
 			)}
 
 			else if (this.props.appStatus === "uploadSucces") {
+				setTimeout(window.location.reload(), 3000)
 				return (
 					<div>
 					<div className="uploading-Page">
 					<div className="header-uploading">
 						<h1>Uw contract is succesvol opgeslagen</h1>
-						<p><Link to={'/contracts'}>Bekijk uw contracten <span className="linkStyle">hier</span></Link></p>
 					</div>
 					</div>
 					<div>
