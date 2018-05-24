@@ -16,6 +16,10 @@
     "redux-thunk": "^2.2.0",
     "superagent": "^3.8.2"
   },
+  "engines": {
+    "node": "8.5.0",
+    "npm": "5.8.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
