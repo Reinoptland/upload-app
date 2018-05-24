@@ -12,22 +12,37 @@ import '../../css/contracts.css'
 
 class ContractByUserId extends PureComponent {
 
+    constructor(){
+        super()
+        this.state={upload_Status:'alle'}
+        this.handleChange=this.handleChange.bind(this)
+    }
+
     componentWillMount() {
 
         this.props.getUserDetails(this.props.match.params.id)
         this.props.getUser(this.props.match.params.id)
     }
 
-    renderContractDetails = (eachcontract, classes) => {
+    handleChange(event){
+       
+        this.setState({upload_Status: event.target.value})
+       
+    }
 
-      
-      return (
-        <div key={eachcontract.id} className='card'>
-        <Card className='card-content'>
-            <div>
-                <h2>{eachcontract.contractType}</h2>
-                <p>Provider: {eachcontract.contractProvider}</p>
-                <p>Status: {eachcontract.uploadStatus}</p>
+    renderContractDetails = (eachContract, classes) => {
+
+        return (
+
+            <div key={eachContract.id} className='card'>
+
+                <Card className='card-content'>
+
+                    <div>
+                        <h2>{eachContract.contractType}</h2>
+                        <p>Provider: {eachContract.contractProvider}</p>
+                        <p>Status: {eachContract.uploadStatus}</p>
+         
             </div>
             <Button 
                 variant="raised"
@@ -44,13 +59,11 @@ class ContractByUserId extends PureComponent {
     render() {
 
         const {user} = this.props
+
         if (!this.props.user) return null
-        const userId = this
-        .props
-        .contractsById
-        .map((eachcontract) => {
-            return eachcontract.userId
-        })
+            
+        const filteredContracts = this.props.contractsById.filter(contract => {return contract.uploadStatus === this.state.upload_Status})
+      
 
       return (
 
@@ -73,13 +86,27 @@ class ContractByUserId extends PureComponent {
             <div>
             
             <h1>Mijn contracten</h1>
+              
+                <p>Filter hier op type:</p>
+
+                         <select required
+                          className="filter-status"  name="type" id="type"
+                          onChange={ this.handleChange }>
+                          
+                          <option value="alle">alle</option>
+                          <option value="nieuw">nieuw</option>
+                          <option value="behandeld">behandeld</option>
+                          <option value="niet bruikbaar">niet bruikbaar</option>
+                         
+                          </select>
+                       <div className="contract-details">
+                        {(this.state.upload_Status==="alle") && this.props.contractsById.map(eachContract => this.renderContractDetails(eachContract))}
+                        {(this.state.upload_Status!=="alle") && filteredContracts.map(eachContract => this.renderContractDetails(eachContract))}
+
             <p>Gebruiker : {user.email}</p> 
+              
             
-            <div className="contract-details">     
-            {this
-                .props
-                .contractsById
-                .map(eachcontract => this.renderContractDetails(eachcontract))}
+
             </div>
             </div>}
             
