@@ -77,3 +77,27 @@ Run the back-end side of the app:
 | /logout     | GET     | lougoutPage                       |
 | /login      | GET     | loginPage                         |
 | /signup     | GET     | signupPage                        |
+
+## Folder Structure
+
+After creation, your project should look like this:
+
+```
+my-app/
+  README.md
+  node_modules/
+  package.json
+  public/
+    index.html
+    favicon.ico
+  src/
+    Actions/
+    Reducers/
+    Components/
+    CSS/
+    App.css
+    App.js
+    App.test.js
+    index.css
+    index.js 
+```
