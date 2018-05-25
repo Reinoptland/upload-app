@@ -9,3 +9,25 @@ This project was made by graduate students from Codaisseur for Roos.nl as a fina
 * Test if people are willing to upload their contracts through the Upload App with their halloroos.nl email account
 * See if the information can be manually added to their account on Roos.nl if there are matching emails
 * Gather information about the type of contracts people have.
+
+**How to:**
+
+* Install the dependencies:
+
+In each project directory run:
+	### `yarn `
+
+* Run the front-end side of the app
+
+In the ‘client’ and  the ’admin’ directories run:
+	### `yarn start`
+
+* Run the back-end side of the app
+
+Have a ‘DATABASE_URL' environment variable set
+
+Start the TypeScript compiler :
+	### `tsc -w`
+
+Connect to Postgres with TypeORM:
+	### `yarn start`
