@@ -12,18 +12,16 @@ This project was made by graduate students from Codaisseur for Roos.nl as a fina
 
 **How to:**
 
-* Install the dependencies:
+Install the dependencies:
 
-In each project directory run `yarn `
+* In each project directory run `yarn `
 
-* Run the front-end side of the app:
+Run the front-end side of the app:
 
-In the ‘client’ and  the ’admin’ directories run `yarn start`
+* In the ‘client’ and  the ’admin’ directories run `yarn start`
 
-* Run the back-end side of the app:
+Run the back-end side of the app:
 
-Have a ‘DATABASE_URL' environment variable set
-Start the TypeScript compiler :
-	### `tsc -w`
-Connect to Postgres with TypeORM:
-	### `yarn start`
+* Have a ‘DATABASE_URL' environment variable set
+* Start the TypeScript compiler: `tsc -w`
+* Connect to Postgres with TypeORM: `yarn start`
