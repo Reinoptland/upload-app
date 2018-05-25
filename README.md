@@ -10,33 +10,22 @@ This project was made by graduate students from Codaisseur for Roos.nl as a fina
 * See if the information can be manually added to their account on Roos.nl if there are matching emails
 * Gather information about the type of contracts people have.
 
-### User routes
+**How to:**
 
-|**URI**|**VERB**|**ACTION**|
-|---------------------|------------|--------------------------------------|
-| /home               | GET        | Home page of the app                 |
-| /Privacy            | POST       | Set privacy in user table            |
-| /contracts          | GET        | List all contracts added             |
-| /contracts/:image   | GET        | Show details of contract             |
-| /HowTo              |            | Explanation of how to take a picture |
-| /upload             | POST       | Add contract to your user profile    |
-| /advice             | Analytics  | Links to Roos website                |
-| /contact            | Analytics  | Links to Roos contact page           |
-| /profile            | GET        | Show profile information of user     |
+* Install the dependencies:
 
-### Admin routes
+In each project directory run: `yarn `
 
-|**URI**|**VERB**|**ACTION**|
-|--------------------|---------|--------------------------------|
-| /users             | GET     | List all users                 |
-| /users/:id         | GET     | List all contracts from 1 user |
-| /users/:id/:image  | GET     | Show the picture of a contract |
+* Run the front-end side of the app
 
+In the ‘client’ and  the ’admin’ directories run: `yarn start`
 
-### Public routes
+* Run the back-end side of the app
 
-|**URI**|**VERB**|**ACTION**|
-|-------------|---------|-----------------------------------|
-| /logout     | GET     | lougoutPage                       |
-| /login      | GET     | loginPage                         |
-| /signup     | GET     | signupPage                        |
+Have a ‘DATABASE_URL' environment variable set
+
+Start the TypeScript compiler :
+	### `tsc -w`
+
+Connect to Postgres with TypeORM:
+	### `yarn start`
