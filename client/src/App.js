@@ -18,7 +18,7 @@ import { createBrowserHistory, createHashHistory } from 'history'
 
 import Top from './components/layout/Top'
 
-ReactGA.initialize('UA-119757382-2');
+ReactGA.initialize('UA-51358691-2');
 
 function configureHistory() {
   if(window.matchMedia('(display-mode: standalone)').matches) {
