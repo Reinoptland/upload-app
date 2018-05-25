@@ -89,3 +89,27 @@ CONTRACTS have a GET contracts by user and a GET picture who gives you back and 
 | /login      | GET     | loginPage                         |
 | /signup     | GET     | signupPage                        |
 
+
+## Folder Structure
+
+After creation, your project should look like this:
+
+```
+my-app/
+  node_modules/
+  package.json
+  public/
+    index.html
+    favicon.ico
+  src/
+    Actions/
+    Reducers/
+    Components/
+    CSS/
+    App.css
+    App.js
+    App.test.js
+    index.css
+    index.js 
+```
+
