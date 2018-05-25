@@ -41,7 +41,7 @@ export default class ContractController {
         const randName = Math.floor(Math.random()*9000000000000)
 
         let s3 = new S3()
-        var params = {Bucket: 'hallorooscontracttest', Key: `${id}/${randName}.${file.originalname.split('.').pop()}`, Body: file.buffer};
+        var params = {Bucket: 'roos-upload-app', Key: `${id}/${randName}.${file.originalname.split('.').pop()}`, Body: file.buffer};
         s3.upload(params, function(err, data) {
             if (err) {
                 throw new NotFoundError('Er is een technisch probleem, probeer later nog een keer.')
@@ -79,7 +79,7 @@ export default class ContractController {
         const contract = await Contract.findOne({contractImage: `${image}`})
 
         var s3 = new S3({region: 'eu-central-1'}, {signatureVersion: 'v4'});
-        var params = {Bucket: 'hallorooscontracttest', Key: `${userId}/${image}` , Expires: 60};
+        var params = {Bucket: 'roos-upload-app', Key: `${userId}/${image}` , Expires: 60};
         var url = s3.getSignedUrl('getObject', params);
 
         if (!contract) throw new NotFoundError('Geen contract gevonden.')
@@ -111,7 +111,7 @@ export default class ContractController {
         console.log('delete', contract)
 
         var s3 = new S3({region: 'eu-central-1'}, {signatureVersion: 'v4'});
-        var params = {Bucket: 'hallorooscontracttest', Key: `${contract.userId}/${contract.contractImage}`};
+        var params = {Bucket: 'roos-upload-app', Key: `${contract.userId}/${contract.contractImage}`};
         s3.deleteObject(params, function(err, data) {
             if (err) {
                 throw new NotFoundError('Er is een technisch probleem, probeer later nog een keer.')
